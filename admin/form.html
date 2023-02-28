@@ -1,0 +1,166 @@
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Dealer Registration</title>
+    <link  rel="stylesheet" href="form.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+   function Register(){
+      var isValid=true;
+			var first_name = document.forms.RegForm.first_name.value;
+      var last_name = document.forms.RegForm.last_name.value;
+      // var regadrex=/d{1,5}\s\w.\s(\b\w*\b\s){1,2}\w*/.;
+      var email = document.forms.RegForm.email.value;
+      var phone = document.forms.RegForm.phone.value;
+			var password = document.forms.RegForm.password.value;
+      var cpassword = document.forms.RegForm.cpassword.value;
+      var district = document.forms.RegForm.district.value;
+      var state = document.forms.RegForm.state.value;
+      // var cpassword = document.forms.RegForm.cpassword.value;
+			var regemail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;  //Javascript reGex for Email Validation.
+      var regphone=/^\d{10}$/;
+      var pwdPattern=/^(?=.*\d)(?=.*[A-Z]).{3,}/;
+      var nameCityPattern =  /\d+$/g;
+
+      
+    //   $('#password, #cpassword').on('keyup', function () {
+    //     if ($('#password').val() == $('#cpassword').val()) {
+    //       $('#message').html('Matching').css('color', 'green');
+    //     } else 
+    //       $('#message').html('Not Matching').css('color', 'red');
+    // });
+      if (first_name == "" || nameCityPattern.test(first_name)) {
+        window.alert("Please enter your First Name.");
+      
+        isValid=false;
+        
+      }
+      if (last_name == "" || nameCityPattern.test(last_name)) {
+        window.alert("Please enter your Last Name.");
+      
+        isValid=false;
+      }
+      if (address == "") {
+        window.alert("Please enter your address.");
+      
+        isValid=false;
+      }
+      if (phone == "" || !regphone.test(phone)) {
+        alert("Please enter valid phone number.");
+        
+        isValid=false;
+      }
+      if (email == "" || !regemail.test(email)) {
+        window.alert("Please enter a valid e-mail address.");
+       
+        isValid=false;
+      }
+      if (password == "" || cpassword=="") {
+        alert("Please enter password.");
+      
+        isValid=false;
+      }
+      else if(password!=cpassword){
+        alert("Please enter same password.");
+       
+        isValid=false;
+      }
+      else{
+        return isValid;
+      }
+      if(district== "" || nameCityPattern.test(district)){
+        alert("Please enter district.");
+       
+        isValid=false;
+      }
+      if(state== "" || nameCityPattern.test(state)){
+        alert("Please enter Your state.");
+       
+        isValid=false;
+      }
+
+      return isValid;
+      
+                  
+		}
+    </script>
+  </head>
+  <body>
+    <div id="main">
+  
+      <nav>
+          <ul>
+            <li><a href="index.php">Back to Home Page </a></li>
+            <li><a href="../logout.php">Logout</a></li>
+              
+          </ul>
+      </nav>
+      
+    </div>
+
+    <div class="container">  
+      <div class="row">
+       <p class="elementToFadeInAndOut"><?php if(isset($_SESSION['msg'])) {echo $_SESSION['msg'];} ?></p>
+        <div class="column">
+        <!-- action="dealer_upload.php" -->
+          <form  method="post" action="dealer_upload.php" name="RegForm" onsubmit="return Register()" enctype="multipart/form-data">
+             <input type="text" id="first_name" name="first_name" placeholder="Enter first Name" />
+            <label for="last_name" >Last Name</label>
+      <label for="first_name" >First Name</label>
+                 <input type="text" id="last_name" name="last_name" placeholder="Enter last Name" />
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="Enter Address" />
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter Phone"/>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Enter Email"/>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password"/>
+            <label for="cpassword">Confirm Password</label>
+            <input type="password" id="cpassword" name="cpassword" placeholder="Enter Password"/>
+            <div clss="row"><br>
+            <label for="dob" >Date Of Birth</label>
+            <input type="date" id="dob" name="dob" min="1950-01-01" max="2001-04-01"/>
+            </div><br>
+            <div class="row1">
+            <label for="gender">Gender:</label>
+            <input type="radio" id="male" name="gender"value="male" checked/>Male
+            <input type="radio" id="female" name="gender"value="female"/>Female
+            </div><br>
+            <label for="district">district</label>
+            <input type="text" id="district" name="district" placeholder="Enter district" />
+            <label for="state">state</label>
+            <input type="text" id="state" name="state" placeholder="Enter state" />
+          
+            <label for="education">education:</label>
+            <select name="education" id="education" required>
+                <option value=" ">Select education:</option>
+                <option value="Graduation">Graduation</option>
+                <option value="BTech.">BTech.</option>
+                <option value="MTech.">Diploma</option>
+            </select>
+            <label for="user_type">User Type</label>
+            <select name="user_type" id="user_type" required>
+                <option value=" ">Select user type:</option>
+                <option value="dealer">dealer</option>
+            </select>
+            <label for="status">Dealer Status</label>
+            <select id="status" name="status" required>
+              <option value="">--- Select Option ---</option>
+              <option value="1">Active</option>
+              <option value="0">Inactive</option>
+            </select> 
+
+            <label for="file">Image Upload</label>
+            <input type="file" id="image" name="image" />
+            <input type="submit" value="Upload" name="submit" onclick="upload()">    
+          </form>
+        </div>
+      </div>
+  </div>
+
+  </body>
+</html>

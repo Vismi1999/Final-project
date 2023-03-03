@@ -367,6 +367,9 @@ body {
   <a href="rooms.php">Rooms</a>
   <!-- <a href="booking.php">Booking</a> -->
   <a class="active" href="index1.php">Home</a>
+ 
+
+
   
   
 </div>

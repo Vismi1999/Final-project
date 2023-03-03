@@ -8,12 +8,12 @@ session_start();
     die("Connection failed: " . $conn->connect_error."<br>");
   }
 
-$roomtype_id=$_REQUEST['catagory_id'];
+$catagory_id=$_REQUEST['catagory_id'];
 
 $sql4="UPDATE tbl_catagory set status='0' where catagory_id='$catagory_id'";
 if(mysqli_query($conn,$sql4))
 {
     $_SESSION['msg2'] = " activated successfully";
 }
-header("Location:foodcata.php");
+header("Location:viewcata.php");
 ?>

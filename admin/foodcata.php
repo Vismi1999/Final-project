@@ -178,6 +178,7 @@ border-radius: 5px;
                         <div class="collapse-divider"></div> 
                         <h6 class="collapse-header">Food Configuration:</h6>
                         <a class="collapse-item" href="foodcata.php">Food Catagory</a>
+                        <a class="collapse-item" href="viewcata.php">View Catagory</a>
                         <a class="collapse-item" href="addfood.php">Menu</a>
                         <a class="collapse-item" href="viewfoodmenu.php">View items</a>
                     </div>
@@ -441,12 +442,12 @@ border-radius: 5px;
         <div class="column"> 
     
            <form  method="post" action="foodcata.php" name="roomtype" onsubmit="return Register()" enctype="multipart/form-data">
-           <label for="last_name" >Food Catagory</label>
+           <label for="last_name" >Food Category</label>
           
             <!-- <input type="text" id="status" name="roomtype"onclick="validate();" value="" autocomplete="off" placeholder="Enter Room Type" />
             <label for="last_name" >Total Room</label> -->
           
-            <input type="text" id="status" name="catagory"onclick="validate();" value="" autocomplete="off" placeholder="Enter Catagory" />
+            <input type="text" id="status" name="catagory"onclick="validate();" value="" autocomplete="off" placeholder="Enter Category" />
             <!-- <div><span id="lnameValidate" class="validate"></span></div> -->
             <!-- <p>Room Type: <input id="status" value=""></p>
 <input type="button" onclick="validate();" value=""> -->
@@ -459,117 +460,14 @@ border-radius: 5px;
 
 
 
-            <input type="submit" value="Upload" name="submit" onclick="upload()">    
+            <input type="submit" value="Submit" name="submit" onclick="upload()">    
           </form>
           
         </div>
       </div>
       
   </div>
-  <html>
-                    <head>
-                    <style>
-                    table {
-                      font-family: arial, sans-serif;
-                      border-collapse: collapse;
-                      width: 60%;
-                    }
-                    
-                    td, th {
-                      border: 1px solid #dddddd;
-                      text-align: left;
-                      padding: 19px;
-                    }
-                    
-                    tr:nth-child(even) {
-                      background-color: #dddddd;
-                    }
-                    </style>
-                    </head>
-                    
-                    
-                    <body>
-                    <tittle><center><h3> Details</center></h3></tittle>
-                     
-                    <center>
-                     <!-- <a href="Roomtype.php" class="button" style="position:relative;left:710px;top:1px:">RoomType </a> -->
-                     <table border='1'> 
-                      <tr>
-
-                        <t> 
-                        <!-- <th style="width:15px";>Room Type ID</th> -->
-                         <!-- <th style="width:15px";>Number</th>  -->
-                        <!-- <th style="width:15px";>Maximum Room</th> -->
-                        <th style="width:15px";>Catagory</th>
-                        
-                        
-                       
-                        
-                        <th style="width:15px">Image</th> 
-                        <!-- <th style="width:15px">Discription</th> -->
-                         <th style="width:15px">Status</th>
-                        <th style="width:15px">Action</th> 
-                       
-                     <t>
-                    <?php
- include_once('admin_connect.php');
-$query = "SELECT * FROM `tbl_catagory`";
-$result = mysqli_query($conn,$query);
-
-?>
-
-
-                    
-                     <?php
-                       while($rows=mysqli_fetch_assoc($result))
-                     {
-                       
-
-                     echo "<tr>";
-                    
-                    
-                    //   echo"<td>".$rows['catagory_id']."</td>";
-                      echo"<td>".$rows['catagory']."</td>";
-
-                        //   echo"<td>".$rows['discription']."</td>";
-                      
-                       
-                 // echo"<td>" '<img src="photos/" .$rows['image']. width="30" height="30">'"</td>";
-                     
-                 
-                   echo  '<td> <img height="70" width="70" src="photos2/'.$rows['image'].'"> </td>'; 
-                  
-                        
-              echo"<td><a href='foodcata.php?catagory_id=".$rows["catagory_id"]."'><button type='button'class='btn btn-success'>EDIT</button>         <button type='button'class='btn btn-danger'>Delete</button></td>"; ?>
-              
-                        
-                        
-                        
-                        
-                        
-                 <td>
-                 <?php
-                         
-                         if($rows['status']==0){
-                           echo '<p><a href="inactivate3.php?catagory_id='.$rows['catagory_id'].'$status=0"style="color:red;font-size:17px;">Disable</a></p>';
-                         }else{
-                           echo '<p><a href="activate3.php?catagory_id='.$rows['catagory_id'].'$status=1"style="color:green;font-size:17px;">Enable</a></p>';
-                         }
-                         ?>
-                                   
-                                     <?php
-                                    
-                                  
-                                 }
-                                 ?>
-                                 </td>
-                                </table>
-                </div>
-  </body>
-</html>
-
-</body>
-</html>
+ 
 
                 </div>
               

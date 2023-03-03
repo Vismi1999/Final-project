@@ -346,7 +346,7 @@ body {
 <a href="change password.php">Change Password</a>
   <a href="contact_index.php">Contact</a>
   <a href="about_index.php">About</a>
-  <a href="menu.php">Restuarant</a>
+  <a href="fooditem.php">Restuarant</a>
   <a href="rooms.php">Rooms</a>
   <!-- <a href="booking.php">booking</a> -->
   <a class="active" href="index1.php">Home</a>

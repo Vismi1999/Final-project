@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title> Admin </title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,7 +35,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin <sup></sup></div>
+                <div class="sidebar-brand-text mx-3">Admin <sup>2</sup></div>
             </a>
 
             <!-- Divider -->
@@ -67,10 +67,10 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="Add rooms.php">Add rooms</a>
-                        <a class="collapse-item" href="view addroom.php">View Room Details</a>
-                        <a class="collapse-item" href="Roomtype.php">Add Room Type</a>
-                        <a class="collapse-item" href="view Roomtype.php">View Room Type</a>
+                        <a class="collapse-item" href="Add rooms.php">Add room</a>
+                        <a class="collapse-item" href="view addroom.php">View Add Details</a>
+                        <a class="collapse-item" href="Roomtype.php">Add Room TYpe</a>
+                        <a class="collapse-item" href="view roomtype.php">View Room Type</a>
                     </div>
                 </div>
             </li>
@@ -87,8 +87,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="Customer Details.php">Customer Details</a>
-                        <a class="collapse-item" href="Booking Details">Booking Details</a>
-                        <a class="collapse-item" href="pay">payment Details</a>
+                        <a class="collapse-item" href="viewbooking.php">Booking Details</a>
+                        <a class="collapse-item" href="">payment Details</a>
                         <!-- <a class="collapse-item" href="utilities-other.html">Other</a> -->
                     </div>
                 </div>
@@ -96,7 +96,8 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Food Configuration</span>
@@ -116,9 +117,8 @@
                 </div> 
             </li> 
             
-            
-            <!-- Heading
-            <div class="sidebar-heading">
+            <!-- Heading -->
+            <!-- <div class="sidebar-heading">
                 Addons
             </div> -->
 
@@ -149,7 +149,7 @@
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Tables -->
             <!-- <li class="nav-item">
@@ -159,7 +159,8 @@
             </li> -->
 
             <!-- Divider -->
-            
+            <!-- <hr class="sidebar-divider d-none d-md-block"> -->
+
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -194,7 +195,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> 
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -204,9 +205,9 @@
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>
+                            </a> -->
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
@@ -221,16 +222,16 @@
                                     </div>
                                 </form>
                             </div>
-                        </li>
+                        </li> 
 
                         <!-- Nav Item - Alerts -->
                         <!-- <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
+                                <i class="fas fa-bell fa-fw"></i> -->
                                 <!-- Counter - Alerts -->
                                 <!-- <span class="badge badge-danger badge-counter">3+</span>
-                            </a>  -->
+                            </a> -->
                             <!-- Dropdown - Alerts -->
                             <!-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
@@ -247,8 +248,8 @@
                                         <div class="small text-gray-500">December 12, 2019</div>
                                         <span class="font-weight-bold">A new monthly report is ready to download!</span>
                                     </div>
-                                </a> -->
-                                <!-- <a class="dropdown-item d-flex align-items-center" href="#">
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="mr-3">
                                         <div class="icon-circle bg-success">
                                             <i class="fas fa-donate text-white"></i>
@@ -278,7 +279,7 @@
                         <!-- <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
+                                <i class="fas fa-envelope fa-fw"></i> -->
                                 <!-- Counter - Messages -->
                                 <!-- <span class="badge badge-danger badge-counter">7</span>
                             </a> -->
@@ -311,9 +312,9 @@
                                             would you like them sent to you?</div>
                                         <div class="small text-gray-500">Jae Chun · 1d</div>
                                     </div>
-                                </a> -->
-                                <!-- <a class="dropdown-item d-flex align-items-center" href="#"> -->
-                                    <!-- <div class="dropdown-list-image mr-3">
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="img/undraw_profile_3.svg"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
@@ -338,9 +339,9 @@
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
-                        </li> -->
+                        </li>
 
-                        <!-- <div class="topbar-divider d-none d-sm-block"></div>   -->
+                        <div class="topbar-divider d-none d-sm-block"></div> -->
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -384,7 +385,8 @@
                     <!-- Page Heading -->
                     <!-- <h1 class="h3 mb-4 text-gray-800">Blank Page</h1> -->
                     
-                </div><html>
+                </div>
+                <html>
                     <head>
                     <style>
                     table {
@@ -407,44 +409,32 @@
                     
                     
                     <body>
-                    <title><center><h3>View Room Details</center></h3></title>
+                    <tittle><center><h3>View Food Category</center></h3></tittle>
                      
                     <center>
-                    
-                       <!-- <table border='1'>  -->
-                       <!-- <table class="table align-items-center table-flush table-hover" id="dataTableHover"> -->
-                       <div class="row">
-            <!-- Datatables -->
-            <!-- DataTable with Hover -->
-            <div class="col-lg-12">
-              <div class="card mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary"></h6>
-                </div>
-                <div >
-                <div class="table-responsive p-3">
-                  <table class="table align-items-center table-flush table-hover" id="dataTableHover">
-                    <thead class="thead-light">
-
-                      <tr>
-                        <t>
+                     <!-- <a href="Roomtype.php" class="button" style="position:relative;left:710px;top:1px:">RoomType </a> -->
+                       <table border='1'> 
                        
-                        <!-- <th style="width:15px";>Room id</th> -->
-                        <th style="width:15px";>Room Type</th> 
-                        <th style="width:15px";>Room Block</th>
-                        <th style="width:15px";>Room Number</th>
-                        <th style="width:15px";>Choose Room</th>
-                        <th style="width:15px";>Services</th>
-                        <th style="width:15px">Price</th>
-                        <th style="width:15px">Edit</th> 
-                        <th style="width:15px">Status</th>
+                      <tr>
+
+                        <t>
+                        <!-- <th style="width:15px";>Room Type ID</th> -->
+                        <th style="width:15px";>Category</th>
+                        
+                        
+                       
+                        
+                        <th style="width:15px">Image</th> 
+                        <!-- <th style="width:15px">Discription</th> -->
+                         <th style="width:15px">Status</th>
+                        <th style="width:15px">Action</th> 
+                       
+                       
                     <t>
                 </div>
                 <?php
  include_once('admin_connect.php');
-$query = "select * from tbl_addrooms";
-
-
+$query = "SELECT * FROM `tbl_catagory`";
 $result = mysqli_query($conn,$query);
 
 ?>
@@ -454,37 +444,31 @@ $result = mysqli_query($conn,$query);
                     <?php
                         while($rows=mysqli_fetch_assoc($result))
                      {
-                        $a=$rows['roomtype_id'];
-                        $sq="SELECT * FROM `tbl_roomtype` WHERE roomtype_id='$a'";
-                        $sqq=mysqli_query($conn,$sq);
-                        echo "<tr>";
-                        while($row=mysqli_fetch_assoc($sqq))
-                        {
+                       
 
-                    // echo "<tr>";
-                    // echo"<td>".$rows['roomtype_id']."</td>";
-                        // echo"<td>".$rows['roomtype_id']."</td>";
-                        echo"<td>".$row['roomtype']."</td>";
-                        }
-                        //  echo"<td>".$rows['roomtype']."</td>";
-                         echo"<td>".$rows['room_block']."</td>";
-                         echo"<td>".$rows['room_number']."</td>";
-                        //  echo"<td>".$rows['choose_room']."</td>";
-                        echo  '<td> <img height="70" width="70" src="photos1/'.$rows['choose_room'].'"> </td>'; 
-                        
-                         echo"<td>".$rows['multipleData']."</td>";
-                         echo"<td>".$rows['price']."</td>";
-                         
-                         echo"<td><a href='addroom_edit.php?addroom_id=".$rows["addroom_id"]."'><button type='button'class='btn btn-success'>EDIT</button></td>"; ?>
-                            
+                    echo "<tr>";
+                    echo"<td>".$rows['catagory']."</td>";
+
+                    //   echo"<td>".$rows['discription']."</td>";
+                  
+                   
+             // echo"<td>" '<img src="photos/" .$rows['image']. width="30" height="30">'"</td>";
+                 
+             
+               echo  '<td> <img height="70" width="70" src="photos2/'.$rows['image'].'"> </td>'; 
+              
+                    
+    echo"<td><a href='foodcata.php?catagory_id=".$rows["catagory_id"]."'><button type='button'class='btn btn-success'>EDIT</button> </td>"; ?>
+          
+                
                  
                  <td>
                          <?php
                          
                          if($rows['status']==0){
-                           echo '<p><a href="inactivate.php?addroom_id='.$rows['addroom_id'].'$status=0"style="color:red;font-size:17px;">Disable</a></p>';
+                           echo '<p><a href="inactivate3.php?catagory_id='.$rows['catagory_id'].'$status=0"style="color:red;font-size:17px;">Disable</a></p>';
                          }else{
-                           echo '<p><a href="activate.php?addroom_id='.$rows['addroom_id'].'$status=1"style="color:green;font-size:17px;">Enable</a></p>';
+                           echo '<p><a href="activate3.php?catagory_id='.$rows['catagory_id'].'$status=1"style="color:green;font-size:17px;">Enable</a></p>';
                          }
                          ?>
                                    
@@ -501,14 +485,18 @@ $result = mysqli_query($conn,$query);
                             
                                 
                             ?>       
-                              </script>
-                   
-                <!-- /.container-fluid -->
+                            
+                        
+                        
+                        
+                                
+                         
+                        
+                     
+                 </table>
+ 
 
-            
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
+            //  Footer 
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -548,9 +536,10 @@ $result = mysqli_query($conn,$query);
             </div>
         </div>
                     </div>
+                    
     <?php
  include_once('admin_connect.php');
-$query = "select * from tbl_addrooms";
+$query = "select * from tbl_catagory ";
 $result = mysqli_query($conn,$query);
 
 ?>
@@ -566,6 +555,7 @@ $result = mysqli_query($conn,$query);
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+    
 
 </body>
 

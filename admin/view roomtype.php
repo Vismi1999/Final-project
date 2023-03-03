@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title> Admin </title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -183,7 +183,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <!-- <form
+                    <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -194,19 +194,19 @@
                                 </button>
                             </div>
                         </div>
-                    </form> -->
+                    </form> 
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <!-- <li class="nav-item dropdown no-arrow d-sm-none">
+                        <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a> -->
                             <!-- Dropdown - Messages -->
-                            <!-- <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
@@ -221,7 +221,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </li> -->
+                        </li> 
 
                         <!-- Nav Item - Alerts -->
                         <!-- <li class="nav-item dropdown no-arrow mx-1">
@@ -413,6 +413,7 @@
                     <center>
                      <!-- <a href="Roomtype.php" class="button" style="position:relative;left:710px;top:1px:">RoomType </a> -->
                        <table border='1'> 
+                       
                       <tr>
 
                         <t>
@@ -426,7 +427,10 @@
                         
                         <!-- <th style="width:15px">Edit</th> -->
                         <th style="width:15px">EDIT</th>
+                        <!-- <th style="width:15px">DELETE</th> -->
+                        
                         <th style="width:15px">Status</th>
+                       
                        
                        
                     <t>
@@ -448,19 +452,39 @@ $result = mysqli_query($conn,$query);
                     echo "<tr>";
                    
                     
-                      //  echo"<td>".$rows['roomtype_id']."</td>";
+                   
                          echo"<td>".$rows['roomtype']."</td>";
                          echo"<td>".$rows['number']."</td>";
                       
                        
-                        //  echo"<td>" '<img src="photos/" .$rows['image']. width="30" height="30">'"</td>";
+                       
                      
                  
                   echo  '<td> <img height="70" width="70" src="photos/'.$rows['image'].'"> </td>'; 
                   
-                  echo"<td><a href='roomtype_edit.php?roomtype_id=".$rows["roomtype_id"]."'><button type='button'class='btn btn-success'>EDIT</button></td>"; ?>   
-                       
-                        
+                    
+                  echo"<td><a href='roomtype_edit.php?roomtype_id=".$rows["roomtype_id"]."'><button type='button'class='btn btn-success'>EDIT</button></td>";?>      
+               <!-- delete   -->
+                 <!-- <script type="text/javascript">
+
+
+
+
+
+function confirmDelete()
+{
+    if(confirm("Delete Room type?"))
+    {
+        location.href = 'type_delete.php?id='<?php echo $rows["roomtype_id"]; ?>
+    }
+}
+</script> 
+
+                 <td> <a href = "type_delete.php?id=<?php echo $rows['roomtype_id']; ?>" onclick="return confirm('Delete Room type?')" class='btn btn-danger servideletebtn'>DELETE</a> </td>
+                
+                    -->
+                
+                 
                  <td>
                          <?php
                          
@@ -494,7 +518,7 @@ $result = mysqli_query($conn,$query);
                         
                         
                         
-                        <!-- <script type="text/javascript">
+                         <!-- <script type="text/javascript">
 
 
 
@@ -504,24 +528,18 @@ $result = mysqli_query($conn,$query);
         {
             if(confirm("Delete Room type?"))
             {
-                location.href = 'type_delete1.php?id='<?php echo $rows["roomtype1_id"]; ?>
+                location.href = 'type_delete.php?id='<?php echo $rows["roomtype_id"]; ?>
             }
         }
-    </script> -->
+    </script> 
    
-                        <!-- <td> <a href = "type_delete1.php?id=<?php echo $rows['roomtype1_id']; ?>" onclick="return confirm('Delete Room type?')" class='btn btn-danger servideletebtn'>DELETE</a> </td>
-                        
+                         <td> <a href = "type_delete.php?id=<?php echo $rows['roomtype_id']; ?>" onclick="return confirm('Delete Room type?')" class='btn btn-danger servideletebtn'>DELETE</a> </td>
+                         -->
                            
                         
                      
                  </table>
-                    <script> 
- <?php
-                    // echo "<script>window.location.href='index1.php';</script>";
-                
-                    
-                ?>       
-                  
+ 
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">

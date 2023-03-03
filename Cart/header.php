@@ -42,15 +42,22 @@
       </ul>
      <div>
         <?php
-        if(isset($_SESSION['cart']))
-        {
-            $count=count($_SESSION['cart']);
-        }
-        else{
-        $count=0;
-        }
+        // if(isset($_SESSION['cart']))
+        // {
+        //     $count=count($_SESSION['cart']);
+        // }
+        // else{
+        // $count=0;
+        // }
+        $sql = "SELECT COUNT(*) AS count FROM tbl_cart ";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$count = $row['count'];
+
+// display the notification badge
+
         ?>
-        <a href="mycart.php" class="btn btn-outline-success">My Cart(<?php echo $count;?>)</a>
+      <a href="mycart.php" class="btn btn-outline-success">My Cart(<?php echo $count;?>)</a>
      </div>
     </div>
   </div>

@@ -150,8 +150,7 @@ border-radius: 5px;
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Food Configuration</span>
@@ -164,11 +163,13 @@ border-radius: 5px;
                         <div class="collapse-divider"></div> 
                         <h6 class="collapse-header">Food Configuration:</h6>
                         <a class="collapse-item" href="foodcata.php">Food Catagory</a>
+                        <a class="collapse-item" href="viewcata.php">View Catagory</a>
                         <a class="collapse-item" href="addfood.php">Menu</a>
                         <a class="collapse-item" href="viewfoodmenu.php">View items</a>
                     </div>
                 </div> 
             </li> 
+            
             
             <!-- Heading -->
             <!-- <div class="sidebar-heading">

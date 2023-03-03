@@ -162,12 +162,12 @@ border-radius: 5px;
                         <div class="collapse-divider"></div> 
                         <h6 class="collapse-header">Food Configuration:</h6>
                         <a class="collapse-item" href="foodcata.php">Food Catagory</a>
+                        <a class="collapse-item" href="viewcata.php">View Catagory</a>
                         <a class="collapse-item" href="addfood.php">Menu</a>
                         <a class="collapse-item" href="viewfoodmenu.php">View items</a>
                     </div>
                 </div> 
             </li> 
-            
 
             <!-- Heading -->
             <!-- <div class="sidebar-heading">
@@ -426,7 +426,7 @@ border-radius: 5px;
           <div class="column">
           <!-- action="dealer_upload.php" -->
             <form  method="post" action="addfood.php" name="catagory"  onsubmit="return Register()" enctype="multipart/form-data">
-            <label for="catagory">Catagory</label>
+            <label for="catagory">Category</label>
               <select id="catagory" name="catagory" required>
               <option value="" selected disabled>--- Select Option ---</option>
               <?php

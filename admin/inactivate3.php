@@ -8,10 +8,10 @@ $conn = mysqli_connect('localhost','root','','hotelsystem');
   }
 $catagory_id=$_REQUEST['catagory_id'];
 
-$sql3="UPDATE tbl_catagory set status='1' where catagory_id='$catagory_id'";
+$sql3="UPDATE tbl_catagory set status='1' where catagory_id='$catagory'";
 if(mysqli_query($conn,$sql3))
 {
     $_SESSION['msg'] = " deactivated successfully";
 }
-header("Location: foodcata.php");
+header("Location: viewcata.php");
 ?>

@@ -31,7 +31,7 @@
         if(isset($_POST['Remove_Item']))
         {
             $pid= $_POST['pname'];
-            $login_id= $_SESSION['log_id'];
+            $login_id= $_SESSION['sid'];
             $del_cart_item_res= mysqli_query($conn,"DELETE FROM tbl_cart WHERE `foodmenu_id` = $pid AND `log_id`  =$login_id");
             if($del_cart_item_res){
                 echo "<script>
@@ -50,9 +50,9 @@
         if(isset($_POST['Update_Item']))
         {
             $pid= $_POST['pname'];
-            $quantity= $_POST['pquantity'];
-            $login_id= $_SESSION['login_id'];
-            $update_cart_item_res= mysqli_query($conn, "UPDATE `tbl_cart` SET `quantity`='$quantity' WHERE foodmenu_id='$pid '");
+            $quantity= $_POST['quantity'];
+            $login_id= $_SESSION['sid'];
+            $update_cart_item_res= mysqli_query($conn,"UPDATE `tbl_cart` SET `quantity`='$quantity' WHERE `foodmenu_id` ='$pid'");
             if($update_cart_item_res){
                 echo "<script>
                     alert('Item updated successfully.');

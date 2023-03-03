@@ -147,6 +147,7 @@ if ($_SESSION['sid'] ==null){
                         <div class="collapse-divider"></div> 
                         <h6 class="collapse-header">Food Configuration:</h6>
                         <a class="collapse-item" href="foodcata.php">Food Catagory</a>
+                        <a class="collapse-item" href="viewcata.php">View Catagory</a>
                         <a class="collapse-item" href="addfood.php">Menu</a>
                         <a class="collapse-item" href="viewfoodmenu.php">View items</a>
                     </div>

@@ -1,7 +1,106 @@
+<?php
+session_start();
+include ('admin_connect.php');
+
+
+if(isset($_POST['update']))
+{
+    $roomtype_id=$_POST['roomtype_id'];
+    $roomtype=$_POST['roomtype'];
+    // $description=$_POST['description'];
+    
+    $number=$_POST['number'];
+    $adult=$_POST['adult'];
+    $children=$_POST['children'];
+    
+$query="UPDATE tbl_roomtype SET roomtype='$roomtype',number='$number',adult='$adult',childrem="$children" where roomtype_id='$roomtype_id'";
+$query_run=mysqli_query($conn,$query);
+if($query_run)
+{
+    $_SESSION['status'] = "Category updated successfully";
+    // header('location:viewcata.php');
+    echo "<script>window.location.href='viewcata.php';</script>";
+}
+else
+{
+    echo "no";
+}
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+<!-- <script>
+function Validate(){
+   var lastname = document.getElementById("lname").value;
+   var pattern =  /^[a-zA-Z]+$/;
+   isValid=true;
+   if(lastname.match(pattern)){
+      document.getElementById("lnameValidate").innerHTML="";
+   }
+   else if(!lastname){
+      document.getElementById("lnameValidate").innerHTML="Last Name Required";
+      isValid=false;
+   }
+   else{
+      document.getElementById("lnameValidate").innerHTML="Only characters are acceptable";
+      isValid=false;
+   }
+   return isValid;
+}
+</script> -->
+    <style>
+        
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  font-size: 15px;
+  background-color:#2573c731;
+
+}
+.registartion-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 595px;
+  color: rgb(113, 20, 20);
+  font-size: 18px;
+  font-family: sans-serif;
+   background-color:rgba(19, 173, 65, 0.107);
+   padding:100px;
+}
+
+.registartion-form input, 
+.registartion-form select,
+.registartion-form textarea {
+border: none;
+padding: 5px;
+margin-top: 10px;
+font-family: sans-serif;
+}
+
+.registartion-form input:focus,
+.registartion-form textarea:focus {
+box-shadow: 3px 3px 10px rgb(228, 228, 228), -3px -3px 10px rgb(224, 224, 224);
+}
+
+.registartion-form .submit {
+width: 100%;
+padding: 8px 0;
+font-size: 20px;
+color: rgb(44, 44, 44);
+background-color: #0e6a89;
+border-radius: 5px;
+}
+.registartion-form .submit:hover {
+  box-shadow: 3px 3px 6px rgb(255, 214, 176);
+}
+    </style>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +108,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>view food item</title>
+    <title>SB Admin 2 - Blank</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,7 +134,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin <sup></sup></div>
+                <div class="sidebar-brand-text mx-3">Admin <sup>2</sup></div>
             </a>
 
             <!-- Divider -->
@@ -46,7 +145,6 @@
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
-                   
             </li>
 
             <!-- Divider -->
@@ -66,11 +164,11 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="Add rooms.php">Add rooms</a>
-                        <a class="collapse-item" href="view addroom.php">View Room Details</a>
-                        <a class="collapse-item" href="Roomtype.php">Add Room Type</a>
-                        <a class="collapse-item" href="view Roomtype.php">View Room Type</a>
+                        <h6 class="collapse-header">ADMIN COMPONENT:</h6>
+                        <a class="collapse-item" href="Add rooms.php">Add Room</a>
+                        <a class="collapse-item" href="view addroom.php">View addroom Details</a>
+                        <a class="collapse-item" href=" Roomtype.php">Add Room Type</a>
+                        <a class="collapse-item" href="view Roomtype.php">Room Type</a>
                     </div>
                 </div>
             </li>
@@ -80,16 +178,16 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Booking</span>
+                    <span>Booking Details</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="Customer Details.php">Customer Details</a>
-                        <a class="collapse-item" href="Booking Details">Booking Details</a>
-                        <a class="collapse-item" href="pay">payment Details</a>
-                        <!-- <a class="collapse-item" href="utilities-other.html">Other</a> -->
+                        <a class="collapse-item" href="viewbooking.php">Booking Detais</a>
+                        <a class="collapse-item" href="utilities-animation.html">Payment Details</a>
+                        <a class="collapse-item" href="utilities-other.html">Other</a>
                     </div>
                 </div>
             </li>
@@ -117,19 +215,20 @@
                 </div> 
             </li> 
             
-            <!-- Heading
-            <div class="sidebar-heading">
+
+            <!-- Heading -->
+            <!-- <div class="sidebar-heading">
                 Addons
             </div> -->
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item active">
+           <!-- Nav Item - Pages Collapse Menu -->
+             <!-- <li class="nav-item active">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
                     aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a> -->
-                <!-- <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                    <span>Pages</span> -->
+                <!-- </a>
+                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
@@ -149,7 +248,7 @@
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Tables -->
             <!-- <li class="nav-item">
@@ -159,7 +258,8 @@
             </li> -->
 
             <!-- Divider -->
-            
+            <hr class="sidebar-divider d-none d-md-block">
+
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -178,9 +278,9 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
+                    <!-- <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"> -->
+                        <!-- <i class="fa fa-bars"></i>
+                    </button> -->
 
                     <!-- Topbar Search -->
                     <form
@@ -199,121 +299,47 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Alerts -->
-                        <!-- <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
-                                <!-- <span class="badge badge-danger badge-counter">3+</span>
-                            </a>  -->
-                            <!-- Dropdown - Alerts -->
-                            <!-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header">
-                                    Alerts Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                    </div>
-                                </a> -->
-                                <!-- <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-success">
-                                            <i class="fas fa-donate text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                            </div>
-                        </li> -->
-
+                        
                         <!-- Nav Item - Messages -->
-                        <!-- <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <!-- <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" -->
+                                <!-- data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+                                <!-- <i class="fas fa-envelope fa-fw"></i> -->
                                 <!-- Counter - Messages -->
-                                <!-- <span class="badge badge-danger badge-counter">7</span>
-                            </a> -->
+                                <!-- <span class="badge badge-danger badge-counter">7</span> -->
+                            <!-- </a> -->
                             <!-- Dropdown - Messages -->
-                            <!-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
-                                    Message Center
+                            
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="img/undraw_profile_1.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
-                                    </div>
+                                    <!-- </div>
                                     <div class="font-weight-bold">
                                         <div class="text-truncate">Hi there! I am wondering if you can help me with a
                                             problem I've been having.</div>
                                         <div class="small text-gray-500">Emily Fowler · 58m</div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
+                                <a class="dropdown-item d-flex align-items-center" href="#"> -->
+                                    <!-- <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
+                                    </div>  -->
+                                    <!-- <div>
                                         <div class="text-truncate">I have the photos that you ordered last month, how
                                             would you like them sent to you?</div>
                                         <div class="small text-gray-500">Jae Chun · 1d</div>
                                     </div>
-                                </a> -->
-                                <!-- <a class="dropdown-item d-flex align-items-center" href="#"> -->
-                                    <!-- <div class="dropdown-list-image mr-3">
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="img/undraw_profile_3.svg"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
@@ -338,9 +364,9 @@
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
-                        </li> -->
+                        </li>
 
-                        <!-- <div class="topbar-divider d-none d-sm-block"></div>   -->
+                        <div class="topbar-divider d-none d-sm-block"></div> -->
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -379,139 +405,122 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <!-- <h1 class="h3 mb-4 text-gray-800">Blank Page</h1> -->
-                    
-                </div><html>
-                    <head>
-                    <style>
-                    table {
-                      font-family: arial, sans-serif;
-                      border-collapse: collapse;
-                      width: 60%;
-                    }
-                    
-                    td, th {
-                      border: 1px solid #dddddd;
-                      text-align: left;
-                      padding: 19px;
-                    }
-                    
-                    tr:nth-child(even) {
-                      background-color: #dddddd;
-                    }
-                    </style>
-                    </head>
-                    
-                    
-                    <body>
-                    <title><center><h3>View Room Details</center></h3></title>
-                     
-                    <center>
-                    
-                       <table border='1'> 
-                      <tr>
-                        <t>
-                       
-                        <!-- <th style="width:15px";>Room id</th> -->
-                        <th style="width:15px";>Catagory</th> 
-                        <th style="width:15px";>Food item</th>
-                        <th style="width:15px";>Discription</th>
-                       
-                        <th style="width:15px";>image</th>
-                        <th style="width:15px";>Price</th>
-                        <th style="width:15px">Edit</th> 
-                        <th style="width:15px">Status</th> 
-                        
-                    <t>
-                </div>
-                <?php
- include_once('admin_connect.php');
-$query = "select * from tbl_foodmenu";
+                
 
 
-$result = mysqli_query($conn,$query);
 
+
+
+                <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> Registration</title>
+    <link  rel="stylesheet" href="Roomtype.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- <script>
+   function Register(){
+      var isValid=true;
+			var first_name = document.forms.RegForm.first_name.value;
+      var last_name = document.forms.RegForm.last_name.value;
+      // var regadrex=/d{1,5}\s\w.\s(\b\w*\b\s){1,2}\w*/.;
+      var email = document.forms.RegForm.email.value;
+      var phone = document.forms.RegForm.phone.value;
+			var password = document.forms.RegForm.password.value;
+      var cpassword = document.forms.RegForm.cpassword.value;
+      var district = document.forms.RegForm.district.value;
+      var state = document.forms.RegForm.state.value;
+      // var cpassword = document.forms.RegForm.cpassword.value;
+			var regemail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;  //Javascript reGex for Email Validation.
+      var regphone=/^\d{10}$/;
+      var pwdPattern=/^(?=.*\d)(?=.*[A-Z]).{3,}/;
+      var nameCityPattern =  /\d+$/g;
+
+      
+    //   $('#password, #cpassword').on('keyup', function () {
+    //     if ($('#password').val() == $('#cpassword').val()) {
+    //       $('#message').html('Matching').css('color', 'green');
+    //     } else 
+    //       $('#message').html('Not Matching').css('color', 'red');
+    // });
+      if (first_name == "" || nameCityPattern.test(first_name)) {
+        window.alert("Please enter your First Name.");
+      
+        isValid=false;
+        
+      }
+      
+      
+		} -->
+    <!-- </script> -->
+  </head>
+  <body>
+    <div id="main">
+  
+      <!-- <nav>
+          <ul>
+            <li><a href="index.php">Back to Home Page </a></li>
+            <li><a href="../logout.php">Logout</a></li>
+              
+          </ul>
+      </nav>
+       -->
+    </div>
+
+     <div class="container">  
+      <div class="row">
+       <!-- <p class="elementToFadeInAndOut"><?php if(isset($_SESSION['msg'])) {echo $_SESSION['msg'];} ?></p> -->
+        <div class="column"> 
+        <?php
+       
+$catagory_id=$_GET['catagory_id'];
+$query=mysqli_query($conn,"select * from tbl_catagory where catagory_id='$catagory_id'and status=1");
+$num2=mysqli_num_rows($query);
+  if($num2>0)
+  {
+   while($row=mysqli_fetch_array($query))
+{
 ?>
+           
 
-
-                    
-                    <?php
-                        while($rows=mysqli_fetch_assoc($result))
-                     {
-                        $a=$rows['catagory_id'];
-                        $sq="SELECT * FROM `tbl_catagory` WHERE catagory_id='$a'";
-                        $sqq=mysqli_query($conn,$sq);
-                        echo "<tr>";
-                        while($row=mysqli_fetch_assoc($sqq))
-                        {
-
-                    // echo "<tr>";
-                    // echo"<td>".$rows['roomtype_id']."</td>";
-                        // echo"<td>".$rows['roomtype_id']."</td>";
-                        echo"<td>".$row['catagory']."</td>";
-                        }
-                        //  echo"<td>".$rows['roomtype']."</td>";
-                         echo"<td>".$rows['foodmenu']."</td>";
-                         echo"<td>".$rows['discription']."</td>";
-                        //  echo"<td>".$rows['choose_room']."</td>";
-                        echo  '<td> <img height="70" width="70" src="photos3/'.$rows['image'].'"> </td>'; 
-                        
-                         echo"<td>".$rows['price']."</td>";
-                         
-                         
-                         echo"<td><a href='addroom_edit.php?foodmenu_id=".$rows["foodmenu_id"]."'><button type='button'class='btn btn-success'>EDIT</button></td>"; ?>
-                            
-                 
-                 <td>
-                         <?php
-                         
-                         if($rows['status']==0){
-                           echo '<p><a href="inactivate.php?foodmenu_id='.$rows['foodmenu_id'].'$status=0"style="color:red;font-size:17px;">Disable</a></p>';
-                         }else{
-                           echo '<p><a href="activate.php?foodmenu_id='.$rows['foodmenu_id'].'$status=1"style="color:green;font-size:17px;">Enable</a></p>';
-                         }
-                         ?>
-                                   
-                                     <?php
-                                    
-                                  
-                                 }
-                                 ?>
-                                 </td>
-                                </table>
-                                <script>
-             <?php
-                                echo "<script>window.location.href='index1.php';</script>";
-                            
-                                
-                            ?>       
-                              </script>
-                   
-                <!-- /.container-fluid -->
-
+           <form id="category" action="edit.php" method="POST" name="roomtype" enctype="multipart/form-data">       
             
-            <!-- End of Main Content -->
+          <div class="inputDiv">
+            <label class="inputLabel" for="cat">Enter Category Name</label>
+            <input type="text"name="catagory" id="category"value="<?= $row['catagory'] ?>" required>
+          </div>
+          
+          <input type="hidden"name="catagory_id" id="catagory_id" value="<?= $catagory_id ?>">
+           
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
+            <!-- <label for="name">Image Upload</label>
+            <input type="file" id="image" name="image">  -->
+
+
+
+            <input type="submit" value="Update" name="update">    
+          </form>
+          <?php 
+            }
+            }
+          ?>
+        </div>
+      </div>
+      
+  </div>
+ 
+
                 </div>
-            </footer>
-            <!-- End of Footer -->
+              
+
+            </div>
+            
 
         </div>
-        <!-- End of Content Wrapper -->
+        
 
     </div>
-    <!-- End of Page Wrapper -->
+    
 
-    <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
@@ -534,15 +543,9 @@ $result = mysqli_query($conn,$query);
                 </div>
             </div>
         </div>
-                    </div>
-    <?php
- include_once('admin_connect.php');
-$query = "select * from tbl_foodmenu";
-$result = mysqli_query($conn,$query);
-
-?>
-
-
+    </div>
+    
+            
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -553,8 +556,7 @@ $result = mysqli_query($conn,$query);
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
+ 
 </body>
-
 
 </html>

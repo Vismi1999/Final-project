@@ -482,9 +482,9 @@ $result = mysqli_query($conn,$query);
                          <?php
                          
                          if($rows['status']==0){
-                           echo '<p><a href="inactivate.php?addroom_id='.$rows['addroom_id'].'$status=0"style="color:red;font-size:17px;">Disable</a></p>';
+                           echo '<p><a href="inactivate.php?addroom_id='.$rows['addroom_id'].'$status=0"style="color:green;font-size:17px;">Enable</a></p>';
                          }else{
-                           echo '<p><a href="activate.php?addroom_id='.$rows['addroom_id'].'$status=1"style="color:green;font-size:17px;">Enable</a></p>';
+                           echo '<p><a href="activate.php?addroom_id='.$rows['addroom_id'].'$status=1"style="color:red;font-size:17px;">Disable</a></p>';
                          }
                          ?>
                                    

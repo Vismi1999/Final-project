@@ -12,34 +12,22 @@ $log_id=$_SESSION['sid'];
       </head>
       <body>
   <form action="#" method="post">
-  <!-- <div class="elem-group">
-    <label for="name">Your Name</label>
-    <input type="text" id="name" name="visitor_name" placeholder="John Doe" pattern=[A-Z\sa-z]{3,20} required>
-  </div>
   
-  
-
-  <div class="elem-group inlined">
-    <label for="adult">Adults</label>
-    <input type="number" id="adult" name="total_adults" placeholder="2" min="1" required>
-  </div>
-  <div class="elem-group inlined">
-    <label for="child">Children</label>
-    <input type="number" id="child" name="total_children" placeholder="2" min="0" required>
-  </div> -->
   <div class="elem-group inlined">
     <label for="checkin-date">Check-in Date</label>
-    <input type="date" id="checkin-date" name="checkin" required>
+    <input type="date" id="date" name="checkin" min="<?php echo date('Y-m-d');?>"  required>
+   
   </div>
+  
   <div class="elem-group inlined">
     <label for="checkout-date">Check-out Date</label>
-    <input type="date" id="checkout-date" name="checkout" required>
+    <input type="date" id="date" name="checkout" min="<?php echo date('Y-m-d'); ?>"  required>
   </div>
   <!-- <hr> -->
-  <div class="elem-group inlined">
+  <!-- <div class="elem-group inlined">
     <label for="adult">Number Of Room</label>
     <input type="number" id="adult" name="room" placeholder="rooms" min="1" required>
-  </div>
+  </div> -->
   <div class="elem-group inlined">
     <label for="adult">Adults</label>
     <input type="number" id="adult" name="adult" placeholder="adults" min="1" required>
@@ -62,7 +50,7 @@ $log_id=$_SESSION['sid'];
 <p><p></p><h2><a href="index1.php">Back to Home</a>&nbsp;&nbsp;&nbsp;</h2></p></p>
   </div>
 <div>
-  <
+  
 <!-- <a href="pay.php" class='btn btn-success'>Book Now</a> -->
 
 </div>
@@ -86,13 +74,13 @@ if(isset($_POST['submit'])){
     $checkin = $_POST['checkin'];
     $checkout = $_POST['checkout'];
     
-    $room= $_POST['room'];
+   
     $adult=$_POST['adult'];
     $children=$_POST['children'];
   
    
-    $sql="INSERT INTO tbl_booking(`checkin`,`checkout`,`room`,`adult`,`children`,`reg_id`) 
-    VALUES('$checkin','$checkout','$room','$adult','$children','$log_id')";
+    $sql="INSERT INTO tbl_booking(`checkin`,`checkout`,`adult`,`children`,`reg_id`,`status`) 
+    VALUES('$checkin','$checkout','$adult','$children','$log_id','pending')";
 
 
 

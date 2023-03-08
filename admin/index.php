@@ -117,6 +117,7 @@ if ($_SESSION['sid'] ==null){
                        
                         <a class="collapse-item" href="Customer Details.php">Customer Details</a>
                         <a class="collapse-item" href="viewbooking.php">Booking Details</a>
+                        <a class="collapse-item" href="viewbooking.php">View Booking status</a>
                         <a class="collapse-item" href="utilities-color.html">Payment Details</a>
                         <a class="collapse-item" href="utilities-color.html">Customer Enquery</a>
                         
@@ -150,6 +151,8 @@ if ($_SESSION['sid'] ==null){
                         <a class="collapse-item" href="viewcata.php">View Catagory</a>
                         <a class="collapse-item" href="addfood.php">Menu</a>
                         <a class="collapse-item" href="viewfoodmenu.php">View items</a>
+                        <a class="collapse-item" href="foodcata.php">Add Table Size</a>
+                        <a class="collapse-item" href="foodcata.php">View Table Size</a>
                     </div>
                 </div> 
             </li> 

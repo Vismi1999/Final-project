@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -183,7 +184,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <!-- <form
+                    <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -194,7 +195,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form> -->
+                    </form> 
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -409,30 +410,40 @@
                     <body>
                     <tittle><center><h3>Booking Details</center></h3></tittle>
                      
-                    <center>
+                  
                     
-                       <table border='1'> 
+                    <center>
+                     <!-- <a href="Roomtype.php" class="button" style="position:relative;left:710px;top:1px:">RoomType </a> -->
+                     <div class="card mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary"></h6>
+                </div>
+                <div >
+                <div class="table-responsive p-3">
+                  <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                    <thead class="thead-light">
+                       
                       <tr>
+
                         <t>
                        
-                        <!-- <th style="width:15px";>Room id</th> -->
+                       
                          <th style="width:15px";>Customer</th>  
-                         <!-- <th style="width:15px";>Roomr</th>  -->
-                         <!-- <th style="width:15px";>Room Type</th>   -->
+                         
                         <th style="width:15px";>Check in</th>
                         <th style="width:15px";>Check out</th>
                         <th style="width:15px";>Adult</th>
                         <th style="width:15px";>Children</th>
-                        <th style="width:15px";>Count</th>
-                        <!-- <th style="width:15px">Price</th> -->
-                        <th style="width:15px">Action</th>
+                        <!-- <th style="width:15px";>Count</th> -->
+                         <th style="width:15px">Action</th>
+                        
                         <!-- <th style="width:15px">Edit</th> -->
                         <!-- <th style="width:15px">Status</th> -->
                     <t>
                 </div>
                 <?php
  include_once('admin_connect.php');
-$query = "select * from tbl_booking";
+$query = "select * from tbl_booking where status='pending'";
 
 
 
@@ -457,13 +468,13 @@ $result = mysqli_query($conn,$query);
 
 
                         
-                        // echo"<td>".$rows['roomtype_id']."</td>";
-                        echo"<td>".$row['firstname']."</td>";
+                         //echo"<td>".$rows['log_id']."</td>";
+                           echo"<td>".$rows['firstname']."</td>";
                         
                         // echo"<td>".$row['log_id']."</td>";
                         }
                         
-
+                    
                        
                         
 
@@ -476,25 +487,34 @@ $result = mysqli_query($conn,$query);
                         //  echo"<td>".$rows['choose_room']."</td>";
                         // echo  '<td> <img height="70" width="70" src="photos1/'.$rows['choose_room'].'"> </td>'; 
                         
-                         echo"<td>".$rows['room']."</td>";
+                        //  echo"<td>".$rows['room']."</td>";
                          echo"<td>".$rows['adult']."</td>";
                          echo"<td>".$rows['children']."</td>";
+                         
                             
                  ?>
-                  <td>
-                         <?php
+                  <!-- <form method="post" action="#">
+                                <input type="hidden" value="<?php echo $row['booking_id']; ?>" name="booking_id">
+                              <td><input type="submit" href="approve.php"class="bg-success text-white" value="approve" name="approve"></input></td>
+                              <td><input type="submit" href="reject.php"class="bg-danger text-white" value="reject" name="reject"></td>
+                            </form>  -->
+                            <td>
+                                       
+                                        <a href="approve.php?id=<?php echo $rows['booking_id'];?>"class="btn btn-success btn-sm">Approve</a> 
+                                        <!-- <form action="code.php" method="POST" class="d-inline">
+                                                        <button type="submit" name="delete_animal" value="<?=$animal['id'];?>" class="btn btn-danger btn-sm">Delete</button>
+                                          -->
+                                          <a href="reject.php?id=<?php echo $rows['booking_id'];?>"class="btn btn-danger btn-sm">Reject</a>
+                                          
+                                    </td>
+                  
                          
-                         if($rows['status']==0){
-                           echo '<p><a href="inactivate2.php?booking_id='.$rows['booking_id'].'$status=0"style="color:red;font-size:17px;">Booked</a></p>';
-                         }else{
-                           echo '<p><a href="activate2.php?booking_id='.$rows['booking_id'].'$status=1"style="color:green;font-size:17px;">Cancel</a></p>';
-                         } 
-                         ?>
-                                   
+
+                                    
                                      <?php
                                     
-                                  
-                                 }
+                                      }
+                                   
                                  ?>
                                  </td>
                                 </table>
@@ -505,6 +525,93 @@ $result = mysqli_query($conn,$query);
                                 
                             ?>       
                               </script>
+                              <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                    <thead class="thead-light">
+                        <br><br>
+                       <tittlt><h3>View Booking Status<h3></tittle>
+                      <tr>
+
+                        <t>
+                       
+                       
+                         <th style="width:15px";>Customer</th>  
+                         
+                        <th style="width:15px";>Check in</th>
+                        <th style="width:15px";>Check out</th>
+                        <th style="width:15px";>Adult</th>
+                        <th style="width:15px";>Children</th>
+                        <!-- <th style="width:15px";>Count</th> -->
+                         
+                        <!-- <th style="width:15px">Edit</th> -->
+                        <!-- <th style="width:15px">Status</th> -->
+                    <t>
+                </div>
+                <?php
+ include_once('admin_connect.php');
+$query = "select * from tbl_booking where status='accepted'";
+
+
+
+$result = mysqli_query($conn,$query);
+
+?>
+
+
+                    
+                    <?php
+                        while($rows=mysqli_fetch_assoc($result))
+                     {      
+                   
+                        $a=$rows['reg_id'];
+                        $sq="SELECT * FROM `registration` WHERE log_id='$a'";
+                        $sqq=mysqli_query($conn,$sq);
+                        echo "<tr>";
+                        while($row=mysqli_fetch_assoc($sqq))
+                       
+
+                        {
+
+
+                        
+                         //echo"<td>".$rows['log_id']."</td>";
+                           echo"<td>".$rows['firstname']."</td>";
+                        
+                        // echo"<td>".$row['log_id']."</td>";
+                        }
+                        
+                    
+                       
+                        
+
+
+                        echo"<td>".$rows['checkin']."</td>";
+                        
+                        //  echo"<td>".$rows['roomtype']."</td>";*******************************************
+                         echo"<td>".$rows['checkout']."</td>";
+                        //  echo"<td>".$rows['room_number']."</td>";
+                        //  echo"<td>".$rows['choose_room']."</td>";
+                        // echo  '<td> <img height="70" width="70" src="photos1/'.$rows['choose_room'].'"> </td>'; 
+                        
+                        //  echo"<td>".$rows['room']."</td>";
+                         echo"<td>".$rows['adult']."</td>";
+                         echo"<td>".$rows['children']."</td>";
+                         
+                            
+                 ?>
+                  
+                         
+
+                                    
+                                     <?php
+                                    
+                                      }
+                                   
+                                 ?>
+                                 </td>
+                                </table>
+
+
+                              
                    
                 <!-- /.container-fluid -->
 
@@ -570,7 +677,11 @@ $result = mysqli_query($conn,$query);
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
+
+
+    
 </body>
+
 
 
 </html>

@@ -1,7 +1,8 @@
-	<?php
-	include('header.php');
+<?php
+	include('header1.php');
 	if($_SERVER["REQUEST_METHOD"]=="POST"){
 	session_start();
+	$n=$_SESSION['username'];
 
 	}
 	?>
@@ -9,6 +10,8 @@
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
+		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 			<meta charset="UTF-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +49,7 @@
 				
 
 			</style>
-		</head>
+		<!-- </head>
 
 						<body>
 
@@ -65,8 +68,8 @@
 											<th scope="col">Total</th>
 											<th scope="col">Action</th>
 										</tr>
-									</thead>
-
+									</thead> -->
+                                  <center>
 									<tbody class="text-center">
 										<?php
 											$all_total=0;
@@ -88,27 +91,17 @@
 													
 														echo"
 															<tr>
-																<td>$sr</td>
+																<td><br><br></td>
 																
 																
-																<td><p id='foodmenu'>".$pred_details_res["foodmenu"]."</p></td>
-																<td>".$pred_details_res["price"]."</td>
+																
+																
 
 																
-																<td>
-																	<form action='manage_cart.php' method = 'POST'>
-																		<input class='text-center' type='number'  name='quantity' value='".$row["quantity"]."' min='1' max='10'>
-																		<input type='text' name='pname' value=".$row["foodmenu_id"]." hidden>
-																		<button name='Update_Item'  id='cartupdate' class='btn btn-sm btn-outline-success '>UPDATE</button>
-																	</form>
-																</td>
-																<td class='itotal'>".$each_total."</td>
+																
 																
 																<td>
-																	<form action='manage_cart.php' method='POST'>
-																		<input type='text' name='pname' value=".$row["foodmenu_id"]." hidden>
-																		<button name='Remove_Item' class='btn btn-sm btn-outline-danger'>REMOVE</button>
-																	</form>
+																	
 																
 																</td>
 															
@@ -136,20 +129,56 @@
 										<form>
 											<div class="form-check">
 												<!-- <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"> -->
-												<label class="form-check-label" for="flexRadioDefault1">Make Order</label>
+												<label class="form-check-label" for="flexRadioDefault1">Make Payment</label>
 												
 											</div>
 											<br>
 											
-											<a href="cash.php"?id=<?php echo $row['foodmenu_id']?> button class="btn btn-primary btn-block">Online Payment</button></a>
-											<!-- <a href="deliveryform.php" button class="btn btn-primary btn-block">Cash On Delivery</button></a> -->
 											<br><br>
-											<a href="cash1.php" button class="btn btn-primary btn-block">Cash On Delivery</button></a>
+											
+											<input type="hidden" id="name1" value="<?php echo $n; ?>">
+											<input type="button" id="rzp-button1"name="btn"value="pay now"class="btn btn-primary" onclick="pay_now()"/>
 										</form>
 									</div>
 								</div>
 								<!-- </form> -->
 							</div>
-							
+										</center>
+										<script>
+//   console.log("hello");
+// var amt ="100";
+    function pay_now(){
+		var name = jQuery('#name1').val();
+		console.log(name);
+		
+        var amount=<?php echo $all_total ?>;
+        var options =  {
+            "key": "rzp_test_brxhNMuaPT71E4", // Enter the Key ID generated from the Dashboard
+            "amount": amount*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "CROWNE PLAZA",
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "handler":function(response){
+              
+               jQuery.ajax({
+                   type:"POST",
+                   url: "payment_process.php",
+                   data:"payment_id="+response.razorpay_payment_id+"&amount="+amount+"&name="+name,
+                   success:function(result){
+                       window,location.href="thankyou.php";
+                   }
+               });
+              
+      }
+        
+    
+};
+var rzp1 = new Razorpay(options);
+
+    rzp1.open();
+    
+    }
+</script>
 						</body>
 					</html>

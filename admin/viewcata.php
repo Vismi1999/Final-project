@@ -104,15 +104,13 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Admin Components:</h6>
-                        <a class="collapse-item" href="register.html"></a>
-                        <a class="collapse-item" href="forgot-password.html"></a> -->
+                
                         <div class="collapse-divider"></div> 
                         <h6 class="collapse-header">Food Configuration:</h6>
                         <a class="collapse-item" href="foodcata.php">Food Catagory</a>
-                        <a class="collapse-item" href="viewcata.php">View Catagory</a>
                         <a class="collapse-item" href="addfood.php">Menu</a>
                         <a class="collapse-item" href="viewfoodmenu.php">View items</a>
+                        
                     </div>
                 </div> 
             </li> 
@@ -205,7 +203,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a> -->
+                            </a>
                             <!-- Dropdown - Messages -->
                              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
@@ -409,7 +407,7 @@
                     
                     
                     <body>
-                    <tittle><center><h3>View Food Category</center></h3></tittle>
+                    <tittle><center><h3>View Catagery</center></h3></tittle>
                      
                     <center>
                      <!-- <a href="Roomtype.php" class="button" style="position:relative;left:710px;top:1px:">RoomType </a> -->
@@ -419,15 +417,19 @@
 
                         <t>
                         <!-- <th style="width:15px";>Room Type ID</th> -->
+                       
                         <th style="width:15px";>Category</th>
-                        
+                       
+                        <th style="width:15px";>Image</th>
                         
                        
                         
-                        <th style="width:15px">Image</th> 
-                        <!-- <th style="width:15px">Discription</th> -->
-                         <th style="width:15px">Status</th>
-                        <th style="width:15px">Action</th> 
+                        <!-- <th style="width:15px">Edit</th> -->
+                        <th style="width:15px">EDIT</th>
+                        <!-- <th style="width:15px">DELETE</th> -->
+                        
+                        <th style="width:15px">Status</th>
+                       
                        
                        
                     <t>
@@ -443,40 +445,43 @@ $result = mysqli_query($conn,$query);
                     
                     <?php
                         while($rows=mysqli_fetch_assoc($result))
-                     {
-                       
+                     
+                       {
 
                     echo "<tr>";
-                    echo"<td>".$rows['catagory']."</td>";
-
-                    //   echo"<td>".$rows['discription']."</td>";
-                  
                    
-             // echo"<td>" '<img src="photos/" .$rows['image']. width="30" height="30">'"</td>";
-                 
-             
-               echo  '<td> <img height="70" width="70" src="photos2/'.$rows['image'].'"> </td>'; 
-              
                     
-    echo"<td><a href='foodcata.php?catagory_id=".$rows["catagory_id"]."'><button type='button'class='btn btn-success'>EDIT</button> </td>"; ?>
-          
-                
+                   
+                         echo"<td>".$rows['catagory']."</td>";
+                         
+                      
+                       
+                       
+                     
+                 
+                  echo  '<td> <img height="70" width="70" src="photos2/'.$rows['image'].'"> </td>'; 
+                  
+                    
+                  echo"<td><a href='edit.php?catagory_id=".$rows["catagory_id"]."'><button type='button' class='btn btn-success'>EDIT</button></td>";?>      
+               
+                       
                  
                  <td>
                          <?php
                          
                          if($rows['status']==0){
-                           echo '<p><a href="inactivate3.php?catagory_id='.$rows['catagory_id'].'$status=0"style="color:red;font-size:17px;">Disable</a></p>';
+                           echo '<p><a href="inactivate3.php?catagory_id='.$rows['catagory_id'].'$status=0"style="color:green;font-size:17px;">Enable</a></p>';
                          }else{
-                           echo '<p><a href="activate3.php?catagory_id='.$rows['catagory_id'].'$status=1"style="color:green;font-size:17px;">Enable</a></p>';
+                           echo '<p><a href="activate3.php?catagory_id='.$rows['catagory_id'].'$status=1"style="color:red;font-size:17px;">Disable</a></p>';
                          }
                          ?>
                                    
                                      <?php
                                     
-                                  
-                                 }
+                        }
+                                 
                                  ?>
+                                 
                                  </td>
                                 </table>
                                 <script>
@@ -485,18 +490,23 @@ $result = mysqli_query($conn,$query);
                             
                                 
                             ?>       
-                            
+                              </script>
                         
                         
                         
-                                
-                         
+                        
+                        
+                        
+                        
+                        
+                        
+                       
                         
                      
                  </table>
  
 
-            //  Footer 
+            <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -539,7 +549,7 @@ $result = mysqli_query($conn,$query);
                     
     <?php
  include_once('admin_connect.php');
-$query = "select * from tbl_catagory ";
+$query = "select * from tbl_catagory";
 $result = mysqli_query($conn,$query);
 
 ?>

@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -412,7 +415,14 @@
                      
                     <center>
                      <!-- <a href="Roomtype.php" class="button" style="position:relative;left:710px;top:1px:">RoomType </a> -->
-                       <table border='1'> 
+                     <div class="card mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary"></h6>
+                </div>
+                <div >
+                <div class="table-responsive p-3">
+                  <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                    <thead class="thead-light">
                        
                       <tr>
 
@@ -420,6 +430,8 @@
                         <!-- <th style="width:15px";>Room Type ID</th> -->
                         <th style="width:15px";>Room Type</th>
                         <th style="width:15px";>Maximum Room</th>
+                        <th style="width:15px";>Maximum Adult</th>
+                        <th style="width:15px";>Maximum Children</th>
                        
                         <th style="width:15px";>Image</th>
                         
@@ -456,14 +468,17 @@ $result = mysqli_query($conn,$query);
                          echo"<td>".$rows['roomtype']."</td>";
                          echo"<td>".$rows['number']."</td>";
                       
+                         echo"<td>".$rows['adult']."</td>";
+                         echo"<td>".$rows['children']."</td>";
                        
-                       
+                     
+                     
                      
                  
                   echo  '<td> <img height="70" width="70" src="photos/'.$rows['image'].'"> </td>'; 
                   
                     
-                  echo"<td><a href='roomtype_edit.php?roomtype_id=".$rows["roomtype_id"]."'><button type='button'class='btn btn-success'>EDIT</button></td>";?>      
+                  echo"<td><a href='edit2.php?roomtype_id=".$rows["roomtype_id"]."'><button type='button'class='btn btn-success'>EDIT</button></td>";?>      
                <!-- delete   -->
                  <!-- <script type="text/javascript">
 
@@ -489,9 +504,9 @@ function confirmDelete()
                          <?php
                          
                          if($rows['status']==0){
-                           echo '<p><a href="inactivate1.php?roomtype_id='.$rows['roomtype_id'].'$status=0"style="color:red;font-size:17px;">Disable</a></p>';
+                           echo '<p><a href="inactivate1.php?roomtype_id='.$rows['roomtype_id'].'$status=0"style="color:green;font-size:17px;">Enable</a></p>';
                          }else{
-                           echo '<p><a href="activate1.php?roomtype_id='.$rows['roomtype_id'].'$status=1"style="color:green;font-size:17px;">Enable</a></p>';
+                           echo '<p><a href="activate1.php?roomtype_id='.$rows['roomtype_id'].'$status=1"style="color:red;font-size:17px;">Disable</a></p>';
                          }
                          ?>
                                    

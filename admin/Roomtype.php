@@ -445,8 +445,12 @@ border-radius: 5px;
           
             <input type="text" id="status" name="roomtype"onclick="validate();" value="" autocomplete="off" placeholder="Enter Room Type" />
             <label for="last_name" >Total Room</label>
+            <input type="text" id="status" name="adult"onclick="validate();" value="" autocomplete="off" placeholder="Enter Room Type" />
+            <label for="last_name" >Maximum Adult</label>
+            <input type="text" id="status" name="children"onclick="validate();" value="" autocomplete="off" placeholder="maximum adult" />
+            <label for="last_name" >Maximum Children</label>
           
-            <input type="text" id="status" name="number"onclick="validate();" value="" autocomplete="off" placeholder="Enter Total Room" />
+            <input type="text" id="status" name="number"onclick="validate();" value="" autocomplete="off" placeholder="maximum children" />
             <!-- <div><span id="lnameValidate" class="validate"></span></div> -->
             <!-- <p>Room Type: <input id="status" value=""></p>
 <input type="button" onclick="validate();" value=""> -->
@@ -514,6 +518,8 @@ else{
 if(isset($_POST['submit'])){
   $room_type = $_POST['roomtype'];
   $number = $_POST['number'];
+  $adult = $_POST['adult'];
+  $children = $_POST['children'];
   //$image= $_POST['image'];
   $img=$_FILES["image"]["name"];
 
@@ -541,8 +547,8 @@ $result = mysqli_query($conn,$query);
 
  }
 else{
-  $sql="insert into tbl_roomtype(`roomtype`,`image`,`number`,`status`) 
-        VALUES('$room_type','$img','$number','1')";
+  $sql="insert into tbl_roomtype(`roomtype`,`image`,`number`,`adult`,`children`,`status`) 
+        VALUES('$room_type','$img','$number','$adult','$children','1')";
         
         $result=mysqli_query($conn,$sql);
         //echo $sql;

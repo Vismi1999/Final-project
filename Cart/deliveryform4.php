@@ -1,15 +1,11 @@
 <?php
-    include('../connect1.php');            
+  include '../connect1.php';
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <style>
 body {
   font-family: Arial;
@@ -123,79 +119,76 @@ span.price {
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form action="#">
+      <form action="/.php">
       
         <div class="row">
           <div class="col-50">
             <h3>Billing</h3>
             <label for="fname"><i class=""></i> Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter Your Name">
+            <input type="text" id="fname" name="firstname" placeholder="Enter Your Name">
             <label for="email"><i class=""></i> Room Number</label>
-            <input type="text" id="roomno" name="roomno" placeholder="Room Number">
+            <input type="text" id="email" name="email" placeholder="Room Number">
              <label for="fname"><i class=""></i>Order</label>
-              <select id="order" name="order" required>
+              <select id="room_block" name="room_number" required>
                 <option value="">--- Select Option ---</option>
-                <option value="urgent">Order Now</option>
-                <option value="later">Later</option>
+                <option value="100">Urgent</option>
+                <option value="101">Later</option>
                
               </select> 
               <br> <br>
            
             <label for="appt">Select a time:</label>
-          <input type="time" id="time" name="time">
-         
-                            <input type="radio" name="time" value="slot" required> AM
-                             <input type="radio" name="time" value="slot"> PM
+          <input type="time" id="appt" name="appt">
+          <input type="radio" name="time" value="slot" required> AM
+                             <input type="radio" name="" value="slot"> PM
                              <br><br>
-                            
-                                                <br><br>
-                             <a input type="submit" id="submit" name="submit" value="Continue" href="payment.php" class="btn">Continue</a>
-                            
+           
+</div>
+        <a input type="submit" value="pay Now" class="btn"><center>Order Now</center></a>
       </form>
     </div>
-    
   </div>
-
-  
 </body>
-  </html>
-  <?php
+</html>
+<?php
     
- $conn = mysqli_connect('localhost','root','','hotelsystem');
-
- if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error."<br>");
-}
-else{
-// echo  "Success";
-}
-
-if(isset($_POST['submit'])){
-    $name = $_POST['name'];
-    $roomno = $_POST['roomno'];
-    $order = $_POST['order'];
-    $time = $_POST['time']; 
-    
-    
-  
+    $conn = mysqli_connect('localhost','root','','hotelsystem');
    
-    //$sql= "INSERT INTO tbl_cashroom (`name`,`roomno`,`order`,`time`,`status`) VALUES('$name','$roomno','$order','$time','1')";
-    $sql=  "INSERT INTO `tbl_cashroom`(`name`,`roomno`,`order`,`time`,`status`) VALUES ('$name','$roomno','$order','$time','1')";
-
-
-
+    if ($conn->connect_error) {
+     die("Connection failed: " . $conn->connect_error."<br>");
+   }
+   else{
+     //echo  "Success";
+   }
    
-        $result=mysqli_query($conn,$sql);
+   if(isset($_POST['submit'])){
+       $name = $_POST['name'];
+       $roomno = $_POST['roomno'];
+       $ordernow = $_POST['ordernow'];
+     
+       $time=$_POST['time'];
        
+   
+    
+   
+       // $sql="insert into tbl_addrooms(`roomtype`,`room_block`,`room_number`,`choose_room`,`price`,`multipleData`,`status`) 
+       // VALUES('$room_type',$room_block','$room_number','$choose_room','$price','$allData','1')";
+       $sql="insert into tbl_delivery(`name`,`roomno`,`time`,`status`) 
+       VALUES($name,'$roomno','$ordernow','$time','$status','1')";
+       
+   //   $sql="insert into tbl_roomtype(`roomtype`,`image`,`status`) 
+   //         VALUES('$room_type','$img','1')";
+           
+           $result=mysqli_query($conn,$sql);
           
-        //echo $sql;
-       if($result){
-         echo "<script>alert(' successfully continue.')</script>";
-       }else{
-        //die(mysqli_error($conn));
-        echo "<script>alert('not sucess.');</script>";
-       }
-      } 
-    
-    
-?>
+             
+           //echo $sql;
+          if($result){
+           echo "<script>alert('food Item added Successfully.');window.location.href='addfood.php'</script>";
+          }else{
+           die(mysqli_error($conn));
+          }
+         } 
+       
+       
+   ?>

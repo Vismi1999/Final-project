@@ -41,7 +41,7 @@ $result = mysqli_query($conn,$sql);
           <div class="col-6 col-lg-8">  -->
 
           <head name="viewport" content="width=device-width, initial-scale=1">
-<style> -->
+<style>
 <!-- * {box-sizing: border-box;}
 
 body { 
@@ -137,141 +137,7 @@ body {
     </nav>
 
 
- <!-- <body>
- <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-   <head name="viewport" content="width=device-width, initial-scale=1">
-<style> -->
-<!-- * {box-sizing: border-box;}
-
-body { 
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif; 
-}
-
-.header {
-  overflow: hidden;
-  background-color: #f1f1f1;
-  padding: 30px 20px;
-}
-
-.header a {
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 20px; 
-  line-height: 30px;
-  border-radius: 4px;
-}
-
-.header a.logo {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-
-.header a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.header a.active {
-  background-color: dodgerblue;
-  color: white;
-}
-
-.header-right {
-  float: right;
-} 
-
-@media screen and (max-width: 600px) { 
-   .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  } 
-    
- .header-right {
-    float: none;
-  }
-} 
- </style> 
- <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.topnav {
-  overflow: hidden;
-  background-color: white;
-}
-
-.topnav a {
-  float: right;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-</style>
-</head>
-<body>
-
-
-<div class="topnav">
-
-<a href="edit_profile.php">Profile</a>
-<a href="changepassword.php">Change Password</a>
-  <a href="contact_index_index.php">Contact</a>
-  <a href="about.php">About</a>
-  <a href="rooms.php">Rooms</a>
-  <!-- <a href="booking.php">Booking</a> -->
-  <!-- <a class="active" href="index1.php">Home</a>
-
-</div>
-<!-- <div style="padding-right:26px"> -->
-  <!-- <h2>Top Navigation Example</h2> -->
-  <!-- <p>Some content..</p>
-</div> --> 
-
-<!-- </body>
-</html> -->
-
-    <!-- Topbar End -->
-            
-            <!-- < END menu-toggle --> 
-
-             <!-- ><header class="site-header js-site-header">
-              <div class="container-fluid">
-                <div class="row align-items-center">
-                
-                  
-                          </div>
-                        </div>
-                      </nav>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </header>  -->
+ 
     <!-- END head -->
 
     <section class="site-hero inner-page overlay" style="background-image: url(images/img_5.jpg)" data-stellar-background-ratio="0.5"> 
@@ -445,12 +311,13 @@ else{
                           <h5>Room Number:<?php echo $roomnumber;?></h5> -->
                         
                           <h5>Services:<?php echo $multipleData;?></h5>
-                          <h5>Price  :<?php echo $price;?></h5>
+                          <!-- <h5>Price  :<?php echo $price;?></h5> -->
+                          <h4>₹ <?php echo $price;?></h4>
                           <!-- <?php echo "<td><button type='button' class='btn btn-success'>Book Now</button></td>";?></h2> -->
                           
-                          <a href="Bookingform.php" class='btn btn-success'>Book Now</a>
+                          <a href="Bookingform.php" class='btn btn-success'>Book Now</a>  
                             
-                     
+                          
 
                          
                         </div>

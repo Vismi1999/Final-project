@@ -53,8 +53,11 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Hotel Configuration
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -62,16 +65,58 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Room Details</span>
+                    <span>Room Catagory</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="Add rooms.php">Add room</a>
-                        <a class="collapse-item" href="view addroom.php">View Add Details</a>
-                        <a class="collapse-item" href="Roomtype.php">Add Room TYpe</a>
+                        <h6 class="collapse-header">Admin Components:</h6>
+                        <!-- <a class="collapse-item" href="Add rooms.php">Add rooms</a>
+                        <a class="collapse-item" href="view addroom.php">View Room Details</a> -->
+                        <a class="collapse-item" href="Roomtype.php">Add Room Type</a>
                         <a class="collapse-item" href="view roomtype.php">View Room Type</a>
+                       
+
+                        <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
                     </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo5"
+                    aria-expanded="true" aria-controls="collapseTwo5">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Add Rooms</span>
+                </a>
+                <div id="collapseTwo5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Admin Components:</h6>
+                        <a class="collapse-item" href="Add rooms.php">Add rooms</a>
+                        <a class="collapse-item" href="view addroom.php">View Room Details</a>
+                        <!-- <a class="collapse-item" href="Roomtype.php">Add Room Type</a>
+                        <a class="collapse-item" href="view roomtype.php">View Room Type</a>
+                        -->
+
+                        <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+                    </div>
+                </div>
+            </li>
+            
+            
+            <!-- <li class="nav-item"> -->
+<!--             
+            <i class="fas fa-fw fa-cog"></i> -->
+                    <!-- <span>Hotel Configuration</span> -->
+                <!-- </a> -->
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar"> 
+                    <!-- <div class="bg-white py-2 collapse-inner rounded"> -->
+                        <!-- <h6 class="collapse-header">Admin Components:</h6>
+                        <a class="collapse-item" href="foodcata.php">Food catagory</a>
+                        <a class="collapse-item" href="Add rooms.php">Food Menu</a>
+                        
+                        
+                         -->
+
+                        <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+                    <!-- </div> -->
                 </div>
             </li>
 
@@ -80,40 +125,95 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Booking</span>
+                    <span>Booking </span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="Customer Details.php">Customer Details</a>
+                       
+                       
                         <a class="collapse-item" href="viewbooking.php">Booking Details</a>
-                        <a class="collapse-item" href="">payment Details</a>
-                        <!-- <a class="collapse-item" href="utilities-other.html">Other</a> -->
+                        <!-- <a class="collapse-item" href="viewbooking.php">View Booking status</a> -->
+                        <a class="collapse-item" href="utilities-color.html">Payment Details</a>
+                        <a class="collapse-item" href="utilities-color.html">Customer Enquery</a>
+                        
                     </div>
                 </div>
             </li>
-
+            
             <!-- Divider -->
             <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Restuarant Configuration
+            </div>
+            <!-- Heading -->
+            <!-- <div class="sidebar-heading">
+                Addons
+            </div> -->
+
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Food Configuration</span>
+                    <span>Food Catagory</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                
+                        <!-- <h6 class="collapse-header">Admin Components:</h6>
+                        <a class="collapse-item" href="register.html"></a>
+                        <a class="collapse-item" href="forgot-password.html"></a> -->
                         <div class="collapse-divider"></div> 
                         <h6 class="collapse-header">Food Configuration:</h6>
                         <a class="collapse-item" href="foodcata.php">Food Catagory</a>
-                        <a class="collapse-item" href="addfood.php">Menu</a>
+                        <a class="collapse-item" href="viewcata.php">View Catagory</a>
+                        <!-- <a class="collapse-item" href="addfood.php">Menu</a>
                         <a class="collapse-item" href="viewfoodmenu.php">View items</a>
-                        
+                        <a class="collapse-item" href="Addtable.php">Add Table Size</a>
+                        <a class="collapse-item" href="foodcata.php">View Table Size</a> -->
                     </div>
                 </div> 
             </li> 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Food Items</span>
+                </a>
+                <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Admin Components:</h6>
+                        <a class="collapse-item" href="register.html"></a>
+                        <a class="collapse-item" href="forgot-password.html"></a> -->
+                        <div class="collapse-divider"></div> 
+                        <!-- <h6 class="collapse-header">Food Configuration:</h6>
+                        <a class="collapse-item" href="foodcata.php">Food Catagory</a>
+                        <a class="collapse-item" href="viewcata.php">View Catagory</a> -->
+                        <a class="collapse-item" href="addfood.php">Add Food item</a>
+                        <a class="collapse-item" href="viewfoodmenu.php">View Food items</a>
+                        <!-- <a class="collapse-item" href="Addtable.php">Add Table Size</a>
+                        <a class="collapse-item" href="foodcata.php">View Table Size</a> -->
+                    </div>
+                </div> 
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages10"
+                    aria-expanded="true" aria-controls="collapsePages10">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Add Table</span>
+                </a>
+                <div id="collapsePages10" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                       
+                        <div class="collapse-divider"></div> 
+                        
+                         <a class="collapse-item" href="Addtable.php">Add Table Size</a>
+                        <a class="collapse-item" href="foodcata.php">View Table Size</a> 
+                    </div>
+                </div> 
+            </li> 
+            
             
             <!-- Heading -->
             <!-- <div class="sidebar-heading">
@@ -338,14 +438,21 @@
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
                         </li>
-
+                        <?php
+        include('admin_connect.php');
+       $query1 = "SELECT * FROM `cust_login`where role=1";
+       $result = mysqli_query($conn,$query1);
+       $rows=mysqli_fetch_array($result);
+       
+       ?>
+    
                         <div class="topbar-divider d-none d-sm-block"></div> -->
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 medium"> <?php echo $rows['cust_emailid']; ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -411,7 +518,15 @@
                      
                     <center>
                      <!-- <a href="Roomtype.php" class="button" style="position:relative;left:710px;top:1px:">RoomType </a> -->
-                       <table border='1'> 
+                     
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary"></h6>
+                </div>
+                <div >
+                <div class="table-responsive p-3">
+                  <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                    <thead class="thead-light">
+                       
                        
                       <tr>
 

@@ -13,13 +13,13 @@ if(isset($_POST['update']))
     $adult=$_POST['adult'];
     $children=$_POST['children'];
     
-$query="UPDATE tbl_roomtype SET roomtype='$roomtype',number='$number',adult='$adult',childrem="$children" where roomtype_id='$roomtype_id'";
+$query="UPDATE tbl_roomtype SET roomtype='$roomtype',number='$number',adult='$adult',children='$children' where roomtype_id='$roomtype_id'";
 $query_run=mysqli_query($conn,$query);
 if($query_run)
 {
     $_SESSION['status'] = "Category updated successfully";
     // header('location:viewcata.php');
-    echo "<script>window.location.href='viewcata.php';</script>";
+    echo "<script>window.location.href='view roomtype.php';</script>";
 }
 else
 {
@@ -319,54 +319,7 @@ border-radius: 5px;
                                         <img class="rounded-circle" src="img/undraw_profile_1.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
-                                    <!-- </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#"> -->
-                                    <!-- <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
-                                            alt="...">
-                                        <div class="status-indicator"></div>
-                                    </div>  -->
-                                    <!-- <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
-                                            alt="...">
-                                        <div class="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
-                                            the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                            </div>
-                        </li>
-
-                        <div class="topbar-divider d-none d-sm-block"></div> -->
+                                   
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -472,8 +425,8 @@ border-radius: 5px;
         <div class="column"> 
         <?php
        
-$catagory_id=$_GET['catagory_id'];
-$query=mysqli_query($conn,"select * from tbl_catagory where catagory_id='$catagory_id'and status=1");
+$roomtype_id=$_GET['roomtype_id'];
+$query=mysqli_query($conn,"select * from tbl_roomtype where roomtype_id='$roomtype_id'and status=1");
 $num2=mysqli_num_rows($query);
   if($num2>0)
   {
@@ -482,27 +435,43 @@ $num2=mysqli_num_rows($query);
 ?>
            
 
-           <form id="category" action="edit.php" method="POST" name="roomtype" enctype="multipart/form-data">       
-            
-          <div class="inputDiv">
-            <label class="inputLabel" for="cat">Enter Category Name</label>
-            <input type="text"name="catagory" id="category"value="<?= $row['catagory'] ?>" required>
-          </div>
+           <!-- <form  method="POST" action="edit2.php" name="roomtype" onsubmit="return Register()" enctype="multipart/form-data">
+           <label for="last_name" >Room Type</label>
           
-          <input type="hidden"name="catagory_id" id="catagory_id" value="<?= $catagory_id ?>">
+            <input type="text" id="status" name="roomtype"onclick="validate();" value="" autocomplete="off" placeholder="Enter Room Type" />
+            <label for="last_name" >Total Room</label>
+            <input type="text" id="status" name="adult"onclick="validate();" value="" autocomplete="off" placeholder="Enter Room Type" />
+            <label for="last_name" >Maximum Adult</label>
+            <input type="text" id="status" name="children"onclick="validate();" value="" autocomplete="off" placeholder="maximum adult" />
+            <label for="last_name" >Maximum Children</label>
+           -->
+            <!-- <input type="text" id="status" name="number"onclick="validate();" value="" autocomplete="off" placeholder="maximum children" /> -->
+          
+            <form id="roomtype" action="edit2.php" method="POST" name="roomtype" enctype="multipart/form-data">       
+            
+            <div class="inputDiv">
+              <label class="inputLabel" for="cat">Enter the roomtype</label>
+              <input type="text"name="roomtype" id="roomtype"value="<?= $row['roomtype'] ?>" required>
            
+              <label class="inputLabel" for="cat">Maximum Room</label>
+              <input type="text"name="number" id="number"value="<?= $row['number'] ?>" required>
+           
+              <label class="inputLabel" for="cat">Maximum Adult</label>
+              <input type="text"name="adult" id="adult"value="<?= $row['adult'] ?>" required>
+              <label class="inputLabel" for="cat">Maximum Children</label>
+              <input type="text"name="children" id="children"value="<?= $row['children'] ?>" required>
+            </div>
+            
 
-            <!-- <label for="name">Image Upload</label>
-            <input type="file" id="image" name="image">  -->
-
-
-
-            <input type="submit" value="Update" name="update">    
+<input type="hidden"name="roomtype_id" id="roomtype_id" value="<?= $roomtype_id ?>">
+           
+<input type="submit" value="Update" name="update"> 
           </form>
           <?php 
             }
             }
           ?>
+          
         </div>
       </div>
       

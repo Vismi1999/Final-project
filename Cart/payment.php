@@ -3,15 +3,18 @@
 	if($_SERVER["REQUEST_METHOD"]=="POST"){
 	session_start();
 	$n=$_SESSION['username'];
-
 	}
+	$conn = mysqli_connect('localhost','root','','hotelsystem');
+	
+ 
+	
 	?>
 
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
 		<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+       <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 			<meta charset="UTF-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">

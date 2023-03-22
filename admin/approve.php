@@ -1,20 +1,12 @@
 <?php
+session_start();
+include('admin_connect.php');
+$id=$_GET['id'];
 
-include("admin_connect.php");
-?>
-
-<form action="" method="POST">
-
-<div class="container" style="margin-left:250px;">
-<?php
-if(isset($_GET['id']))
+$sql4="UPDATE tbl_cashroom set status='1' where cash_id='$id'";
+if(mysqli_query($conn,$sql4))
 {
- $lId=$_GET['id'];
-  $result=mysqli_query($conn,"UPDATE tbl_booking SET status='accepted' where booking_id=$lId");
-  
+    $_SESSION['msg2'] = "Category activated successfully";
 }
-if($result)
-{
-echo "<script>alert(' accepted successfully. Thank you');window.location='viewbooking.php';</script>";
-}
+header("Location: viewdeliveryform1.php");
 ?>

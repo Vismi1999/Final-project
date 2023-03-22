@@ -54,8 +54,11 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Hotel Configuration
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -63,16 +66,58 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Room Details</span>
+                    <span>Room Catagory</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
+                        <h6 class="collapse-header">Admin Components:</h6>
+                        <!-- <a class="collapse-item" href="Add rooms.php">Add rooms</a>
+                        <a class="collapse-item" href="view addroom.php">View Room Details</a> -->
+                        <a class="collapse-item" href="Roomtype.php">Add Room Type</a>
+                        <a class="collapse-item" href="view roomtype.php">View Room Type</a>
+                       
+
+                        <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo5"
+                    aria-expanded="true" aria-controls="collapseTwo5">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Add Rooms</span>
+                </a>
+                <div id="collapseTwo5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Admin Components:</h6>
                         <a class="collapse-item" href="Add rooms.php">Add rooms</a>
                         <a class="collapse-item" href="view addroom.php">View Room Details</a>
-                        <a class="collapse-item" href="Roomtype.php.php">Add Room Type</a>
-                        <a class="collapse-item" href="viewroomtype.php">View Room Type</a>
+                        <!-- <a class="collapse-item" href="Roomtype.php">Add Room Type</a>
+                        <a class="collapse-item" href="view roomtype.php">View Room Type</a>
+                        -->
+
+                        <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
                     </div>
+                </div>
+            </li>
+            
+            
+            <!-- <li class="nav-item"> -->
+<!--             
+            <i class="fas fa-fw fa-cog"></i> -->
+                    <!-- <span>Hotel Configuration</span> -->
+                <!-- </a> -->
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar"> 
+                    <!-- <div class="bg-white py-2 collapse-inner rounded"> -->
+                        <!-- <h6 class="collapse-header">Admin Components:</h6>
+                        <a class="collapse-item" href="foodcata.php">Food catagory</a>
+                        <a class="collapse-item" href="Add rooms.php">Food Menu</a>
+                        
+                        
+                         -->
+
+                        <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+                    <!-- </div> -->
                 </div>
             </li>
 
@@ -81,27 +126,39 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Booking</span>
+                    <span>Booking </span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="Customer Details.php">Customer Details</a>
+                       
+                       
                         <a class="collapse-item" href="viewbooking.php">Booking Details</a>
-                        <a class="collapse-item" href="pay">payment Details</a>
-                        <!-- <a class="collapse-item" href="utilities-other.html">Other</a> -->
+                        <!-- <a class="collapse-item" href="viewbooking.php">View Booking status</a> -->
+                        <a class="collapse-item" href="utilities-color.html">Payment Details</a>
+                        <a class="collapse-item" href="utilities-color.html">Customer Enquery</a>
+                        
                     </div>
                 </div>
             </li>
-
+            
             <!-- Divider -->
             <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Restuarant Configuration
+            </div>
+            <!-- Heading -->
+            <!-- <div class="sidebar-heading">
+                Addons
+            </div> -->
+
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Food Configuration</span>
+                    <span>Food Catagory</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -111,11 +168,54 @@
                         <div class="collapse-divider"></div> 
                         <h6 class="collapse-header">Food Configuration:</h6>
                         <a class="collapse-item" href="foodcata.php">Food Catagory</a>
-                        <a class="collapse-item" href="addfood.php">Menu</a>
+                        <a class="collapse-item" href="viewcata.php">View Catagory</a>
+                        <!-- <a class="collapse-item" href="addfood.php">Menu</a>
                         <a class="collapse-item" href="viewfoodmenu.php">View items</a>
+                        <a class="collapse-item" href="Addtable.php">Add Table Size</a>
+                        <a class="collapse-item" href="foodcata.php">View Table Size</a> -->
                     </div>
                 </div> 
             </li> 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Food Items</span>
+                </a>
+                <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Admin Components:</h6>
+                        <a class="collapse-item" href="register.html"></a>
+                        <a class="collapse-item" href="forgot-password.html"></a> -->
+                        <div class="collapse-divider"></div> 
+                        <!-- <h6 class="collapse-header">Food Configuration:</h6>
+                        <a class="collapse-item" href="foodcata.php">Food Catagory</a>
+                        <a class="collapse-item" href="viewcata.php">View Catagory</a> -->
+                        <a class="collapse-item" href="addfood.php">Add Food item</a>
+                        <a class="collapse-item" href="viewfoodmenu.php">View Food items</a>
+                        <!-- <a class="collapse-item" href="Addtable.php">Add Table Size</a>
+                        <a class="collapse-item" href="foodcata.php">View Table Size</a> -->
+                    </div>
+                </div> 
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages10"
+                    aria-expanded="true" aria-controls="collapsePages10">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Add Table</span>
+                </a>
+                <div id="collapsePages10" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                       
+                        <div class="collapse-divider"></div> 
+                        
+                         <a class="collapse-item" href="Addtable.php">Add Table Size</a>
+                        <a class="collapse-item" href="foodcata.php">View Table Size</a> 
+                    </div>
+                </div> 
+            </li> 
+            
+           
             
             <!-- Heading -->
             <!-- <div class="sidebar-heading">
@@ -342,12 +442,20 @@
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
-
+  
+                        <?php
+        include('admin_connect.php');
+       $query1 = "SELECT * FROM `cust_login`where role=1";
+       $result = mysqli_query($conn,$query1);
+       $rows=mysqli_fetch_array($result);
+       
+       ?>
+    
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 medium"> <?php echo $rows['cust_emailid']; ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -434,10 +542,10 @@
                         <th style="width:15px";>Check out</th>
                         <th style="width:15px";>Adult</th>
                         <th style="width:15px";>Children</th>
-                        <!-- <th style="width:15px";>Count</th> -->
+                         <!-- <th style="width:15px";>Payment Status</th> -->
                          <th style="width:15px">Action</th>
-                        
-                        <!-- <th style="width:15px">Edit</th> -->
+                         <th style="width:15px">Status</th>
+                       
                         <!-- <th style="width:15px">Status</th> -->
                     <t>
                 </div>
@@ -460,6 +568,7 @@ $result = mysqli_query($conn,$query);
                         $a=$rows['reg_id'];
                         $sq="SELECT * FROM `registration` WHERE log_id='$a'";
                         $sqq=mysqli_query($conn,$sq);
+                
                         echo "<tr>";
                         while($row=mysqli_fetch_assoc($sqq))
                        
@@ -469,7 +578,7 @@ $result = mysqli_query($conn,$query);
 
                         
                          //echo"<td>".$rows['log_id']."</td>";
-                           echo"<td>".$rows['firstname']."</td>";
+                           echo"<td>".$row['firstname']."</td>";
                         
                         // echo"<td>".$row['log_id']."</td>";
                         }
@@ -493,18 +602,25 @@ $result = mysqli_query($conn,$query);
                          
                             
                  ?>
-                  <!-- <form method="post" action="#">
-                                <input type="hidden" value="<?php echo $row['booking_id']; ?>" name="booking_id">
-                              <td><input type="submit" href="approve.php"class="bg-success text-white" value="approve" name="approve"></input></td>
-                              <td><input type="submit" href="reject.php"class="bg-danger text-white" value="reject" name="reject"></td>
-                            </form>  -->
+                    <td>
+                                       
+                    <?php
+                         
+                         if($rows['status']==0){
+                           echo '<p><a href="inactivate4.php?booking_id='.$rows['booking_id'].'$status=0"style="color:green;font-size:17px;">Available</a></p>';
+                         }else{
+                           echo '<p><a href="activate4.php?booking_id='.$rows['booking_id'].'$status=1"style="color:red;font-size:17px;">Unavailable</a></p>';
+                         }
+                         ?>
+                            
+                                         
+                                   </td>
+                 
                             <td>
                                        
-                                        <a href="approve.php?id=<?php echo $rows['booking_id'];?>"class="btn btn-success btn-sm">Approve</a> 
-                                        <!-- <form action="code.php" method="POST" class="d-inline">
-                                                        <button type="submit" name="delete_animal" value="<?=$animal['id'];?>" class="btn btn-danger btn-sm">Delete</button>
-                                          -->
-                                          <a href="reject.php?id=<?php echo $rows['booking_id'];?>"class="btn btn-danger btn-sm">Reject</a>
+                                        <!-- <a href="approve.php?id=<?php echo $rows['booking_id'];?>"class="btn btn-success btn-sm">Approve</a>  -->
+                                       
+                                          <a href="reject.php?id=<?php echo $rows['booking_id'];?>"class="btn btn-danger btn-sm">Delete</a>
                                           
                                     </td>
                   
@@ -525,9 +641,8 @@ $result = mysqli_query($conn,$query);
                                 
                             ?>       
                               </script>
-                              <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                              <!-- <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                     <thead class="thead-light">
-                        <br><br>
                        <tittlt><h3>View Booking Status<h3></tittle>
                       <tr>
 
@@ -542,13 +657,13 @@ $result = mysqli_query($conn,$query);
                         <th style="width:15px";>Children</th>
                         <!-- <th style="width:15px";>Count</th> -->
                          
+                        
                         <!-- <th style="width:15px">Edit</th> -->
                         <!-- <th style="width:15px">Status</th> -->
-                    <t>
-                </div>
-                <?php
- include_once('admin_connect.php');
-$query = "select * from tbl_booking where status='accepted'";
+                
+                <!-- <?php
+//  include_once('admin_connect.php');
+// $query = "select * from tbl_booking where status='accepted'"; -->
 
 
 
@@ -574,7 +689,7 @@ $result = mysqli_query($conn,$query);
 
                         
                          //echo"<td>".$rows['log_id']."</td>";
-                           echo"<td>".$rows['firstname']."</td>";
+                           echo"<td>".$row['firstname']."</td>";
                         
                         // echo"<td>".$row['log_id']."</td>";
                         }

@@ -304,7 +304,7 @@ body {
         
           <!-- <div class="col-6 col-lg-8"> -->
           <!-- <!DOCTYPE html> -->
-<html>
+          <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -326,6 +326,10 @@ body {
   text-decoration: none;
   font-size: 18px;
 }
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(0 0 0 / 97%);
+}
+
 
 .topnav a:hover {
   background-color: #ddd;
@@ -335,54 +339,128 @@ body {
 .topnav a.active {
   background-color: #04AA6D;
   color: white;
+  
+.button {
+ 
+  background-color:#42a5f5a1;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 3px 1px;
+  cursor: pointer;
+}
+
 }
 </style>
-</head>
-<body>
-
-
-<div class="topnav">
-
-<!-- <a href="login1.php">login</a>
-<a href="register.php">Registration</a> -->
-<a href="Login1.php">Logout</a>
-<a href="Changepassword.php">Change Password</a>
-
-
-  <a href="contact_index.php">Contact</a>
-  <a href="about_index.php">About</a>
-  <a href="menu.php">Restuarant</a>
-  <a href="rooms.php">Rooms</a>
-  <!-- <a href="booking.php">Booking</a> -->
-  <a class="active" href="index1.php">Home</a>
-
-</div>
-<!-- <div style="padding-right:26px">
-  <!-- <h2>Top Navigation Example</h2> -->
-  <!-- <p>Some content..</p>
-</div> --> 
-
-</body>
-</html>
-<!-- <div class="header">
-  <a href="#default" class="logo">SAYA HOTEL</a>
-  <div class="header-right">
-    <a class="active" href="index.php">Home</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-  </div> 
- </div>   -->
-
-<!-- <div style="padding-left:50px"> -->
-  <!-- <h1>Responsive Header</h1>
-  <p>Resize the browser window to see the effect.</p> --> 
- <!-- <p>.</p> -->
-<!-- </div> --> 
-
-<!-- /* </body> --> 
-<!-- </html> 
-
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
     
+    <h3> Crowne Plaza Hotel</h3> 
+  </a>
+    <form class="form-inline  ">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+
+    </form>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="mr-auto"></div>
+      <ul class="navbar-nav my-2 my-lg-0">
+      <li class="nav-item active">
+  
+  <a class="nav-link" href="index1.php">Home <span class="sr-only">(current)</span></a>
+</li>
+      <li class="nav-item active">
+  
+  <a class="nav-link" href="rooms.php">Room <span class="sr-only">(current)</span></a>
+</li>
+     
+<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Restuarant
+        </a> 
+        
+        
+          <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
+             <!-- <h6 class="dropdown-header">Catagory</h6>  -->
+             <a class="dropdown-item" href="menu1.php">Catagory</a>
+             <a class="dropdown-item" href="fooditem.php">Food Items</a>
+            <a class="dropdown-item" href="#">Order</a>
+
+            <a class="dropdown-item" href="Cart\mycart.php">My cart</a>
+            
+            
+          </div>  
+</li>
+      <li class="nav-item active">
+  
+  <a class="nav-link" href="about_index.php">About <span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item active">
+  
+        <a class="nav-link" href="contact_index.php">Contact <span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item dropdown">
+          <a  href="index1.php" id="navbarDropdown" role="button" data-display="static" data-toggle="<?php echo $_SESSION['username']; ?>" aria-haspopup="true" aria-expanded="false">
+         
+           <!-- <a class="button" id="navbarDropdown"  href="index1.php"><?php echo $_SESSION['username']; ?></a>  -->
+           <a class="nav-link" id="navbarDropdown"  href="index1.php"><?php echo $_SESSION['username']; ?></a> 
+           
+        </a>
+        
+        
+          <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
+            <!-- <h6 class="dropdown-header">Dropdown header</h6> -->
+            
+            <a class="dropdown-item" href="#">My Booking</a>
+            <a class="dropdown-item" href="#">Profile </a>
+            <a class="dropdown-item" href="#">Reset Password</a>
+
+            
+          </div>
+
+        </li>
+        <li class="nav-item active">
+  
+  <a class="nav-link" href="#">Logout <span class="sr-only">(current)</span></a>
+</li>
+
+      </ul>
+
+      </div>
+  </nav>
+  <style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+         
+
+          
+      </div>
+    </nav>
     <!-- END head -->
 
     <section class="site-hero inner-page overlay" style="background-image: url(images/hero_4.jpg)" data-stellar-background-ratio="0.5">

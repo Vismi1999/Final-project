@@ -61,7 +61,7 @@ if ($_SESSION['sid'] ==null){
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Hotel Configuration
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -69,13 +69,13 @@ if ($_SESSION['sid'] ==null){
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Hotel Configuration</span>
+                    <span>Room Catagory</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Admin Components:</h6>
-                        <a class="collapse-item" href="Add rooms.php">Add rooms</a>
-                        <a class="collapse-item" href="view addroom.php">View Room Details</a>
+                        <!-- <a class="collapse-item" href="Add rooms.php">Add rooms</a>
+                        <a class="collapse-item" href="view addroom.php">View Room Details</a> -->
                         <a class="collapse-item" href="Roomtype.php">Add Room Type</a>
                         <a class="collapse-item" href="view roomtype.php">View Room Type</a>
                        
@@ -84,6 +84,27 @@ if ($_SESSION['sid'] ==null){
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo5"
+                    aria-expanded="true" aria-controls="collapseTwo5">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Add Rooms</span>
+                </a>
+                <div id="collapseTwo5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Admin Components:</h6>
+                        <a class="collapse-item" href="Add rooms.php">Add rooms</a>
+                        <a class="collapse-item" href="view addroom.php">View Room Details</a>
+                        <!-- <a class="collapse-item" href="Roomtype.php">Add Room Type</a>
+                        <a class="collapse-item" href="view roomtype.php">View Room Type</a>
+                        -->
+
+                        <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+                    </div>
+                </div>
+            </li>
+            
+            
             <!-- <li class="nav-item"> -->
 <!--             
             <i class="fas fa-fw fa-cog"></i> -->
@@ -115,11 +136,11 @@ if ($_SESSION['sid'] ==null){
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                        
-                        <a class="collapse-item" href="Customer Details.php">Customer Details</a>
+                       
                         <a class="collapse-item" href="viewbooking.php">Booking Details</a>
-                        <a class="collapse-item" href="viewbooking.php">View Booking status</a>
+                        <!-- <a class="collapse-item" href="viewbooking.php">View Booking status</a> -->
                         <a class="collapse-item" href="utilities-color.html">Payment Details</a>
-                        <a class="collapse-item" href="utilities-color.html">Customer Enquery</a>
+                        <a class="collapse-item" href="viewhistory.php">Customer Enquery</a>
                         
                     </div>
                 </div>
@@ -127,7 +148,9 @@ if ($_SESSION['sid'] ==null){
             
             <!-- Divider -->
             <hr class="sidebar-divider">
-
+            <div class="sidebar-heading">
+                Restuarant Configuration
+            </div>
             <!-- Heading -->
             <!-- <div class="sidebar-heading">
                 Addons
@@ -138,7 +161,7 @@ if ($_SESSION['sid'] ==null){
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Food Configuration</span>
+                    <span>Food Catagory</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -149,15 +172,75 @@ if ($_SESSION['sid'] ==null){
                         <h6 class="collapse-header">Food Configuration:</h6>
                         <a class="collapse-item" href="foodcata.php">Food Catagory</a>
                         <a class="collapse-item" href="viewcata.php">View Catagory</a>
-                        <a class="collapse-item" href="addfood.php">Menu</a>
+                        <!-- <a class="collapse-item" href="addfood.php">Menu</a>
                         <a class="collapse-item" href="viewfoodmenu.php">View items</a>
-                        <a class="collapse-item" href="foodcata.php">Add Table Size</a>
-                        <a class="collapse-item" href="foodcata.php">View Table Size</a>
+                        <a class="collapse-item" href="Addtable.php">Add Table Size</a>
+                        <a class="collapse-item" href="foodcata.php">View Table Size</a> -->
+                    </div>
+                </div> 
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Food Items</span>
+                </a>
+                <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Admin Components:</h6>
+                        <a class="collapse-item" href="register.html"></a>
+                        <a class="collapse-item" href="forgot-password.html"></a> -->
+                        <div class="collapse-divider"></div> 
+                        <!-- <h6 class="collapse-header">Food Configuration:</h6>
+                        <a class="collapse-item" href="foodcata.php">Food Catagory</a>
+                        <a class="collapse-item" href="viewcata.php">View Catagory</a> -->
+                        <a class="collapse-item" href="addfood.php">Add Food item</a>
+                        <a class="collapse-item" href="viewfoodmenu.php">View Food items</a>
+                        <!-- <a class="collapse-item" href="Addtable.php">Add Table Size</a>
+                        <a class="collapse-item" href="foodcata.php">View Table Size</a> -->
+                    </div>
+                </div> 
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages10"
+                    aria-expanded="true" aria-controls="collapsePages10">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Add Table</span>
+                </a>
+                <div id="collapsePages10" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                       
+                        <div class="collapse-divider"></div> 
+                        
+                         <a class="collapse-item" href="Addtable.php">Add Table Size</a>
+                        <a class="collapse-item" href="viewtable.php">View Table Size</a> 
+                    </div>
+                </div> 
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages4"
+                    aria-expanded="true" aria-controls="collapsePages4">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Order</span>
+                </a>
+                <div id="collapsePages4" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Admin Components:</h6>
+                        <a class="collapse-item" href="register.html"></a>
+                        <a class="collapse-item" href="forgot-password.html"></a> -->
+                        <div class="collapse-divider"></div> 
+                        <h6 class="collapse-header">Order:</h6>
+                        <a class="collapse-item" href="viewdeliveryform1.php">Food Booking</a>
+                        <a class="collapse-item" href="viewdeliveyform2.php">Table Booking</a>
+                        <!-- <a class="collapse-item" href="addfood.php">Menu</a>
+                        <a class="collapse-item" href="viewfoodmenu.php">View items</a> -->
+                        <!-- <a class="collapse-item" href="Addtable.php">Add Table Size</a>
+                        <a class="collapse-item" href="foodcata.php">View Table Size</a>  -->
                     </div>
                 </div> 
             </li> 
             
-
+           
             <!-- Nav Item - Charts -->
             <!-- <li class="nav-item">
                 <a class="nav-link" href="charts.html">
@@ -364,19 +447,30 @@ if ($_SESSION['sid'] ==null){
                         </li> -->
 
                         <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
-
+                      
+       
+        <?php
+        include('admin_connect.php');
+       $query1 = "SELECT * FROM `cust_login`where role=1";
+       $result = mysqli_query($conn,$query1);
+       $rows=mysqli_fetch_array($result);
+       
+       ?>
+    
                         <!-- Nav Item - User Information -->
+                       
+
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                                <img class="img-profile rounded-circle"
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 medium"> <?php echo $rows['cust_emailid']; ?></span>
+                                <img class="img-profile rounded-circle" 
                                     src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="register.php">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -420,9 +514,16 @@ if ($_SESSION['sid'] ==null){
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Rooms</div>
-                                            <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">402</div> -->
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Rooms</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <?php
+                                                   require 'admin_connect.php';
+                                                 $query ="SELECT * FROM tbl_addrooms WHERE status='1'";
+                                                 $query_run = mysqli_query($conn,$query);
+                                                 $row = mysqli_num_rows($query_run);
+                                                 echo '<h1>' .$row. '</h1>';
+                                                ?>
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -440,7 +541,17 @@ if ($_SESSION['sid'] ==null){
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                New Booking</div>
-                                            <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">215</div> -->
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                            <?php
+                                                   require 'admin_connect.php';
+                                                 $query ="SELECT * FROM tbl_booking WHERE status='pending'";
+                                                 $query_run = mysqli_query($conn,$query);
+                                                 $row = mysqli_num_rows($query_run);
+                                                 echo '<h1>' .$row. '</h1>';
+                                                ?>
+
+
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -456,11 +567,19 @@ if ($_SESSION['sid'] ==null){
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Available Room
-                                            </div>
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Registered user </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <!-- <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div> -->
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+
+                                                <?php
+                                                   require 'admin_connect.php';
+                                                 $query ="SELECT * FROM registration WHERE status='0'";
+                                                 $query_run = mysqli_query($conn,$query);
+                                                 $row = mysqli_num_rows($query_run);
+                                                 echo '<h1>' .$row. '</h1>';
+                                                ?>
+                                                </div> 
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">

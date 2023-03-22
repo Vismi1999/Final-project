@@ -1,6 +1,52 @@
-<?php
+<!-- <?php
     include('../connect1.php');            
-?>
+?> -->
+<?php
+    
+    $conn = mysqli_connect('localhost','root','','hotelsystem');
+   
+    if ($conn->connect_error) {
+     die("Connection failed: " . $conn->connect_error."<br>");
+   }
+   else{
+   // echo  "Success";
+   }
+   
+   if(isset($_POST['continue'])){
+       // $name = $_POST['name'];
+       // $roomno = $_POST['roomno'];
+       // $order = $_POST['order'];
+      
+       
+      
+       // //$sql= "INSERT INTO tbl_cashroom (`name`,`roomno`,`order`,`time`,`status`) VALUES('$name','$roomno','$order','$time','1')";
+       // $sql=  "INSERT INTO `tbl_cashroom`(`name`,`roomno`,`order`,`status`) VALUES ('$name','$roomno','$order','1')";
+      
+   
+      
+       //     $result=mysqli_query($conn,$sql);
+    $name =  $_POST['name'];
+   $roomno = $_POST['roomno'];
+   $order = $_POST['order'];
+   $time = $_POST['time'];
+   
+   
+   // or using prepared statements
+   $sql =  mysqli_query($conn,"INSERT INTO tbl_cashroom (`name`,`roomno`,`order`,`time`,`status`) VALUES ('$name','$roomno','$order','$time','0')");
+          
+             
+           //echo $sql;
+          if($sql){
+            echo "<script>alert(' successfully continue.')</script>";
+            header("Location: payment.php");
+          }else{
+           //die(mysqli_error($conn));
+           echo "<script>alert('not sucess.');</script>";
+          }
+         } 
+       
+       
+   ?> 
 
 <!DOCTYPE html>
 <html>
@@ -120,19 +166,19 @@ span.price {
 
 <!-- <h2>Responsive Checkout Form</h2> -->
 <!-- <p>Resize the browser window to see the effect. When the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other.</p> -->
-<div class="row">
+<!-- <div class="row">
   <div class="col-75">
     <div class="container">
-      <form action="#">
+      <form action="#"method="post">
       
         <div class="row">
           <div class="col-50">
             <h3>Billing</h3>
-            <label for="fname"><i class=""></i> Full Name</label>
+            <label for="name"><i class=""></i> Full Name</label>
             <input type="text" id="name" name="name" placeholder="Enter Your Name">
-            <label for="email"><i class=""></i> Room Number</label>
+            <label for="roomno"><i class=""></i> Room Number</label>
             <input type="text" id="roomno" name="roomno" placeholder="Room Number">
-             <label for="fname"><i class=""></i>Order</label>
+             <label for="order"><i class=""></i>Order</label>
               <select id="order" name="order" required>
                 <option value="">--- Select Option ---</option>
                 <option value="urgent">Order Now</option>
@@ -144,58 +190,114 @@ span.price {
             <label for="appt">Select a time:</label>
           <input type="time" id="time" name="time">
          
-                            <input type="radio" name="time" value="slot" required> AM
-                             <input type="radio" name="time" value="slot"> PM
+                           
                              <br><br>
                             
-                                                <br><br>
+                        <br><br>
+                                    
                              <a input type="submit" id="submit" name="submit" value="Continue" href="payment.php" class="btn">Continue</a>
                             
+           </div>
+         </div>
+         
+     
+</form>
+    </div>
+  </div>
+</div>
+ -->
+ <div class="row">
+  <div class="col-75">
+    <div class="container">
+    <form action="deliveryform1.php" method="POST">
+
+        <div class="row">
+          <div class="col-50">
+            <h3>ORDER FORM</h3>
+            <label for="name"><i class=""></i> Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter Your Name">
+            <label for="roomno"><i class=""></i> Room Number</label>
+            <input type="text" id="roomno" name="roomno" placeholder="Room Number">
+            <label for="order"><i class=""></i>Order</label>
+            <select id="order" name="order" required>
+                <option value="">--- Select Option ---</option>
+                <option value="Ordre Now">Order Now</option>
+                <option value="Later">Later</option>
+               
+              </select> 
+              <br> <br>
+           
+            <!-- <label for="time">Select a time:</label> 
+           <input type="time" id="time" name="time" step="1800"> -->
+         
+           <label for="time">Select a time:</label> 
+              <input type="time" id="time" name="time" >
+                    
+     
+         
+                             <br><br>
+                            
+                        <br><br>
+                        <!-- <a input type="submit" id="continue" name="continue" value="continue" class="btn">Continue</a> -->
+                        <button type="submit" name="continue" value="continue" class="btn">Continue</button>
+   
+                             <!-- <a input type="submit" id="submit" name="submit" value="Continue" href="payment.php" class="btn">Continue</a> -->
+                            
+              </div>
+            </div>
+          
+
+          
+       
+       
       </form>
     </div>
-    
+  </div>
   </div>
 
-  
 </body>
+
+<!-- <script>
+    // Add AM and PM options to the time input field
+    var timeInput = document.getElementById("time");
+    var optionAM = document.createElement("option");
+    optionAM.text = "AM";
+    optionAM.value = "am";
+    var optionPM = document.createElement("option");
+    optionPM.text = "PM";
+    optionPM.value = "pm";
+    var inputTime = timeInput.value;
+    if(inputTime !== ""){
+        var inputHour = parseInt(inputTime.split(":")[0]);
+        if(inputHour >= 12){
+            optionPM.selected = true;
+        }else{
+            optionAM.selected = true;
+        }
+    }
+    timeInput.appendChild(optionAM);
+    timeInput.appendChild(optionPM);
+  </script> -->
+  <script>
+        // Add AM and PM options to the time input field
+        var timeInput = document.getElementById("time");
+        var optionAM = document.createElement("option");
+        optionAM.text = "AM";
+        optionAM.value = "am";
+        var optionPM = document.createElement("option");
+        optionPM.text = "PM";
+        optionPM.value = "pm";
+        var inputTime = timeInput.value;
+        if(inputTime !== ""){
+            var inputHour = parseInt(inputTime.split(":")[0]);
+            if(inputHour >= 12){
+                optionPM.selected = true;
+            }else{
+                optionAM.selected = true;
+            }
+        }
+        timeInput.appendChild(optionAM);
+        timeInput.appendChild(optionPM);
+        </script>
   </html>
-  <?php
-    
- $conn = mysqli_connect('localhost','root','','hotelsystem');
-
- if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error."<br>");
-}
-else{
-// echo  "Success";
-}
-
-if(isset($_POST['submit'])){
-    $name = $_POST['name'];
-    $roomno = $_POST['roomno'];
-    $order = $_POST['order'];
-    $time = $_POST['time']; 
-    
-    
   
-   
-    //$sql= "INSERT INTO tbl_cashroom (`name`,`roomno`,`order`,`time`,`status`) VALUES('$name','$roomno','$order','$time','1')";
-    $sql=  "INSERT INTO `tbl_cashroom`(`name`,`roomno`,`order`,`time`,`status`) VALUES ('$name','$roomno','$order','$time','1')";
-
-
-
-   
-        $result=mysqli_query($conn,$sql);
-       
-          
-        //echo $sql;
-       if($result){
-         echo "<script>alert(' successfully continue.')</script>";
-       }else{
-        //die(mysqli_error($conn));
-        echo "<script>alert('not sucess.');</script>";
-       }
-      } 
-    
-    
-?>

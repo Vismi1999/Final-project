@@ -27,7 +27,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>password</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -192,7 +192,7 @@
 
                 // h-hotel account
                 $mail->Username='vismayamohan2023b@mca.ajce.in';
-                $mail->Password='Vismi@2023';
+                $mail->Password='Vismaya@19';
 
                 // send by h-hotel email
                 $mail->setFrom('vismayamohan2023b@mca.ajce.in', 'Password Reset');

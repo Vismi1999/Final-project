@@ -9,6 +9,9 @@
        else{
        //echo  "Success";
        }
+      //  $tablequery=mysqli_query($conn,"SELECT * FROM `tbl_table`");
+      //  $row=mysqli_fetch_assoc($tablequery);
+      //  echo $tableseat=$row['totaltable'];
        
        if(isset($_POST['continue'])){
            
@@ -18,7 +21,10 @@
       
            $time = $_POST['time'];
        
-       
+                  
+    
+   
+
        // or using prepared statements
    $sql =  mysqli_query($conn,"INSERT INTO tbl_delivery (`name`,`table`,`ordernow`,`time`,`status`) VALUES ('$name','$table','$ordernow','$time','0')");
               
@@ -28,12 +34,13 @@
                 echo "<script>alert(' successfully continue.')</script>";
                 header("Location: payment.php");
               }else{
-               //die(mysqli_error($conn));
-               echo "<script>alert('not sucess.');</script>";
+               die(mysqli_error($conn));
+              // echo "<script>alert('not sucess.');</script>";
               }
              } 
            
-           
+
+       
        ?> 
     
     <!DOCTYPE html>
@@ -210,14 +217,31 @@
                  <select id="table" name="table" required>
                   <option value="" selected disabled>--- Select Option ---</option>
               <?php
-                $room_type_res= mysqli_query($conn,"SELECT * from tbl_table where status=0");
-                if($room_type_res && mysqli_num_rows($room_type_res) >0){
-                    while($row= mysqli_fetch_array($room_type_res)){
-                        echo "<option value='".$row['table_id']."'>".$row['tableseat']."</option>";
+              // $tablequery=mysqli_query($conn,"SELECT * FROM `tbl_table`");
+              // $row=mysqli_fetch_assoc($tablequery);
+              // echo $tableseat=$row['totaltable'];
+              //  $countseat=mysqli_query($conn,"SELECT COUNT(`table`) as seat_count FROM tbl_delivery WHERE `table` = 2");
+                // $room_type_res= mysqli_query($conn,"SELECT * from tbl_table where status=0");
+                // if($room_type_res && mysqli_num_rows($room_type_res) >0){
+                //     while($row= mysqli_fetch_array($room_type_res)){
+                //         echo "<option value='".$row['tableseat']."'>".$row['tableseat']."</option>";
                         
 
-                    } 
-                 }
+                //     } 
+                //  }
+                $table_res = mysqli_query($conn, "SELECT * FROM tbl_table WHERE status = 0");
+                while ($row = mysqli_fetch_array($table_res)) {
+                  $tableseat = $row['tableseat'];
+                  $totaltable=$row['totaltable'];
+                  $seat_count_res = mysqli_query($conn, "SELECT COUNT(`table`) as seat_count FROM tbl_delivery WHERE `table` =  $tableseat AND status=0");
+                  $seat_count_row = mysqli_fetch_assoc($seat_count_res);
+                  $seat_count = $seat_count_row['seat_count'];
+                  if ($seat_count < $totaltable) {
+                    echo "<option value='".$tableseat."'>".$tableseat."</option>";
+                  } else {
+                    echo "<option value='' disabled>".$tableseat." (Not Available)</option>";
+                  }
+                }
               ?>
             </select>
                <br><br>
@@ -240,18 +264,14 @@
                                  <br><br>
                                 
                             <br><br>
-                            <!-- <a input type="submit" id="continue" name="continue" value="continue" class="btn">Continue</a> -->
+                            
+                           
                             <button type="submit" name="continue" value="continue" class="btn">Continue</button>
-       
-                                 <!-- <a input type="submit" id="submit" name="submit" value="Continue" href="payment.php" class="btn">Continue</a> -->
+      
                                 
                   </div>
                 </div>
-              
-    
-              
-           
-           
+   
           </form>
         </div>
       </div>
@@ -297,7 +317,7 @@
                 }else{
                     optionAM.selected = true;
                 }
-            }
+              }
             timeInput.appendChild(optionAM);
             timeInput.appendChild(optionPM);
             </script>

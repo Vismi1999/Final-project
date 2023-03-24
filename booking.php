@@ -320,8 +320,6 @@ body {
 <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Restuarant
-        </a> 
-        
         
           <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
              <!-- <h6 class="dropdown-header">Catagory</h6>  -->

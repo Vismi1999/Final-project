@@ -8,12 +8,12 @@ session_start();
     die("Connection failed: " . $conn->connect_error."<br>");
   }
 
-$addroom_id=$_REQUEST['addroom_id'];
+$check_id=$_REQUEST['booking_id'];
 
-$sql4="UPDATE tbl_addrooms set status='0' where addroom_id='$addroom_id'";
+$sql4="UPDATE tbl_booking set status='0' where booking_id='$check_id'";
 if(mysqli_query($conn,$sql4))
 {
     $_SESSION['sid'] = " activated successfully";
 }
-header("Location:view addroom.php");
+header("Location:viewbooking.php");
 ?>

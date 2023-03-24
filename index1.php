@@ -421,7 +421,7 @@ body {
             
             <a class="dropdown-item" href="#">My Booking</a>
             <a class="dropdown-item" href="#">Profile </a>
-            <a class="dropdown-item" href="#">Reset Password</a>
+            <a class="dropdown-item" href="changepass.php">Reset Password</a>
 
             
           </div>

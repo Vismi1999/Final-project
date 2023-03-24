@@ -543,7 +543,7 @@
                         <th style="width:15px";>Adult</th>
                         <th style="width:15px";>Children</th>
                          <!-- <th style="width:15px";>Payment Status</th> -->
-                         <th style="width:15px">Action</th>
+                         <th style="width:15px">Check-in</th>
                          <th style="width:15px">Status</th>
                        
                         <!-- <th style="width:15px">Status</th> -->
@@ -607,9 +607,9 @@ $result = mysqli_query($conn,$query);
                     <?php
                          
                          if($rows['status']==0){
-                           echo '<p><a href="inactivate4.php?booking_id='.$rows['booking_id'].'$status=0"style="color:green;font-size:17px;">Available</a></p>';
+                           echo '<p><a href="check_in.php?booking_id='.$rows['booking_id'].'$status=0"style="color:green;font-size:17px;">Check-in</a></p>';
                          }else{
-                           echo '<p><a href="activate4.php?booking_id='.$rows['booking_id'].'$status=1"style="color:red;font-size:17px;">Unavailable</a></p>';
+                           echo '<p><a href="checked.php?booking_id='.$rows['booking_id'].'$status=1"style="color:red;font-size:17px;">Checked</a></p>';
                          }
                          ?>
                             

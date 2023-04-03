@@ -137,15 +137,36 @@ if ($_SESSION['sid'] ==null){
                         <h6 class="collapse-header">Custom Utilities:</h6>
                        
                        
+                        
                         <a class="collapse-item" href="viewbooking.php">Booking Details</a>
-                        <!-- <a class="collapse-item" href="viewbooking.php">View Booking status</a> -->
-                        <a class="collapse-item" href="utilities-color.html">Payment Details</a>
-                        <a class="collapse-item" href="viewhistory.php">Customer Enquery</a>
+                        <a class="collapse-item" href="viewcheckout.php">Check Out Details</a>
+                       
                         
                     </div>
                 </div>
             </li>
-            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages41"
+                    aria-expanded="true" aria-controls="collapsePages41">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Add Reception</span>
+                </a>
+                <div id="collapsePages41" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Admin Components:</h6>
+                        <a class="collapse-item" href="register.html"></a>
+                        <a class="collapse-item" href="forgot-password.html"></a> -->
+                        <div class="collapse-divider"></div> 
+                        <h6 class="collapse-header">Order:</h6>
+                        <a class="collapse-item" href="addreception.php">Add Reception</a>
+                        <a class="collapse-item" href="viewrece.php">View Reception</a>
+                        <!-- <a class="collapse-item" href="addfood.php">Menu</a>
+                        <a class="collapse-item" href="viewfoodmenu.php">View items</a> -->
+                        <!-- <a class="collapse-item" href="Addtable.php">Add Table Size</a>
+                        <a class="collapse-item" href="foodcata.php">View Table Size</a>  -->
+                    </div>
+                </div> 
+            </li> 
             <!-- Divider -->
             <hr class="sidebar-divider">
             <div class="sidebar-heading">
@@ -289,7 +310,7 @@ if ($_SESSION['sid'] ==null){
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    <!-- <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -300,7 +321,7 @@ if ($_SESSION['sid'] ==null){
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -540,11 +561,11 @@ if ($_SESSION['sid'] ==null){
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                               New Booking</div>
+                                               Total Booking</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <?php
                                                    require 'admin_connect.php';
-                                                 $query ="SELECT * FROM tbl_booking WHERE status='pending'";
+                                                 $query ="SELECT * FROM tbl_booking WHERE status='booked'";
                                                  $query_run = mysqli_query($conn,$query);
                                                  $row = mysqli_num_rows($query_run);
                                                  echo '<h1>' .$row. '</h1>';
@@ -603,8 +624,15 @@ if ($_SESSION['sid'] ==null){
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">18</div> -->
+                                            Total Checked</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                            <?php
+                                                   require 'admin_connect.php';
+                                                 $query ="SELECT * FROM tbl_booking WHERE status='checked'";
+                                                 $query_run = mysqli_query($conn,$query);
+                                                 $row = mysqli_num_rows($query_run);
+                                                 echo '<h1>' .$row. '</h1>';
+                                               ?>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>

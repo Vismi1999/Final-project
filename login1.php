@@ -87,13 +87,21 @@
                 echo "<script>alert('Unable to read your data !! Please try to login again !!');</script>";
               }
           }
+          else if($role==2){
+            $_SESSION['sid'] = $row['log_id'];
+            header("location:admin1/index.php");
+        }
           else{
               $_SESSION['sid'] = $row['log_id'];
               header("location:admin/index.php");
           }
+          
+        
+          
        }
       else{
         echo "<script>alert('Login Failed !! Invalid Email or Password.');</script>";
       }
 	}
+  
 ?>

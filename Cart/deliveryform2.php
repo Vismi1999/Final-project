@@ -1,4 +1,7 @@
- 
+<?php
+	include('header1.php');
+  ?>
+  <br><br>
     <?php
         
         $conn = mysqli_connect('localhost','root','','hotelsystem');
@@ -212,9 +215,11 @@
               <div class="col-50">
                 <h3>ORDER FORM</h3>
                 <label for="name"><i class=""></i> Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter Your Name">
+              <input type="text" id="name" name="name" placeholder="Enter Your Name" onblur="validateName()">
+              <!-- <span id="name-error"></span> -->
+              <span id="name-error" style="color: red; font-size: 12px;"></span>
                 <label for="table">Table Size</label>
-                 <select id="table" name="table" required>
+                 <select id="order" name="table"  required onblur="validateOrder()" >
                   <option value="" selected disabled>--- Select Option ---</option>
               <?php
               // $tablequery=mysqli_query($conn,"SELECT * FROM `tbl_table`");
@@ -244,20 +249,43 @@
                 }
               ?>
             </select>
+            <span id="orderError"style="color: red; font-size: 12px;"></span>
                <br><br>
+               <label for="ordere"><i class=""></i>Select</label>
+<select id="ordere" name="ordernow" required onblur="validateOrdere()">
+  <option value="">--- Select Option ---</option>
+  <option value="AC">AC</option>
+  <option value="NON AC">NON AC</option>
+</select>
+<span id="ordereError" style="color: red; font-size: 12px;"></span>
 
-                <label for="order"><i class=""></i>Order</label>
-                <select id="order" name="ordernow" required>
-                    <option value="">--- Select Option ---</option>
-                    <option value="AC">AC</option>
-                    <option value="NON AC">NON AC</option>
-                   
-                  </select> 
+<script>
+function validateOrdere() {
+  var selectElem = document.getElementById("ordere");
+  var errorMsgElem = document.getElementById("ordereError");
+  
+  if (selectElem.value === "") {
+    errorMsgElem.textContent = "Please select an option.";
+    return false;
+  } else {
+    errorMsgElem.textContent = "";
+    return true;
+  }
+}
+</script>
+
+
+  
+</script>
+
+
                   <br> <br>
                
              
                <label for="time">Select a time:</label> 
-                  <input type="time" id="time" name="time" >
+               <!-- <input type="time" id="time" name="time" required>  -->
+               <input type="time" id="time" name="time" placeholder="time" required onblur="validatedate()">
+             <span id="time-error" style="color: red; font-size: 12px;"></span>
                         
          
              
@@ -276,7 +304,70 @@
         </div>
       </div>
       </div>
+      <script>
+    function validateForm() {
+      var name = validateName();
+      var roomno = validateRoomNo();
+
+      return name && roomno;
+    }
+
+    function validateName() {
+      var nameInput = document.getElementById("name");
+      var nameError = document.getElementById("name-error");
+      var letters = /^[A-Za-z ]+$/;
+
+      if (nameInput.value.trim() === "") {
+        nameError.innerHTML =  "<span style='color: red;'>*Please enter your name.</span>";
+        return false;
+      } else if (!nameInput.value.match(letters)) {
+        nameError.innerHTML = "<span style='color: red;'>*Only alphabetic characters are allowed.</span>";
+        return false;
+      } else if (nameInput.value.trim(' ').length < 3) {
+        nameError.innerHTML = "<span style='color: green;'>*Please enter your full name.</span>";
+        return false;
+      } else {
+        nameError.innerHTML = "";
+        return true;
+      }
+    }
+
+   
+      function validateOrder() {
+  var orderInput = document.getElementById("order");
+  var orderError = document.getElementById("orderError");
+  
+  if (orderInput.value === "") {
+    orderError.innerHTML = "Please select an option.";
+    orderError.style.color = "red";
+    return false;
+  }
+  
+  orderError.innerHTML = "";
+  return true;
+}
+ 
+ 
     
+  </script>
+    <script>
+  function validatedate() {
+  const timeInput = document.getElementById("time");
+const timeError = document.getElementById("time-error");
+
+timeInput.addEventListener("blur", function() {
+  const timeValue = timeInput.value;
+
+  if (timeValue === "") {
+    timeError.innerHTML = "Please select a time.";
+  } else {
+    timeError.innerHTML = "";
+  }
+
+});
+  }
+</script>
+<script>
     </body>
     
     <!-- <script>
@@ -320,6 +411,7 @@
               }
             timeInput.appendChild(optionAM);
             timeInput.appendChild(optionPM);
-            </script>
+            
+
       </html>
       

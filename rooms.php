@@ -358,10 +358,10 @@ body {
     
     <h3> Crowne Plaza Hotel</h3> 
   </a>
-    <form class="form-inline  ">
+    <!-- <form class="form-inline  ">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 
-    </form>
+    </form> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -469,6 +469,8 @@ body {
               <li><a href="index1.php">Home</a></li>
               <li>&bullet;</li>
               <li><a href="rooms.php">Rooms</li>
+              <li>&bullet;</li>
+              
             </ul>
           </div>
         </div>

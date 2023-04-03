@@ -51,12 +51,16 @@
   $count = mysqli_num_rows($res);
   if($count>0){
     $row = mysqli_fetch_assoc($res);
-    if($cust_emailid==isset($row['email']))
+    if($cust_emailid==isset($row['email'])){
     // {
     //   echo"<script>alert('account already exist');window.location='index.php';</script>";
     // }
     
-    echo"<script>alert('account already exist');window.location='index.php';</script>";
+    echo"<script>
+    alert('account already exist');
+    window.href=location='index.php';
+    </script>";
+    }
   }
 
   // $ins= mysqli_fetch_array($result);

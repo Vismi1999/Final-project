@@ -545,30 +545,125 @@ border-radius: 5px;
         <div class="column"> 
     
            <form  method="post" action="Roomtype.php" name="roomtype" onsubmit="return Register()" enctype="multipart/form-data">
-           <label for="last_name" >Room Type</label>
-          
-            <input type="text" id="status" name="roomtype"onclick="validate();" value="" autocomplete="off" placeholder="Enter Room Type" />
-            <label for="last_name" >Total Room</label>
-
-            <input type="text" id="status"max="<?php echo $number; ?>" name="adult"onclick="validate();" value="" autocomplete="off" placeholder="Enter Room Type" />
-            <label for="last_name" >Maximum Adult</label>
-            <input type="text" id="status" name="children"onclick="validate();" value="" autocomplete="off" placeholder="maximum adult" />
+           <label for="roomtype">Room Type</label>
+<input type="text" id="roomtype" name="roomtype"required  onblur="validateRoomType()" autocomplete="off" placeholder="Enter Room Type" />
+<p id="roomtype-error" class="error" style="font-size: 14px;"></p>
+<label for="last_name">Total Room</label>
+<input type="text" id="status" max="<?php echo $number; ?>" name="adult" value="" autocomplete="off" placeholder="Enter Room Type"required  onblur="validate()" />
+<p><span id="status-error" class="error-message"></span></p>
+<label for="adults">Maximum Adult</label>
+<input type="text" id="adults" name="adults" required onblur="validateAdults()" autocomplete="off" placeholder="Enter Maximum Adult" />
+<p id="adults-error" class="error"style="font-size: 14px;"></p>
             <label for="last_name" >Maximum Children</label>
           
-            <input type="text" id="status" name="number"onclick="validate();" value="" autocomplete="off" placeholder="maximum children" />
+            <input type="text" id="child" name="child" required  onblur="validatechild();" value="" autocomplete="off" placeholder="maximum children" />
+            <p id="child-error" class="error"style="font-size: 14px;"></p>
             <!-- <div><span id="lnameValidate" class="validate"></span></div> -->
             <!-- <p>Room Type: <input id="status" value=""></p>
 <input type="button" onclick="validate();" value=""> -->
 
-            <label for="name">Image Upload</label>
-            <input type="file" id="image" name="image">
-            <input type="submit" value="Submit" name="submit" onclick="upload()">    
+<label for="name">Image Upload</label>
+<input type="file" id="image" name="image">
+<!-- <span id="image-error" style="color: red"></span> -->
+<br>
+<input type="submit" value="ADD ROOM" name="submit" onclick="upload()">
+
           </form>
         </div>
       </div>
   </div>
 
   </body>
+  <script>
+function validateRoomType() {
+  var roomtypeInput = document.getElementById("roomtype");
+  var roomtypeValue = roomtypeInput.value.trim();
+  var errorElement = document.getElementById("roomtype-error");
+  
+  if (roomtypeValue === "") {
+    errorElement.innerHTML = "<span style='color: red;'>*Please enter Room Type.</span>";
+    roomtypeInput.classList.add("invalid");
+  } else {
+    errorElement.innerHTML = "";
+    roomtypeInput.classList.remove("invalid");
+  }
+}
+
+function validate() {
+  var inputField = document.getElementById('status');
+  var inputValue = inputField.value.trim();
+  var errorElement = document.getElementById('status-error');
+  
+  // Remove any existing error message
+  errorElement.innerHTML = '';
+  
+  // Check if the input field is not empty
+  if (inputValue === '') {
+    errorElement.innerHTML = "<span style='color: red;'>*Please enter Total Room.</span>";
+    return false;
+  }
+  
+  // Check if the input field contains only numbers
+  if (!/^\d+$/.test(inputValue)) {
+    errorElement.innerHTML = "<span style='color: red;'>*Please enter only numbers.</span>";
+    return false;
+  }
+  
+  // Check if the input value is within the allowed range
+  var max = parseInt(inputField.getAttribute('max'));
+  if (parseInt(inputValue) > max) {
+    errorElement.innerHTML = 'The maximum allowed value is ' + max + '.';
+    return false;
+  }
+  
+  // Validation successful
+  return true;
+}
+function validateAdults() {
+  var adultsInput = document.getElementById("adults");
+  var adultsValue = adultsInput.value.trim();
+  var errorElement = document.getElementById("adults-error");
+
+  if (isNaN(adultsValue) || adultsValue < 1) {
+    errorElement.innerHTML = "*Please enter a number.";
+    errorElement.style.color = "red";
+    adultsInput.classList.add("invalid");
+  } else {
+    errorElement.innerHTML = "";
+    adultsInput.classList.remove("invalid");
+  }
+}
+function validatechild() {
+  var childInput = document.getElementById("child");
+  var childValue = childInput.value.trim();
+  var errorElement = document.getElementById("child-error");
+
+  if (isNaN(childValue) || childValue < 1) {
+    errorElement.innerHTML = "*Please enter a number.";
+    errorElement.style.color = "red";
+    childInput.classList.add("invalid");
+  } else {
+    errorElement.innerHTML = "";
+    childInput.classList.remove("invalid");
+  }
+}
+</script>
+<script>
+function validateImage() {
+  const imageInput = document.getElementById("image");
+  const imageValue = imageInput.value;
+  const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+  if (!allowedExtensions.exec(imageValue)) {
+    // document.getElementById("image-error").innerHTML = "Invalid file type! Please upload an image file (jpg, jpeg, png, or gif).";
+    document.getElementById("image-error").innerHTML = "Please upload an image file.";
+    imageInput.value = "";
+    return false;
+  }
+  document.getElementById("image-error").innerHTML = "";
+  return true;
+}
+</script>
 </html>
 
 </body>

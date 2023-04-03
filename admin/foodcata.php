@@ -2,25 +2,7 @@
 <html lang="en">
 
 <head>
-<!-- <script>
-function Validate(){
-   var lastname = document.getElementById("lname").value;
-   var pattern =  /^[a-zA-Z]+$/;
-   isValid=true;
-   if(lastname.match(pattern)){
-      document.getElementById("lnameValidate").innerHTML="";
-   }
-   else if(!lastname){
-      document.getElementById("lnameValidate").innerHTML="Last Name Required";
-      isValid=false;
-   }
-   else{
-      document.getElementById("lnameValidate").innerHTML="Only characters are acceptable";
-      isValid=false;
-   }
-   return isValid;
-}
-</script> -->
+
     <style>
         
 .container {
@@ -547,8 +529,7 @@ border-radius: 5px;
            <form  method="post" action="foodcata.php" name="roomtype" onsubmit="return Register()" enctype="multipart/form-data">
            <label for="last_name" >Food Category</label>
           
-            <!-- <input type="text" id="status" name="roomtype"onclick="validate();" value="" autocomplete="off" placeholder="Enter Room Type" />
-            <label for="last_name" >Total Room</label> -->
+            
           
             <input type="text" id="status" name="catagory"onclick="validate();" value="" autocomplete="off" placeholder="Enter Category" />
             <!-- <div><span id="lnameValidate" class="validate"></span></div> -->

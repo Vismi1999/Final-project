@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title>Booking</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -61,67 +61,6 @@
                 Hotel Configuration
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Room Catagory</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Admin Components:</h6>
-                        <!-- <a class="collapse-item" href="Add rooms.php">Add rooms</a>
-                        <a class="collapse-item" href="view addroom.php">View Room Details</a> -->
-                        <a class="collapse-item" href="Roomtype.php">Add Room Type</a>
-                        <a class="collapse-item" href="view roomtype.php">View Room Type</a>
-                       
-
-                        <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo5"
-                    aria-expanded="true" aria-controls="collapseTwo5">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Add Rooms</span>
-                </a>
-                <div id="collapseTwo5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Admin Components:</h6>
-                        <a class="collapse-item" href="Add rooms.php">Add rooms</a>
-                        <a class="collapse-item" href="view addroom.php">View Room Details</a>
-                        <!-- <a class="collapse-item" href="Roomtype.php">Add Room Type</a>
-                        <a class="collapse-item" href="view roomtype.php">View Room Type</a>
-                        -->
-
-                        <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
-                    </div>
-                </div>
-            </li>
-            
-            
-            <!-- <li class="nav-item"> -->
-<!--             
-            <i class="fas fa-fw fa-cog"></i> -->
-                    <!-- <span>Hotel Configuration</span> -->
-                <!-- </a> -->
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar"> 
-                    <!-- <div class="bg-white py-2 collapse-inner rounded"> -->
-                        <!-- <h6 class="collapse-header">Admin Components:</h6>
-                        <a class="collapse-item" href="foodcata.php">Food catagory</a>
-                        <a class="collapse-item" href="Add rooms.php">Food Menu</a>
-                        
-                        
-                         -->
-
-                        <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
-                    <!-- </div> -->
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -135,14 +74,13 @@
                        
                        
                         <a class="collapse-item" href="viewbooking.php">Booking Details</a>
-                        <!-- <a class="collapse-item" href="viewbooking.php">View Booking status</a> -->
-                        <a class="collapse-item" href="utilities-color.html">Payment Details</a>
-                        <a class="collapse-item" href="utilities-color.html">Customer Enquery</a>
+                        <a class="collapse-item" href="viewcheckout.php">Check Out Details</a>
+                       
                         
                     </div>
                 </div>
             </li>
-            
+           
             <!-- Divider -->
             <hr class="sidebar-divider">
             <div class="sidebar-heading">
@@ -153,113 +91,32 @@
                 Addons
             </div> -->
 
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages4"
+                    aria-expanded="true" aria-controls="collapsePages4">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Food Catagory</span>
+                    <span>Order</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapsePages4" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Admin Components:</h6>
                         <a class="collapse-item" href="register.html"></a>
                         <a class="collapse-item" href="forgot-password.html"></a> -->
                         <div class="collapse-divider"></div> 
-                        <h6 class="collapse-header">Food Configuration:</h6>
-                        <a class="collapse-item" href="foodcata.php">Food Catagory</a>
-                        <a class="collapse-item" href="viewcata.php">View Catagory</a>
+                        <h6 class="collapse-header">Order:</h6>
+                        <a class="collapse-item" href="viewdeliveryform1.php">Food Booking</a>
+                        <a class="collapse-item" href="viewdeliveyform2.php">Table Booking</a>
                         <!-- <a class="collapse-item" href="addfood.php">Menu</a>
-                        <a class="collapse-item" href="viewfoodmenu.php">View items</a>
-                        <a class="collapse-item" href="Addtable.php">Add Table Size</a>
-                        <a class="collapse-item" href="foodcata.php">View Table Size</a> -->
-                    </div>
-                </div> 
-            </li> 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Food Items</span>
-                </a>
-                <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Admin Components:</h6>
-                        <a class="collapse-item" href="register.html"></a>
-                        <a class="collapse-item" href="forgot-password.html"></a> -->
-                        <div class="collapse-divider"></div> 
-                        <!-- <h6 class="collapse-header">Food Configuration:</h6>
-                        <a class="collapse-item" href="foodcata.php">Food Catagory</a>
-                        <a class="collapse-item" href="viewcata.php">View Catagory</a> -->
-                        <a class="collapse-item" href="addfood.php">Add Food item</a>
-                        <a class="collapse-item" href="viewfoodmenu.php">View Food items</a>
+                        <a class="collapse-item" href="viewfoodmenu.php">View items</a> -->
                         <!-- <a class="collapse-item" href="Addtable.php">Add Table Size</a>
-                        <a class="collapse-item" href="foodcata.php">View Table Size</a> -->
-                    </div>
-                </div> 
-            </li> 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages10"
-                    aria-expanded="true" aria-controls="collapsePages10">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Add Table</span>
-                </a>
-                <div id="collapsePages10" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                       
-                        <div class="collapse-divider"></div> 
-                        
-                         <a class="collapse-item" href="Addtable.php">Add Table Size</a>
-                        <a class="collapse-item" href="foodcata.php">View Table Size</a> 
+                        <a class="collapse-item" href="foodcata.php">View Table Size</a>  -->
                     </div>
                 </div> 
             </li> 
             
            
-            
-            <!-- Heading -->
-            <!-- <div class="sidebar-heading">
-                Addons
-            </div> -->
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item active">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-                    aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a> -->
-                <!-- <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item active" href="Blank.php">Blank Page</a>
-                    </div>
-                </div> -->
-            <!-- </li> -->
-
-            <!-- Nav Item - Charts -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li> -->
-
-            <!-- Nav Item - Tables -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li> -->
-
-            <!-- Divider -->
-            <!-- <hr class="sidebar-divider d-none d-md-block"> -->
+           
+          
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -284,7 +141,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    <!-- <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -295,7 +152,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form> 
+                    </form>  -->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -455,6 +312,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <!-- <span class="mr-2 d-none d-lg-inline text-gray-600 medium"> <?php echo $rows['cust_emailid']; ?></span> -->
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 medium"> <?php echo $rows['cust_emailid']; ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
@@ -544,6 +402,8 @@
                         <th style="width:15px";>Children</th>
                          <!-- <th style="width:15px";>Payment Status</th> -->
                          <th style="width:15px">Check-in</th>
+                         <th style="width:15px">Check-out</th>
+                         <!-- <th style="width:15px">Payment status</th> -->
                          <th style="width:15px">Status</th>
                        
                         <!-- <th style="width:15px">Status</th> -->
@@ -551,7 +411,9 @@
                 </div>
                 <?php
  include_once('admin_connect.php');
-$query = "select * from tbl_booking where status='pending'";
+ $query = "SELECT * FROM tbl_booking WHERE status IN ('Checked', 'booked')";
+//  $query = "SELECT * FROM tbl_booking where status='reject'";
+
 
 
 
@@ -603,16 +465,24 @@ $result = mysqli_query($conn,$query);
                             
                  ?>
                     <td>
-                                       
-                    <?php
-                         
-                         if($rows['status']==0){
-                           echo '<p><a href="check_in.php?booking_id='.$rows['booking_id'].'$status=0"style="color:green;font-size:17px;">Check-in</a></p>';
-                         }else{
-                           echo '<p><a href="checked.php?booking_id='.$rows['booking_id'].'$status=1"style="color:red;font-size:17px;">Checked</a></p>';
-                         }
-                         ?>
-                            
+
+
+                   
+
+
+
+
+<?php
+   if($rows['status']!="Checked"){
+     echo '<a href="approve2.php?id='.$rows["booking_id"].'" class="btn btn-success btn-sm">Check_in</a>';
+   }
+   else{
+     echo '<small>checked</small>';
+   }
+                   ?>
+              
+        </td>
+
                                          
                                    </td>
                  
@@ -620,9 +490,16 @@ $result = mysqli_query($conn,$query);
                                        
                                         <!-- <a href="approve.php?id=<?php echo $rows['booking_id'];?>"class="btn btn-success btn-sm">Approve</a>  -->
                                        
-                                          <a href="reject.php?id=<?php echo $rows['booking_id'];?>"class="btn btn-danger btn-sm">Delete</a>
-                                          
+                                          <a href="reject.php?id=<?php echo $rows['booking_id'];?>"class="btn btn-danger btn-sm">Check Out</a><br>
+                                       
                                     </td>
+                                    <td>
+                                       
+                                       <!-- <a href="approve.php?id=<?php echo $rows['booking_id'];?>"class="btn btn-success btn-sm">Approve</a>  -->
+                                      
+                                         <a href="reject1.php?id=<?php echo $rows['booking_id'];?>"class="btn btn-danger btn-sm">Delete</a><br>
+                                         <a href="confirmation.php" onclick="alert('Amount has been Refund.');">Refund</a>
+                                   </td>
                   
                          
 

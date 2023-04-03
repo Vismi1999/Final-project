@@ -72,7 +72,7 @@
 											$all_total=0;
 											$sr=0;
 											include '../connect1.php';
-											session_start();
+											// session_start();
 											$login_id= $_SESSION['sid'];
 											$mycart_record_res= mysqli_query($conn,"SELECT * from tbl_cart WHERE log_id=$login_id");
 											if(mysqli_num_rows($mycart_record_res) > 0)
@@ -141,7 +141,7 @@
 											</div>
 											<br>
 											
-											<a href="cash.php"?id=<?php echo $row['foodmenu_id']?> button class="btn btn-primary btn-block">Online Payment</button></a>
+											<a href="./cash.php" button class="btn btn-primary btn-block">Online Payment</button></a>
 											<!-- <a href="deliveryform.php" button class="btn btn-primary btn-block">Cash On Delivery</button></a> -->
 											<br><br>
 											<a href="cash1.php" button class="btn btn-primary btn-block">Cash On Delivery</button></a>

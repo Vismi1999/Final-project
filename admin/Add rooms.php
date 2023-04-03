@@ -333,7 +333,7 @@ border-radius: 5px;
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    <!-- <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -344,7 +344,7 @@ border-radius: 5px;
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -530,55 +530,46 @@ border-radius: 5px;
           <div class="column">
       
             <form  method="post" action="Add rooms.php" name="room_type"  onsubmit="return Register()" enctype="multipart/form-data">
-            <label for="room block">Room Type</label>
-              <select id="room_block" name="room_type" required>
-              <option value="" selected disabled>--- Select Option ---</option>
-              <?php
-                $room_type_res= mysqli_query($conn,"SELECT * from tbl_roomtype where status=1");
-                if($room_type_res && mysqli_num_rows($room_type_res) > 0){
-                    while($row= mysqli_fetch_array($room_type_res)){
-                        echo "<option value='".$row['roomtype_id']."'>".$row['roomtype']."</option>";
-                        // echo "<option value='".$row['roomtype_id']."'>".$row['roomtype']."</option>";
+            <label for="room_block">Room Type</label>
+<select id="room_block" name="room_type" required onblur="validateRoomType()">
+    <option value="" selected disabled>--- Select Option ---</option>
+    <?php
+    $room_type_res = mysqli_query($conn,"SELECT * from tbl_roomtype where status=1");
+    if ($room_type_res && mysqli_num_rows($room_type_res) > 0) {
+        while ($row = mysqli_fetch_array($room_type_res)) {
+            echo "<option value='".$row['roomtype_id']."'>".$row['roomtype']."</option>";
+        } 
+    }
+    ?>
+</select>
 
-                    } 
-                }
-              ?>
-            </select>
-              <!-- <label for="roomtype">Room Type</label>
-              <input type="text" id="room type" name="room_type" placeholder="Enter the Room Type" /> -->
-               <label for="room block">Room Block</label>
-               <input type="text" id="room block" name="room_block" placeholder="Enter the Room Block" />  
-              
-                       <label for="roomtype">Room Number</label>
-              <input type="text" id="room type" name="room_number" placeholder="Enter the Room Type" />  
-              <!-- <label for="room block">Room Number</label>
-              <select id="room_block" name="room_number" required> -->
-              <!-- <label for="room block">Room Number</label>
-              <select id="room_block" name="room_number" required>
-                <option value="">--- Select Option ---</option>
-                <option value="100">100</option>
-                <option value="101">101</option>
-                <option value="102">102</option>
-                <option value="103">103</option>
-                <option value="104">104</option>
-                <option value="105">105</option>
-                <option value="106">106</option>
-                <option value="107">107</option>
-                <option value="108">108</option>
-                <option value="109">109</option>
-              </select>  -->
+<div id="room_type_error"></div>         
+             
+<label for="room_block">Room Block</label>
+<input type="text" id="order" name="order" placeholder="Enter the Room Block" required onblur="validateOrder()"/>
+<span id="orderError"></span>
+<br>
+
+<label for="room_number">Room Number</label>
+<input type="text" id="room_number" name="room_number" placeholder="Enter the Room Number"required onblur="validateRoomNumber()" />
+<span id="room_number_error" style="color: red;"></span>
+
+ <br>
               <input type="checkbox" name="data[]"value="wifi">wifi
           <input type="checkbox" name="data[]"value="balcony">balcony
           <input type="checkbox" name="data[]"value="ac">ac
           <input type="checkbox" name="data[]"value="nonac">nonac  <br><br>
-          <label for="roomtype">Price</label>
-              <input type="text" id="price" name="price" placeholder="price" />
-
-  
+          
+          <div class="elem-group inlined">
+  <label for="roomtype">Price</label>
+  <input type="text" id="price" name="price" placeholder="price" onblur="validatePrice(this)">
+  <span class="error-message" style="display:none;"></span>
+</div>
               <label for="name">Image Upload</label>
             <input type="file" id="image" name="choose_room">
-            <input type="submit" value="Upload" name="submit" onclick="upload()">  
-                 
+            <input type="submit" value="ADD ROOMS" name="submit" onclick="upload()">  
+           
+
             </form>
           </div>
         </div>
@@ -587,6 +578,119 @@ border-radius: 5px;
 
   
     </body>
+    
+    <script>
+function validateRoomType() {
+    const roomType = document.getElementById("room_block").value;
+    const roomTypeError = document.getElementById("room_type_error");
+    if (roomType === "") {
+        roomTypeError.innerHTML = "<span style='color: red;'>*Choose a room type.</span>";
+       
+    } else {
+        roomTypeError.innerHTML = "";
+    }
+}
+
+
+
+</script>
+
+<script>
+function validateRoomNumberDigits() {
+    var room_number_input = document.getElementById("room_number");
+    var room_number = room_number_input.value.trim();
+    var room_number_regex = /^[0-9]+$/;
+    if (room_number === "") {
+        document.getElementById("room_number_empty_error").innerHTML = "Please enter a room number.";
+        return false;
+    } else if (!room_number_regex.test(room_number)) {
+        document.getElementById("room_number_digits_error").innerHTML = "Please enter only digits.";
+        return false;
+    } else if (parseInt(room_number) <= 0) {
+        document.getElementById("room_number_digits_error").innerHTML = "Please enter a number greater than 0.";
+        return false;
+    } else {
+        return true;
+    }
+}
+<script>
+function validateRoomBlock() {
+  var roomBlockInput = document.getElementById("room_block");
+  var roomBlockValue = roomBlockInput.value;
+  var roomBlockError = document.getElementById("room_block_error");
+
+  // perform validation logic here
+  // room block must be a string of 3 uppercase letters followed by a number
+  var regex = /^[A-Z]{3}\d$/;
+  if (!regex.test(roomBlockValue)) {
+    roomBlockError.innerHTML = "Room block must be a string of 3 uppercase letters followed by a number.";
+    roomBlockInput.value = "";
+  } else {
+    roomBlockError.innerHTML = "";
+  }
+}
+</script>
+
+
+<script>
+  function validateOrder() {
+  var orderInput = document.getElementById("order");
+  var orderError = document.getElementById("orderError");
+  
+  if (orderInput.value === "") {
+    orderError.innerHTML = "Please enter room block.";
+    orderError.style.color = "red";
+    return false;
+  }
+  
+  orderError.innerHTML = "";
+  return true;
+}
+
+</script>
+<script>
+function validatePrice(input) {
+  var price = parseFloat(input.value);
+  if (isNaN(price)) {
+    showError(input, "Please enter a valid price");
+    
+  } else if (price < 0) {
+    showError(input, "Price cannot be negative");
+    showElement.style.color = "red";
+  } else {
+    hideError(input);
+  }
+}
+
+function showError(input, message) {
+  var errorElement = input.parentNode.querySelector(".error-message");
+  errorElement.innerText = message;
+  errorElement.style.display = "block";
+}
+
+function hideError(input) {
+  var errorElement = input.parentNode.querySelector(".error-message");
+  errorElement.innerText = "";
+  errorElement.style.display = "none";
+}
+</script>
+<script>
+function validateRoomNumber() {
+  const roomNumberInput = document.getElementById("room_number");
+  const roomNumber = roomNumberInput.value;
+  const roomNumberError = document.getElementById("room_number_error");
+
+  // Check if the room number only contains numbers
+  const isValidRoomNumber = /^[0-9]+$/.test(roomNumber);
+
+  if (!isValidRoomNumber) {
+    roomNumberError.textContent = "Please enter a valid room number (numbers only).";
+    roomNumberInput.focus();
+  } else {
+    roomNumberError.textContent = "";
+  }
+}
+</script>
   </html>
 
     <a class="scroll-to-top rounded" href="#page-top">
@@ -625,7 +729,7 @@ else{
 
 if(isset($_POST['submit'])){
     $room_type = $_POST['room_type'];
-    $room_block = $_POST['room_block'];
+    $room_block = $_POST['order'];
     $room_number= $_POST['room_number'];
   
     $price=$_POST['price'];

@@ -130,6 +130,7 @@ function fnameValidate(){
     return isValid;
  }
  
+
 //  function addressValidate(){
 //     var Address = document.getElementById("address").value;
 //     var pattern =  /^[a-zA-Z]+$/;
@@ -169,24 +170,24 @@ function fnameValidate(){
  
  
  
-//  function validatepwd(){
-//     var password = document.getElementById("password").value;
-//     var pattern=/^(?=.*\d)(?=.*[A-Z]).{6,}/;
-//     isValid=true;
-//     if(password.match(pattern)){
-//        document.getElementById("validatepwd").innerHTML="";  
-//     }
-//     else if(!password){
-//        document.getElementById("validatepwd").innerHTML="Password Required";
-//        isValid=false;
-//     }
-//     else{
-//        document.getElementById("validatepwd").innerHTML="Your password must be at least 8 characters long, contain at least one number and have a mixture of uppercase and lowercase letters.";
-//        isValid=false;
-//     }
-//     return isValid;
+ function validatepwd(){
+    var password = document.getElementById("password").value;
+    var pattern=/^(?=.*\d)(?=.*[A-Z]).{6,}/;
+    isValid=true;
+    if(password.match(pattern)){
+       document.getElementById("validatepwd").innerHTML="";  
+    }
+    else if(!password){
+       document.getElementById("validatepwd").innerHTML="Password Required";
+       isValid=false;
+    }
+    else{
+       document.getElementById("validatepwd").innerHTML="Your password must be at least 8 characters long, contain at least one number and have a mixture of uppercase and lowercase letters.";
+       isValid=false;
+    }
+    return isValid;
     
-//  }
+ }
  
 //  function validatecity(){
 //     var city = document.getElementById("city").value;
@@ -241,4 +242,17 @@ function fnameValidate(){
  //      return isValid;
  // }*/
  
- 
+ function emailValidate() {
+   var email = document.getElementById("email").value;
+   var emailValidate = document.getElementById("emailValidate");
+   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+   if (emailRegex.test(email)) {
+       emailValidate.innerHTML = "Valid email address";
+       emailValidate.style.color = "green";
+       return true;
+   } else {
+       emailValidate.innerHTML = "Invalid email address";
+       emailValidate.style.color = "red";
+       return false;
+   }
+}

@@ -2,15 +2,20 @@
 include '../connect1.php';
 session_start();
 $n=$_SESSION['username'];
-if(isset($_POST['payment_id']) && isset($_POST['amount']) && isset($_POST['name'])){
-    $pymnt_id=$_POST['payment_id'];
+$login_id= $_SESSION['sid'];
+if(isset($_POST['amount'])&&($_POST['payment_id'])&&($_POST['name1'])&&($_POST['login_id']) ){
     $amt=$_POST['amount'];
-    $nme=$_POST['name'];
-    // $payment_status="completed";
+    $pymnt_id=$_POST['payment_id'];
+     $nme=$_POST['name1'];
+     $login_id=$_POST['login_id'];
+    $payment_status="paid";
     
     // mysqli_query($conn,"DELETE FROM `tbl_cart` where username='$nme'");
-    mysqli_query($conn,"INSERT INTO `tbl_payment`( `name`,`amount`,`payment_id`,`payment_status`)
-     VALUES ('$nme','$amt','$pymnt_id','paid')");
+    mysqli_query($conn,"INSERT INTO `tbl_payment`( `log_id`, `amount`, `payment_status`, `payment_id`, `name`) 
+                 VALUES ('$login_id',' $amt', '$payment_status', '$pymnt_id','$nme')");
     
+}else
+{
+    echo "failed..\n".mysqli_error($conn);
 }
 ?>

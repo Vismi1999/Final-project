@@ -1,19 +1,17 @@
 <?php
 session_start();
-// include('../admin_coonect.php');
-
-  $conn = mysqli_connect('localhost','root','','hotelsystem');
+// include('config.php');
+$conn = mysqli_connect('localhost','root','','hotelsystem');
   
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error."<br>");
   }
+$booking_id=$_REQUEST['booking_id'];
 
-$check_id=$_REQUEST['booking_id'];
-
-$sql4="UPDATE tbl_booking set status='0' where booking_id='$check_id'";
-if(mysqli_query($conn,$sql4))
+$sql3="UPDATE tbl_booking set status='1' where booking_id='$booking_id'";
+if(mysqli_query($conn,$sql3))
 {
-    $_SESSION['sid'] = " activated successfully";
+    $_SESSION['msg'] = " deactivated successfully";
 }
-header("Location:viewbooking.php");
+header("Location: viewbooking.php");
 ?>

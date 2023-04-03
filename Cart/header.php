@@ -1,6 +1,8 @@
 <?php
   include '../connect1.php';
+  
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,6 +44,7 @@
       </ul>
      <div>
         <?php
+        	session_start();
         // if(isset($_SESSION['cart']))
         // {
         //     $count=count($_SESSION['cart']);
@@ -49,7 +52,8 @@
         // else{
         // $count=0;
         // }
-        $sql = "SELECT COUNT(*) AS count FROM tbl_cart ";
+        $login_id= $_SESSION['sid'];
+        $sql = "SELECT COUNT(*) AS count FROM tbl_cart where log_id= '$login_id'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 $count = $row['count'];

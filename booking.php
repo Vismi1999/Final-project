@@ -297,10 +297,10 @@ body {
     
     <h3> Crowne Plaza Hotel</h3> 
   </a>
-  <form class="form-inline  ">
+  <!-- <form class="form-inline  ">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 
-    </form>
+    </form> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -322,7 +322,7 @@ body {
           Restuarant
         
           <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-             <!-- <h6 class="dropdown-header">Catagory</h6>  -->
+           
              <a class="dropdown-item" href="menu1.php">Catagory</a>
              <a class="dropdown-item" href="fooditem.php">Food Items</a>
             <a class="dropdown-item" href="#">Order</a>

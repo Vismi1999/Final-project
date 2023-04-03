@@ -408,6 +408,14 @@ body {
   <h2> <center> welcome ! Our Restuarant</center></h2>
   <!-- <img src="reg.jpg"> -->
   <body>
+  <?php 
+    if(isset($_GET['id'])){
+      $typeid = $_GET['id'];
+    }
+    else{
+      $typeid = "ALL";
+    }
+    ?>
     <div class="row1" >
                     <?php while($row = $result->fetch_assoc()) { 
                         $foodmenu = $row['foodmenu'];
@@ -418,7 +426,7 @@ body {
                         // $url= ($row['0'])
                     ?>
                     <div class="column"><center>
-                    <!-- <a href="menuitem.php?id=<?php echo $row['catagory_id']; ?>"> -->
+                    <form action="Cart/manage_cart.php" method="POST">
                     <div class="card ">
                         
                             <img src="<?php echo $image_src; ?>" alt="brand" style="width:100%">
@@ -429,12 +437,12 @@ body {
                               
                           
                                <h3>₹ <?php echo $price;?></h3>
-                                 <!-- <?php echo "<td><button type='button' class='btn btn-success'>Add to card</button></td>";?></h2>  -->
-                            <!-- <a href="../card/manage_cart.php"></a> -->
-                            <!-- <button type="submit" name ="add_to_cart" class='btn btn-success'>Order Now</button> -->
-                            </div>
-                        
-                        </div>
+                               <input type="number" id="quantity" name="quantity" value="1" min="1"z>
+						
+						<br><br>
+						<button  name ="add_to_cart" class='btn btn-success'>Order Now</button>
+					</form>
+				</div>
                         </center>
                     </div>
                     </a>

@@ -3,6 +3,7 @@
 	if($_SERVER["REQUEST_METHOD"]=="POST"){
 	session_start();
 	$n=$_SESSION['username'];
+	$_SESSION['sid'] = $row['log_id'];
 	}
 	$conn = mysqli_connect('localhost','root','','hotelsystem');
 	
@@ -80,6 +81,7 @@
 											include '../connect1.php';
 											session_start();
 											$login_id= $_SESSION['sid'];
+											$n=$_SESSION['username'];
 											$mycart_record_res= mysqli_query($conn,"SELECT * from tbl_cart WHERE log_id=$login_id");
 											if(mysqli_num_rows($mycart_record_res) > 0)
 											{
@@ -138,8 +140,9 @@
 											<br>
 											
 											<br><br>
-											
-											<input type="hidden" id="name1" value="<?php echo $n; ?>">
+											<input type="hidden" id="login_id" name="login_id" value="<?php echo $login_id; ?>">
+
+											<input type="hidden" id="name1" name="name1" value="<?php echo $n; ?>">
 											<input type="button" id="rzp-button1"name="btn"value="pay now"class="btn btn-primary" onclick="pay_now()"/>
 										</form>
 									</div>
@@ -151,14 +154,17 @@
 //   console.log("hello");
 // var amt ="100";
     function pay_now(){
-		var name = jQuery('#name1').val();
-		console.log(name);
-		
+		var name1 = jQuery('#name1').val();
+		console.log(name1);
+		var login_id = jQuery('#login_id').val();
+		console.log(login_id);
         var amount=<?php echo $all_total ?>;
         var options =  {
             "key": "rzp_test_brxhNMuaPT71E4", // Enter the Key ID generated from the Dashboard
             "amount": amount*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
             "currency": "INR",
+			"name1": name1,
+			"login_id": login_id,
             "name": "CROWNE PLAZA",
             "description": "Test Transaction",
             "image": "https://example.com/your_logo",
@@ -167,11 +173,21 @@
                jQuery.ajax({
                    type:"POST",
                    url: "payment_process.php",
-                   data:"payment_id="+response.razorpay_payment_id+"&amount="+amount+"&name="+name,
+                   data:"payment_id="+response.razorpay_payment_id+"&amount="+amount+"&name1="+name1+"&login_id="+login_id,
                    success:function(result){
-                       window,location.href="thankyou.php";
-                   }
-               });
+					console.log(result)
+					if(result=="true"){
+						alert("Payment Successfull and saved to account..");
+						window,location.href="thankyou.php";
+					}else{
+						alert('Unable to save the payment details to database..\n'+result);
+					}
+                       
+                   },
+				   error: function(e) {
+					alert("The error : "+ e);
+				   }
+               })
               
       }
         

@@ -1,6 +1,8 @@
-<!-- <?php
-    include('../connect1.php');            
-?> -->
+<?php
+	include('header1.php');
+  ?>
+  
+  <br><br>
 <?php
     
     $conn = mysqli_connect('localhost','root','','hotelsystem');
@@ -47,10 +49,12 @@
        
        
    ?> 
+   
 
 <!DOCTYPE html>
 <html>
 <head>
+<script src="del1validate.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -163,99 +167,155 @@ span.price {
 </style>
 </head>
 <body>
-
-<!-- <h2>Responsive Checkout Form</h2> -->
-<!-- <p>Resize the browser window to see the effect. When the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other.</p> -->
-<!-- <div class="row">
-  <div class="col-75">
-    <div class="container">
-      <form action="#"method="post">
-      
-        <div class="row">
-          <div class="col-50">
-            <h3>Billing</h3>
-            <label for="name"><i class=""></i> Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter Your Name">
-            <label for="roomno"><i class=""></i> Room Number</label>
-            <input type="text" id="roomno" name="roomno" placeholder="Room Number">
+  <div class="row">
+    <div class="col-75">
+      <div class="container">
+        <form action="deliveryform1.php" method="POST" onsubmit="return validateForm()">
+          <div class="row">
+            <div class="col-50">
+              <h3>ORDER FORM</h3>
+              <label for="name"><i class=""></i> Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter Your Name" onblur="validateName()">
+              <!-- <span id="name-error"></span> -->
+              <span id="name-error" style="color: red; font-size: 12px;"></span>
+              <label for="roomno"><i class=""></i> Room Number</label>
+              <input type="text" id="roomno" name="roomno" placeholder="Room Number" onblur="validateRoomNo()">
+             <span id="roomno-error" style="color: red; font-size: 12px;"></span>
              <label for="order"><i class=""></i>Order</label>
-              <select id="order" name="order" required>
-                <option value="">--- Select Option ---</option>
-                <option value="urgent">Order Now</option>
-                <option value="later">Later</option>
-               
-              </select> 
+                   <select id="order" name="order" required onblur="validateOrder()">
+                    <option value="">--- Select Option ---</option>
+                   <option value="Order Now">Order Now</option>
+                  <option value="Later">Later</option>
+                </select>
+               <span id="orderError"style="color: red; font-size: 12px;"></span>
               <br> <br>
-           
-            <label for="appt">Select a time:</label>
-          <input type="time" id="time" name="time">
-         
-                           
-                             <br><br>
-                            
-                        <br><br>
-                                    
-                             <a input type="submit" id="submit" name="submit" value="Continue" href="payment.php" class="btn">Continue</a>
-                            
-           </div>
-         </div>
-         
-     
-</form>
-    </div>
-  </div>
-</div>
- -->
- <div class="row">
-  <div class="col-75">
-    <div class="container">
-    <form action="deliveryform1.php" method="POST">
 
-        <div class="row">
-          <div class="col-50">
-            <h3>ORDER FORM</h3>
-            <label for="name"><i class=""></i> Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter Your Name">
-            <label for="roomno"><i class=""></i> Room Number</label>
-            <input type="text" id="roomno" name="roomno" placeholder="Room Number">
-            <label for="order"><i class=""></i>Order</label>
-            <select id="order" name="order" required>
-                <option value="">--- Select Option ---</option>
-                <option value="Ordre Now">Order Now</option>
-                <option value="Later">Later</option>
-               
-              </select> 
-              <br> <br>
-           
-            <!-- <label for="time">Select a time:</label> 
-           <input type="time" id="time" name="time" step="1800"> -->
-         
-           <label for="time">Select a time:</label> 
-              <input type="time" id="time" name="time" >
-                    
-     
-         
-                             <br><br>
-                            
-                        <br><br>
-                        <!-- <a input type="submit" id="continue" name="continue" value="continue" class="btn">Continue</a> -->
-                        <button type="submit" name="continue" value="continue" class="btn">Continue</button>
-   
-                             <!-- <a input type="submit" id="submit" name="submit" value="Continue" href="payment.php" class="btn">Continue</a> -->
-                            
-              </div>
+              <label for="time">Select a time:</label> 
+               <!-- <input type="time" id="time" name="time" required>  -->
+               <input type="time" id="time" name="time" placeholder="time" required onblur="validatedate()">
+             <span id="time-error" style="color: red; font-size: 12px;"></span>
+              <br><br>
+
+              <button type="submit" name="continue" value="continue" class="btn">Continue</button>
             </div>
-          
-
-          
-       
-       
-      </form>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-  </div>
 
+  <script>
+    function validateForm() {
+      var name = validateName();
+      var roomno = validateRoomNo();
+
+      return name && roomno;
+    }
+
+    function validateName() {
+      var nameInput = document.getElementById("name");
+      var nameError = document.getElementById("name-error");
+      var letters = /^[A-Za-z ]+$/;
+
+      if (nameInput.value.trim() === "") {
+        nameError.innerHTML =  "<span style='color: red;'>*Please enter your name.</span>";
+        return false;
+      } else if (!nameInput.value.match(letters)) {
+        nameError.innerHTML = "<span style='color: red;'>*Only alphabetic characters are allowed.</span>";
+        return false;
+      } else if (nameInput.value.trim(' ').length < 3) {
+        nameError.innerHTML = "<span style='color: green;'>*Please enter your full name.</span>";
+        return false;
+      } else {
+        nameError.innerHTML = "";
+        return true;
+      }
+    }
+   
+    function validateRoomNo() {
+      var roomnoInput = document.getElementById("roomno");
+      var roomnoError = document.getElementById("roomno-error");
+
+      if (roomnoInput.value.trim() === "") {
+        roomnoError.innerHTML = "<span style='color: red;'>*Please enter your room number.</span>";
+        return false;
+      } else {
+        roomnoError.innerHTML = "";
+        return true;
+      }
+      function validateOrder() {
+  var orderInput = document.getElementById("order");
+  var orderError = document.getElementById("orderError");
+  
+  if (orderInput.value === "") {
+    orderError.innerHTML = "Please select an option.";
+    orderError.style.color = "red";
+    return false;
+  }
+  
+  orderError.innerHTML = "";
+  return true;
+}
+
+    
+
+    }
+  </script>
+  <script>
+  function validateOrder() {
+  var orderInput = document.getElementById("order");
+  var orderError = document.getElementById("orderError");
+  
+  if (orderInput.value === "") {
+    orderError.innerHTML = "Please select an option.";
+    orderError.style.color = "red";
+    return false;
+  }
+  
+  orderError.innerHTML = "";
+  return true;
+}
+function validateOrder() {
+  var orderInput = document.getElementById("order");
+  var orderError = document.getElementById("orderError");
+  
+  if (orderInput.value === "") {
+    orderError.innerHTML = "Please select an option.";
+    orderError.style.color = "red";
+    return false;
+  }
+  
+  orderError.innerHTML = "";
+  return true;
+}
+</script>
+<script>
+  function validatedate() {
+  const timeInput = document.getElementById("time");
+const timeError = document.getElementById("time-error");
+
+timeInput.addEventListener("blur", function() {
+  const timeValue = timeInput.value;
+
+  if (timeValue === "") {
+    timeError.innerHTML = "Please select a time.";
+  } else {
+    timeError.innerHTML = "";
+  }
+
+});
+  }
+</script>
 </body>
+
+
+  
+   
+   
+
+    
+</body>
+
 
 <!-- <script>
     // Add AM and PM options to the time input field
@@ -299,5 +359,6 @@ span.price {
         timeInput.appendChild(optionAM);
         timeInput.appendChild(optionPM);
         </script>
+        
   </html>
   

@@ -222,7 +222,13 @@
                                 </form>
                             </div>
                         </li>
-
+                        <?php
+                        include('admin_connect.php');
+       $query1 = "SELECT * FROM `cust_login`where role=1";
+       $result = mysqli_query($conn,$query1);
+       $rows=mysqli_fetch_array($result);
+       
+       ?>
                         <!-- Nav Item - Alerts -->
                         <!-- <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
@@ -346,7 +352,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 medium"> <?php echo $rows['cust_emailid']; ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>

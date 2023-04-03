@@ -445,11 +445,13 @@
                          <th style="width:15px";>Customer</th>  
                          
                        
+                        <th style="width:15px">Check-in</th>
+                        
                         <th style="width:15px";>Check out</th>
                         <th style="width:15px";>Adult</th>
                         <th style="width:15px";>Children</th>
                          <!-- <th style="width:15px";>Payment Status</th> -->
-                         <th style="width:15px">Check-in</th>
+                         <!-- <th style="width:15px">Check-in</th> -->
                          <th style="width:15px">Check-out</th>
                         
                         

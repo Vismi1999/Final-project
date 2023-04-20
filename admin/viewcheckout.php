@@ -1,4 +1,9 @@
+<?php
+	
+	session_start();
+    $login_id= $_SESSION['sid'];
 
+	?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -345,7 +350,7 @@
   
                         <?php
         include('admin_connect.php');
-       $query1 = "SELECT * FROM `cust_login`where role=1";
+        $query1 = "SELECT * FROM `cust_login`where log_id=$login_id";
        $result = mysqli_query($conn,$query1);
        $rows=mysqli_fetch_array($result);
        
@@ -375,9 +380,10 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="./logout1.php" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
+                                 
                                 </a>
                             </div>
                         </li>
@@ -416,7 +422,7 @@
                     
                     
                     <body>
-                    <tittle><center><h3>Check-Out details</center></h3></tittle>
+                    <tittle><center><h3>Check-Out Details</center></h3></tittle>
                      
                   
                     
@@ -437,13 +443,16 @@
                        
                        
                          <th style="width:15px";>Customer</th>  
-                         <th style="width:15px">Check-in</th>
+                         
                        
+                        <th style="width:15px">Check-in</th>
+                        
                         <th style="width:15px";>Check out</th>
                         <th style="width:15px";>Adult</th>
                         <th style="width:15px";>Children</th>
-                         <!-- <th style="width:15px";>Payment Status</th> -->
-                         <th style="width:15px">Check-in</th>
+                         <th style="width:15px";>Room Block</th> 
+                         <th style="width:15px">Room Number</th> 
+                         <th style="width:15px">Room type</th> 
                          <th style="width:15px">Check-out</th>
                         
                         
@@ -454,7 +463,7 @@
                 <?php
  include_once('admin_connect.php');
 //  $query = "SELECT * FROM tbl_booking WHERE status IN ('Checked', 'booked')";
- $query = "SELECT * FROM tbl_booking where status='checkout'";
+ $query = "SELECT tbl_booking.booking_id,tbl_addrooms.room_block,tbl_addrooms.room_number,tbl_booking.checkin,tbl_booking.reg_id,tbl_booking.checkout,tbl_booking.adult, tbl_booking.children,tbl_booking.status FROM tbl_booking INNER JOIN tbl_addrooms ON tbl_addrooms.addroom_id = tbl_booking.addroom_id AND tbl_booking.status='checkout'";
 
 
 
@@ -496,8 +505,8 @@ $result = mysqli_query($conn,$query);
                         
                         //  echo"<td>".$rows['roomtype']."</td>";*******************************************
                          echo"<td>".$rows['checkout']."</td>";
-                        //  echo"<td>".$rows['room_number']."</td>";
-                        //  echo"<td>".$rows['choose_room']."</td>";
+                         echo"<td>".$rows['room_block']."</td>";
+                         echo"<td>".$rows['room_number']."</td>";
                         // echo  '<td> <img height="70" width="70" src="photos1/'.$rows['choose_room'].'"> </td>'; 
                         
                         //  echo"<td>".$rows['room']."</td>";

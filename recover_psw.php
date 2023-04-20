@@ -191,11 +191,11 @@
                 $mail->SMTPSecure='tls';
 
                 // h-hotel account
-                $mail->Username='vismayamohan2023b@mca.ajce.in';
-                $mail->Password='Vismaya@19';
+                $mail->Username='vismayamohan2023bin';
+                $mail->Password='Vismaya23';
 
                 // send by h-hotel email
-                $mail->setFrom('vismayamohan2023b@mca.ajce.in', 'Password Reset');
+                $mail->setFrom('vismayamohan202n', 'Password Reset');
                 // get email from input
                 $mail->addAddress($_POST["email"]);
                 //$mail->addReplyTo('lamkaizhe16@gmail.com');
@@ -220,7 +220,7 @@
                 }else{
                     ?>
                         <script>
-                            window.alert("  Email send out !  Kindly check your email inbox.");
+                            window.alert("Email send out !  Kindly check your email inbox.");
                             window.location.replace("index.php");
                         </script>
                     <?php

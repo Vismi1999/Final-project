@@ -412,10 +412,10 @@ body {
 			  		<input type="text" name="id" value="<?php echo $_GET['id'] ?>" hidden>
                 	<select id="order" name="option_filter" required>
                     	<option value="">--- Select Option ---</option>
-                    	<option value="ac">AC</option>
+                    	<option value="air conditioner">AC</option>
                     	<option value="nonac">NON AC</option>
-                      <!-- <option value="balcony">BALCONY</option>
-                      <option value="wifi">WIFI</option> -->
+                   
+                      
                   	</select> 
                   	<input type="submit" name="booking_filter_btn" id="booking_filter_btn" class="btn btn-primary">
               </form>
@@ -549,6 +549,7 @@ body {
 <?php 
 if(isset($_GET['id'])){
   $typeid = $_GET['id'];
+  
 }
 else{
   $typeid = "ALL";
@@ -603,9 +604,10 @@ else{
                           <h4>₹ <?php echo $price;?></h4>
                           <!-- <?php echo "<td><button type='button' class='btn btn-success'>Book Now</button></td>";?></h2> -->
                           
-                          <a href="Bookingform.php?addroom_id=<?php echo $addroom_id; ?>" class='btn btn-success'>Reserve</a>  
-                            
+                          <a href="Bookingform.php?addroom_id=<?php echo $addroom_id; ?>&id=<?php echo $_GET['id']; ?>" class='btn btn-success'>Reserve</a>  
                           
+                             <!-- <a href="Bookingform.php?roomtype_id=<?php echo $roomtype; ?>" class='btn btn-success'>Reserve</a>  
+                             -->
 
                          
                         </div>

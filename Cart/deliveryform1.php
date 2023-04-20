@@ -1,5 +1,16 @@
 <?php
+session_start();
 	include('header1.php');
+  $se="SELECT * FROM tbl_cashroom";
+  $see=mysqli_query($conn,$se);
+  if($see){
+    $row=mysqli_fetch_array($see);
+    $cash_id=$row['cash_id'];
+    $_SESSION['cash_id']=$cash_id;
+}
+
+
+ 
   ?>
   
   <br><br>

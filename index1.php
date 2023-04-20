@@ -113,6 +113,7 @@ body {
     float: none;
   }
 } 
+
  </style> 
 </head>
 <!-- <div class="container-fluid bg-light p-0 wow fadeIn" data-wow-delay="0.1s">
@@ -410,17 +411,19 @@ body {
         <li class="nav-item dropdown">
           <a  href="index1.php" id="navbarDropdown" role="button" data-display="static" data-toggle="<?php echo $_SESSION['username']; ?>" aria-haspopup="true" aria-expanded="false">
          
-           <!-- <a class="button" id="navbarDropdown"  href="index1.php"><?php echo $_SESSION['username']; ?></a>  -->
+          
            <a class="nav-link" id="navbarDropdown"  href="index1.php"><?php echo $_SESSION['username']; ?></a> 
            
         </a>
         
         
+
+        
           <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
             <!-- <h6 class="dropdown-header">Dropdown header</h6> -->
-            
+            <a class="dropdown-item" href="index3.php">Feedback</a>
             <a class="dropdown-item" href="#">My Booking</a>
-            <a class="dropdown-item" href="#">Profile </a>
+            <a class="dropdown-item" href="profile_edit.php">Profile </a>
             <a class="dropdown-item" href="changepass.php">Reset Password</a>
 
             

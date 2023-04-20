@@ -172,17 +172,16 @@
               
                jQuery.ajax({
                    type:"POST",
-                   url: "payment_process.php",
+                   url: "payment_delivery.php",
                    data:"payment_id="+response.razorpay_payment_id+"&amount="+amount+"&name1="+name1+"&login_id="+login_id,
                    success:function(result){
 					console.log(result)
 					if(result=="true"){
 						alert("Payment Successfull and saved to account..");
 						window,location.href="thankyou.php";
+					}else{
+						alert('Unable to save the payment details to database..\n'+result);
 					}
-					// else{
-					// 	alert('Unable to save the payment details to database..\n'+result);
-					// }
                        
                    },
 				   error: function(e) {

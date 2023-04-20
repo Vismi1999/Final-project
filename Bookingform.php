@@ -2,31 +2,34 @@
 
 	session_start();
 	include 'connect1.php';
-	if (isset($_SESSION['sid'])) {
-		$log_id = $_SESSION['sid'];
-	}
-	$addroom_id = isset($_GET['addroom_id']) ? $_GET['addroom_id'] : 0;
-	$adult=$_SESSION['adult'];
-	$children=$_SESSION['children'];
+  
 
-if(isset($_POST['submit'])){
+
+  if(isset($_POST['submit'])){
     $checkin = $_POST['checkin'];
     $checkout = $_POST['checkout'];
 	$room_id= $_POST['addroom_id'];
+  
     // $sql="SELECT *FROM tbl_addrooms WHERE addroom_id='$room_id' AND addroom_id NOT IN (SELECT addroom_id FROM tbl_booking JOIN tbl_addrooms ON tbl_booking.addroom_id=tbl_addrooms.addroom_id WHERE tbl_booking.checkin BETWEEN '$checkin' AND '$checkout')";
     $adult=$_POST['adult'];
     $children=$_POST['children'];
-  
-   
-    $sql="INSERT INTO tbl_booking(`checkin`,`checkout`,`adult`,`children`,`reg_id`,`addroom_id`,`status`) 
-    VALUES('$checkin','$checkout','$adult','$children','$log_id','$room_id','booked')";
+    $log_id = $_SESSION['sid'];
+    $room_id = $_POST['room_id']; 
+    
+    // $room_type=$_POST['roomtype_id'];
+    
+    // echo "<script> alert('Hi'.$room_type); </script>";
+    // $sql="INSERT INTO tbl_booking(`checkin`,`checkout`,`adult`,`children`,`reg_id`,`addroom_id`,`roomtype_id`,`status`) 
+    // VALUES('$checkin','$checkout','$adult','$children','$log_id','$room_id','$room_type','booked')";
+    $sql = "INSERT INTO tbl_booking(`checkin`, `checkout`,`room`, `adult`, `children`, `reg_id`, `addroom_id`, `status`,`roomtype_id`) 
+        VALUES ('$checkin', '$checkout','0', '$adult', '$children', '$log_id', '$room_id', 'booked','$room_id')";
 
 
      $date1 = Date($_POST['checkin']);
      $date2 = Date($_POST['checkout']);
 
      $date1 = new DateTime($date1);
-     $date2 = new DateTime($date2);
+     $date2 = new DateTime($date2); 
      
      $interval = $date1->diff($date2);
      $days = $interval->format('%a');
@@ -50,16 +53,34 @@ if(isset($_POST['submit'])){
         
         $result=mysqli_query($conn,$sql);
        if($result){
-			echo "<script>alert('room booked successfully.');window.location.href='booking_amount.php'</script>";
+			// echo "<script>alert('room booked successfully.'.$room_type);window.location.href='booking_amount.php'</script>";
+      echo "<script>alert('room booked successfully.');window.location.href='#'</script>";
+
        }else{
         echo "<script>alert('room booking error.');</script>";
        }
       } 
+
+  $addroom_id = isset($_GET['addroom_id']) ? $_GET['addroom_id'] : -1;
+	if (isset($_SESSION['sid'])) {
+		$log_id = $_SESSION['sid'];
+	}
+  global $data;
+	
+  $sql_1="SELECT *FROM tbl_addrooms WHERE addroom_id='$addroom_id'";
+  $res_sql=mysqli_query($conn,$sql_1);
+  if($res_sql)
+  $data=mysqli_fetch_assoc($res_sql);
+  else 
+  echo "error";
+	$adult=$_SESSION['adult'];
+	$children=$_SESSION['children'];
+  // $room_type=$data['roomtype_id'];
     
     
 ?>
 
-<html>
+<html>  
   	<head>
         <link rel="stylesheet" href="Bookingform.css">
     </head>
@@ -119,6 +140,7 @@ if(isset($_POST['submit'])){
     <textarea id="message" name="visitor_message" placeholder="Tell us anything else that might be important." required></textarea> -->
 <div>
 <input hidden name="addroom_id" id="addroom_id" value="<?php echo $addroom_id ; ?>">
+<!-- <input hidden name="room_id" id="room_id" value="<?php echo $_GET['id']; ?>"> -->
 <input type="submit" name="submit" id = "sub" value = "Book The Rooms"onclick="return validate()" />
 <!-- <button type="submit" name="submit" id="sub">Book The Rooms</button><br> -->
 <p><p></p><h2><a href="index1.php">Back to Home</a>&nbsp;&nbsp;&nbsp;</h2></p></p>

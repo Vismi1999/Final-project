@@ -566,26 +566,35 @@ border-radius: 5px;
         <div class="column"> 
     
            <form  method="post" action="Roomtype.php" name="roomtype" onsubmit="return Register()" enctype="multipart/form-data">
-           <label for="roomtype">Room Type</label>
-<input type="text" id="roomtype" name="roomtype"required  onblur="validateRoomType()" autocomplete="off" placeholder="Enter Room Type" />
+           <!-- <label for="roomtype">Room Type</label>
+<input type="text" id="roomtype" name="roomtype"required  onblur="validateRoomType()" autocomplete="off" placeholder="Enter Room Type" /> -->
+<label for="roomtype">Room Type</label>
+<input type="text" id="roomtype"style="width: 400px;" name="roomtype" autocomplete="off" placeholder="Enter Room Type" onblur="validateRoomType()">
+
+<div id="error-message" style="color: red;"></div>
 <p id="roomtype-error" class="error" style="font-size: 14px;"></p>
 <label for="last_name">Total Room</label>
-<input type="text" id="status" max="<?php echo $number; ?>" name="adult" value="" autocomplete="off" placeholder="Enter Room Type"required  onblur="validate()" />
+<input type="text"style="width: 400px;" id="status" max="<?php echo $number; ?>" name="adult" value="" autocomplete="off" placeholder="Enter Room Type"required  onblur="validate()" />
 <p><span id="status-error" class="error-message"></span></p>
 <label for="adults">Maximum Adult</label>
-<input type="text" id="adults" name="adults" required onblur="validateAdults()" autocomplete="off" placeholder="Enter Maximum Adult" />
+<input type="text"style="width: 400px;" id="adults" name="adults" required onblur="validateAdults()" autocomplete="off" placeholder="Enter Maximum Adult" />
 <p id="adults-error" class="error"style="font-size: 14px;"></p>
             <label for="last_name" >Maximum Children</label>
           
-            <input type="text" id="child" name="child" required  onblur="validatechild();" value="" autocomplete="off" placeholder="maximum children" />
+            <input type="text"style="width: 400px;" id="child" name="child" required  onblur="validatechild();" value="" autocomplete="off" placeholder="maximum children" />
             <p id="child-error" class="error"style="font-size: 14px;"></p>
-            <!-- <div><span id="lnameValidate" class="validate"></span></div> -->
-            <!-- <p>Room Type: <input id="status" value=""></p>
-<input type="button" onclick="validate();" value=""> -->
+         
+<!-- <label for="name">Image Upload</label> -->
+<!-- <input type="file" id="image" name="image"> -->
 
-<label for="name">Image Upload</label>
-<input type="file" id="image" name="image">
-<!-- <span id="image-error" style="color: red"></span> -->
+<label for="image">Image Upload</label>
+<input type="file" id="image" name="image" required onblur="validateFileInput();">
+
+
+<div id="error-message1" style="color: red;"></div>
+
+
+
 <br>
 <input type="submit" value="ADD ROOM" name="submit" onclick="upload()">
 
@@ -596,19 +605,43 @@ border-radius: 5px;
 
   </body>
   <script>
-function validateRoomType() {
-  var roomtypeInput = document.getElementById("roomtype");
-  var roomtypeValue = roomtypeInput.value.trim();
-  var errorElement = document.getElementById("roomtype-error");
-  
-  if (roomtypeValue === "") {
-    errorElement.innerHTML = "<span style='color: red;'>*Please enter Room Type.</span>";
-    roomtypeInput.classList.add("invalid");
+function validateFileInput() {
+  var fileInput = document.getElementById('image');
+  var filePath = fileInput.value;
+  var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+  if (!allowedExtensions.exec(filePath)) {
+    document.getElementById('error-message1').innerHTML = ' Only JPEG, PNG and GIF files are allowed.';
+    fileInput.value = '';
+    return false;
   } else {
-    errorElement.innerHTML = "";
-    roomtypeInput.classList.remove("invalid");
+    document.getElementById('error-message1').innerHTML = '';
   }
 }
+</script>
+
+  <script>
+function validateRoomType() {
+  var roomTypeInput = document.getElementById('roomtype');
+  var roomType = roomTypeInput.value;
+  var onlyLetters = /^[a-zA-Z]+$/;
+
+  if (roomType == "") {
+    document.getElementById('error-message').innerHTML = 'Please enter roomtype.';
+    roomTypeInput.value = '';
+    return false;
+  } else if (!onlyLetters.test(roomType)) {
+    document.getElementById('error-message').innerHTML = 'Invalid input. Only letters are allowed.';
+    roomTypeInput.value = '';
+    return false;
+  } else {
+    document.getElementById('error-message').innerHTML = '';
+  }
+}
+</script>
+
+  <script>
+
 
 function validate() {
   var inputField = document.getElementById('status');
@@ -646,7 +679,7 @@ function validateAdults() {
   var errorElement = document.getElementById("adults-error");
 
   if (isNaN(adultsValue) || adultsValue < 1) {
-    errorElement.innerHTML = "*Please enter a number.";
+    errorElement.innerHTML = "*Please enter  maximum adult.";
     errorElement.style.color = "red";
     adultsInput.classList.add("invalid");
   } else {
@@ -660,7 +693,7 @@ function validatechild() {
   var errorElement = document.getElementById("child-error");
 
   if (isNaN(childValue) || childValue < 1) {
-    errorElement.innerHTML = "*Please enter a number.";
+    errorElement.innerHTML = "*please enter only numeber.";
     errorElement.style.color = "red";
     childInput.classList.add("invalid");
   } else {
@@ -669,22 +702,7 @@ function validatechild() {
   }
 }
 </script>
-<script>
-function validateImage() {
-  const imageInput = document.getElementById("image");
-  const imageValue = imageInput.value;
-  const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
 
-  if (!allowedExtensions.exec(imageValue)) {
-    // document.getElementById("image-error").innerHTML = "Invalid file type! Please upload an image file (jpg, jpeg, png, or gif).";
-    document.getElementById("image-error").innerHTML = "Please upload an image file.";
-    imageInput.value = "";
-    return false;
-  }
-  document.getElementById("image-error").innerHTML = "";
-  return true;
-}
-</script>
 </html>
 
 </body>
@@ -771,6 +789,7 @@ $result = mysqli_query($conn,$query);
 else{
   $sql="insert into tbl_roomtype(`roomtype`,`image`,`number`,`adult`,`children`,`status`) 
         VALUES('$room_type','$img','$number','$adult','$children','1')";
+        
         
         $result=mysqli_query($conn,$sql);
         //echo $sql;

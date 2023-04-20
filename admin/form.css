@@ -9,15 +9,16 @@
   
   /* Style inputs */
   input[type=text], select, textarea {
-    width: 100%;
+    width: 400%;
     padding: 12px;
     border: 1px solid #ccc;
     margin-top: 6px;
     margin-bottom: 16px;
     resize: vertical;
   }
+ 
   input[type=file]{
-    width: 100%;
+    width: 200%;
     padding: 12px;
     margin-top: 6px;
     margin-bottom: 16px;

@@ -1,5 +1,43 @@
 <?php
-    include('../connect1.php');            
+    include('../connect1.php');       
+  $conn = mysqli_connect('localhost','root','','hotelsystem');
+
+
+    if(isset($_POST['submit'])){
+      $firstname = $_POST['firstname'];
+      $cust_emailid = $_POST['email'];
+      $cust_pass =$_POST['password'];
+      $lastname = $_POST['lastname'];
+      $encoded_pass = urlencode($cust_pass);
+   $result =  "SELECT * FROM cust_login where cust_emailid='$cust_emailid'";
+  $res= mysqli_query($conn,$result);
+  $count = mysqli_num_rows($res);
+  if($count>0){
+    $row = mysqli_fetch_assoc($res);
+    if($cust_emailid==isset($row['email'])){
+    echo"<script>
+    alert('account already exist');
+    window.href=location='index.php';
+    </script>";
+    }
+  }
+   else{
+      $re = "INSERT INTO cust_login(`cust_emailid`,`cust_pass`,`role`,`status`)VALUES ('$cust_emailid','$cust_pass','2','true')";
+      $ra=$conn->query($re);
+      if($ra){
+            $log_id=$conn->insert_id;
+          $sql2 = "INSERT INTO tbl_reception(`firstname`,`lastname`,`status`,`log_id`)
+          VALUES('$firstname','$lastname','2','$log_id')";
+          $resu=$conn->query($sql2);
+          header('Location: pending2.php?email=' . urlencode($cust_emailid) . '&password=' . $encoded_pass);
+          exit();
+
+        }
+          
+          }
+        
+      }
+     
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -472,7 +510,7 @@
       emailValidation.innerHTML = "";
       emailInput.classList.remove("invalid");
     } else if (!emailRegex.test(emailInput.value)) {
-      emailValidation.innerHTML = "Please include an  @ in email address";
+      emailValidation.innerHTML = "Please type valid email";
       emailValidation.style.color = "red";
       emailInput.classList.add("invalid");
     } else {
@@ -908,101 +946,7 @@ input[type=checkbox]:not(old):checked + label > span:before {
             </div>
         </div>
     </div>
-    <?php
-  $conn = mysqli_connect('localhost','root','','hotelsystem');
-  
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error."<br>");
     
-  }
-  else{
-    //echo "Success";
-  }
-
-
-
-    if(isset($_POST['submit'])){
-      $firstname = $_POST['firstname'];
-      $cust_emailid = $_POST['email'];
-      $cust_pass = md5($_POST['password']);
-      $lastname = $_POST['lastname'];
-     
-   
-//    $checkuser= "select * from cust_login where cust_emailid = '$cust_emailid'";
-//    $result = mysqli_query($conn,$checkuser);
-//    $count = mysqli_num_rows($result);
-//    if($count>0){
-//     echo "user already signed";
-//    }
-  
-
-   $result =  "SELECT * FROM cust_login where cust_emailid='$cust_emailid'";
-  $res= mysqli_query($conn,$result);
-  $count = mysqli_num_rows($res);
-  if($count>0){
-    $row = mysqli_fetch_assoc($res);
-    if($cust_emailid==isset($row['email'])){
-    // {
-    //   echo"<script>alert('account already exist');window.location='index.php';</script>";
-    // }
-    
-    echo"<script>
-    alert('account already exist');
-    window.href=location='index.php';
-    </script>";
-    }
-  }
-
-  // $ins= mysqli_fetch_array($result);
-  // $log_id= $ins['log_id'];
-  // $sql="SELECT * from cust_login where (cust_emailid='$cust_emailid');";
-  // $result=mysqli_query($conn,$sql);
-  // if (mysqli_num_rows($result)>0){
-  //   $row = mysqli_fetch_assoc($result);
-  //   if(($cust_emailid==isset($row['cust_emailid'])))
-  //   {
-  //     $_SESSION['status']="you already exit";
-  //   }
-  // }
-   else{
-
-
-      $re = "INSERT INTO cust_login(`cust_emailid`,`cust_pass`,`role`,`status`)VALUES ('$cust_emailid','$cust_pass','2','true')";
-      $ra=$conn->query($re);
-
-      if($ra){
-            $log_id=$conn->insert_id;
-           
-          //   $result = mysqli_query($conn, "SELECT log_id FROM cust_login where cust_emailid='$cust_emailid'");
-          //  $ins= mysqli_fetch_array($result);
-          //   $log_id= $ins['log_id']; $sql = "INSERT INTO registration"
-          
-            //header("Location: index.html");
-          $sql2 = "INSERT INTO tbl_reception(`firstname`,`lastname`,`status`,`log_id`)
-          VALUES('$firstname','$lastname','2','$log_id')";
-          $resu=$conn->query($sql2);
-          //echo $sql;
-          echo"<script>alert('Sucessfully Registered');window.location='index.php';</script>";
-        }
-          //if(mysqli_query($conn, $sql)){
-            
-            //  header("Location: index.php");
-            //echo"<script>alert('successfully Registered');window.location='index.php';</script>";
-
-          }
-          //mysqli_close($conn);
-      
-    
-  
-      // else{
-      //   echo " failed !!";
-        
-      // }
-      
-      }
-   // }
-    
-?>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

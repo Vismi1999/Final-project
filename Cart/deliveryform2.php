@@ -1,5 +1,14 @@
 <?php
 	include('header1.php');
+  session_start();
+	include('header1.php');
+  $se="SELECT * FROM tbl_delivery";
+  $see=mysqli_query($conn,$se);
+  if($see){
+    $row=mysqli_fetch_array($see);
+    $cash_id=$row['delivery_id'];
+    $_SESSION['delivery_id']=$cash_id;
+}
   ?>
   <br><br>
     <?php

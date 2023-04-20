@@ -553,7 +553,7 @@ border-radius: 5px;
       
             <form  method="post" action="Add rooms.php" name="room_type"  onsubmit="return Register()" enctype="multipart/form-data">
             <label for="room_block">Room Type</label>
-<select id="room_block" name="room_type" required onblur="validateRoomType()">
+<select id="room_block" style="width: 400px;"name="room_type" required onblur="validateRoomType()">
     <option value="" selected disabled>--- Select Option ---</option>
     <?php
     $room_type_res = mysqli_query($conn,"SELECT * from tbl_roomtype where status=1");
@@ -568,29 +568,36 @@ border-radius: 5px;
 <div id="room_type_error"></div>         
              
 <label for="room_block">Room Block</label>
-<input type="text" id="order" name="order" placeholder="Enter the Room Block" required onblur="validateOrder()"/>
+<input type="text" style="width: 400px;" id="order" name="order" placeholder="Enter the Room Block" required onblur="validateOrder()"/>
 <span id="orderError"></span>
 <br>
 
 <label for="room_number">Room Number</label>
-<input type="text" id="room_number" name="room_number" placeholder="Enter the Room Number"required onblur="validateRoomNumber()" />
+<input type="text" id="room_number"style="width: 400px;" name="room_number" placeholder="Enter the Room Number"required onblur="validateRoomNumber()" />
 <span id="room_number_error" style="color: red;"></span>
 
  <br>
-              <input type="checkbox" name="data[]"value="wifi">wifi
+          <input type="checkbox" name="data[]"value="wifi">wifi
           <input type="checkbox" name="data[]"value="balcony">balcony
-          <input type="checkbox" name="data[]"value="ac">ac
-          <input type="checkbox" name="data[]"value="nonac">nonac  <br><br>
           
+          <input type="checkbox" name="data[]"value="air conditioner">ac 
+          <input type="checkbox" name="data[]"value="nonac">nonac 
+          <br>
+          <br>
           <div class="elem-group inlined">
   <label for="roomtype">Price</label>
-  <input type="text" id="price" name="price" placeholder="price" onblur="validatePrice(this)">
-  <span class="error-message" style="display:none;"></span>
+  <input type="text" id="price" style="width: 400px;" name="price" placeholder="price" onblur="validatePrice(this.value)">
+<span id="priceError" style="color: red;"></span>
+
+ 
 </div>
-              <label for="name">Image Upload</label>
-            <input type="file" id="image" name="choose_room">
+<label for="image">Image Upload</label>
+<input type="file" id="image" name="choose_room" required onblur="validateFileInput();">
+<div id="error-message1" style="color: red;"></div>
             <input type="submit" value="ADD ROOMS" name="submit" onclick="upload()">  
            
+
+
 
             </form>
           </div>
@@ -600,7 +607,22 @@ border-radius: 5px;
 
   
     </body>
-    
+    <script>
+function validateFileInput() {
+  var fileInput = document.getElementById('image');
+  var filePath = fileInput.value;
+  var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+  if (!allowedExtensions.exec(filePath)) {
+    document.getElementById('error-message1').innerHTML = ' Only JPEG, PNG and GIF files are allowed.';
+    fileInput.value = '';
+    return false;
+  } else {
+    document.getElementById('error-message1').innerHTML = '';
+  }
+}
+</script>
+
     <script>
 function validateRoomType() {
     const roomType = document.getElementById("room_block").value;
@@ -616,6 +638,8 @@ function validateRoomType() {
 
 
 </script>
+
+
 
 <script>
 function validateRoomNumberDigits() {
@@ -670,32 +694,7 @@ function validateRoomBlock() {
 }
 
 </script>
-<script>
-function validatePrice(input) {
-  var price = parseFloat(input.value);
-  if (isNaN(price)) {
-    showError(input, "Please enter a valid price");
-    
-  } else if (price < 0) {
-    showError(input, "Price cannot be negative");
-    showElement.style.color = "red";
-  } else {
-    hideError(input);
-  }
-}
 
-function showError(input, message) {
-  var errorElement = input.parentNode.querySelector(".error-message");
-  errorElement.innerText = message;
-  errorElement.style.display = "block";
-}
-
-function hideError(input) {
-  var errorElement = input.parentNode.querySelector(".error-message");
-  errorElement.innerText = "";
-  errorElement.style.display = "none";
-}
-</script>
 <script>
 function validateRoomNumber() {
   const roomNumberInput = document.getElementById("room_number");
@@ -712,6 +711,9 @@ function validateRoomNumber() {
     roomNumberError.textContent = "";
   }
 }
+</script>
+<script>
+
 </script>
   </html>
 

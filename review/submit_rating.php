@@ -1,10 +1,9 @@
-
-
-
 <?php
-  $conn = mysqli_connect('localhost','root','','hotelsystem');
-  
-  
+
+//submit_rating.php
+
+$connect = new PDO("mysql:host=localhost;dbname=hotelsystem", "root", "");
+
 if(isset($_POST["rating_data"]))
 {
 

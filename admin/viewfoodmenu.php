@@ -568,10 +568,10 @@ $result = mysqli_query($conn,$query);
                  <td>
                          <?php
                          
-                         if($rows['status']==0){
-                           echo '<p><a href="inactivate.php?foodmenu_id='.$rows['foodmenu_id'].'$status=0"style="color:red;font-size:17px;">Disable</a></p>';
+                         if($rows['status']==1){
+                           echo '<p><a href="inactive6.php?foodmenu_id='.$rows['foodmenu_id'].'$status=0"style="color:red;font-size:17px;">Disable</a></p>';
                          }else{
-                           echo '<p><a href="activate.php?foodmenu_id='.$rows['foodmenu_id'].'$status=1"style="color:green;font-size:17px;">Enable</a></p>';
+                           echo '<p><a href="activate6.php?foodmenu_id='.$rows['foodmenu_id'].'$status=1"style="color:green;font-size:17px;">Enable</a></p>';
                          }
                          ?>
                                    

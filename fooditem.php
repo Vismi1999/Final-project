@@ -337,7 +337,7 @@ body {
              <a class="dropdown-item" href="menu1.php">Catagory</a>
              <a class="dropdown-item" href="#">Food Items</a>
              <a class="dropdown-item" href="Cart\mycart.php">My cart</a>
-            <a class="dropdown-item" href="#">Order</a>
+            <a class="dropdown-item" href=" http://127.0.0.1:5000">Recommend</a>
             
           </div>  
 </li>

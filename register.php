@@ -196,6 +196,7 @@
                             
                           Have already an account ? <a href="login1.php" class="loginhere-link">Login here</a>  
                           <p><p></p><center><a href="index.php">Back to Home</a>&nbsp;&nbsp;&nbsp;</center>
+                        
                         </p></p></div>
 
                     </div>

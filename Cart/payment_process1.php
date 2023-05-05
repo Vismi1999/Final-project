@@ -13,7 +13,7 @@ if(isset($_POST['amount'])&&($_POST['payment_id'])&&($_POST['name1'])&&($_POST['
     
     // mysqli_query($conn,"DELETE FROM `tbl_cart` where username='$nme'");
     mysqli_query($conn,"INSERT INTO `tbl_payment`( `log_id`,`delivery_id`, `amount`, `payment_status`, `payment_id`, `name`) 
-                 VALUES ('$login_id','$delivery','$amt','$payment_status', '$pymnt_id','$nme')");
+                 VALUES ('$login_id','$delivery_id','$amt', '$payment_status', '$pymnt_id','$nme')");
     
 }else
 {

@@ -8,21 +8,21 @@
   if(isset($_POST['submit'])){
     $checkin = $_POST['checkin'];
     $checkout = $_POST['checkout'];
-	$room_id= $_POST['addroom_id'];
+	  $rooms_id= $_POST['addroom_id'];
   
     // $sql="SELECT *FROM tbl_addrooms WHERE addroom_id='$room_id' AND addroom_id NOT IN (SELECT addroom_id FROM tbl_booking JOIN tbl_addrooms ON tbl_booking.addroom_id=tbl_addrooms.addroom_id WHERE tbl_booking.checkin BETWEEN '$checkin' AND '$checkout')";
     $adult=$_POST['adult'];
     $children=$_POST['children'];
     $log_id = $_SESSION['sid'];
-    $room_id = $_POST['room_id']; 
-    
+    // $room_id = $_POST['room_id']; 
+    $room_id = $_POST['roomtype_id']; 
     // $room_type=$_POST['roomtype_id'];
     
     // echo "<script> alert('Hi'.$room_type); </script>";
     // $sql="INSERT INTO tbl_booking(`checkin`,`checkout`,`adult`,`children`,`reg_id`,`addroom_id`,`roomtype_id`,`status`) 
     // VALUES('$checkin','$checkout','$adult','$children','$log_id','$room_id','$room_type','booked')";
-    $sql = "INSERT INTO tbl_booking(`checkin`, `checkout`,`room`, `adult`, `children`, `reg_id`, `addroom_id`, `status`,`roomtype_id`) 
-        VALUES ('$checkin', '$checkout','0', '$adult', '$children', '$log_id', '$room_id', 'booked','$room_id')";
+   echo  $sql = "INSERT INTO tbl_booking(`checkin`, `checkout`,`room`, `adult`, `children`, `reg_id`, `addroom_id`, `status`,`roomtype_id`) 
+        VALUES ('$checkin','$checkout','0','$adult','$children','$log_id','$rooms_id','booked','$room_id')";
 
 
      $date1 = Date($_POST['checkin']);
@@ -39,17 +39,6 @@
      $interval = $date1->diff($date2);
 
 
-    // $ree=mysqli_query($conn,"SELECT *FROM tbl_roomtype WHERE ");
-
-    // $datas1=mysqli_fetch_array($ree)['roomtype_id'];
-    
-    // $sql="INSERT INTO tbl_booking(`checkin`,`checkout`,`room`,`adult`,`children`,`roomtype_id`) 
-    // VALUES('$checkin','$checkout','$room','$adult','$children','$datas1')";
-    
-
-    
-//   $sql="insert into tbl_roomtype(`roomtype`,`image`,`status`) 
-//         VALUES('$room_type','$img','1')";
         
         $result=mysqli_query($conn,$sql);
        if($result){
@@ -65,7 +54,7 @@
 	if (isset($_SESSION['sid'])) {
 		$log_id = $_SESSION['sid'];
 	}
-  global $data;
+  //global $data;
 	
   $sql_1="SELECT *FROM tbl_addrooms WHERE addroom_id='$addroom_id'";
   $res_sql=mysqli_query($conn,$sql_1);
@@ -75,9 +64,8 @@
   echo "error";
 	$adult=$_SESSION['adult'];
 	$children=$_SESSION['children'];
-  // $room_type=$data['roomtype_id'];
-    
-    
+  $roomtype_id=$data['roomtype_id'];
+  
 ?>
 
 <html>  
@@ -117,11 +105,7 @@
    <span id="date1_error"></span>
     
   </div>
-  <!-- <hr> -->
-  <!-- <div class="elem-group inlined">
-    <label for="adult">Number Of Room</label>
-    <input type="number" id="adult" name="room" placeholder="rooms" min="1" required>
-  </div> -->
+ 
   <div class="elem-group inlined">
     <label for="adult">Adults</label>
     <input type="number" id="adult" name="adult" placeholder="adults" min="1"onclick="return validate()" max="<?php echo $adult; ?>">
@@ -136,13 +120,14 @@
   </div>
    
    <div class="elem-group">
-    <!-- <label for="message">Anything Else?</label>
+  <label for="message">Anything Else?</label>
     <textarea id="message" name="visitor_message" placeholder="Tell us anything else that might be important." required></textarea> -->
 <div>
-<input hidden name="addroom_id" id="addroom_id" value="<?php echo $addroom_id ; ?>">
-<!-- <input hidden name="room_id" id="room_id" value="<?php echo $_GET['id']; ?>"> -->
+<input type="hidden"   name="addroom_id" id="addroom_id" value="<?php echo $addroom_id ; ?>">
+<input type="hidden"   name="roomtype_id" id="roomtype_id" value="<?php echo $roomtype_id ; ?>">
+
 <input type="submit" name="submit" id = "sub" value = "Book The Rooms"onclick="return validate()" />
-<!-- <button type="submit" name="submit" id="sub">Book The Rooms</button><br> -->
+
 <p><p></p><h2><a href="index1.php">Back to Home</a>&nbsp;&nbsp;&nbsp;</h2></p></p>
   </div>
 <div>

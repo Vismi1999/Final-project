@@ -21,11 +21,11 @@ echo "<script> alert ('Approved and Email send successfully'); window.location='
  $mail->SMTPSecure = 'ssl';
 
  // h-hotel account
- $mail->Username = 'vismayamohannnnn2023b@mca.ajce.in';
- $mail->Password = 'Vismayamohan@12388888';
+ $mail->Username = 'vismayamohan2023b.ajce.in';
+ $mail->Password = 'Vismaya@1';
 
  // send by h-hotel email
- $mail->setFrom('vismayamohan2023b@mca.ajce.iniiiii', 'Account activated');
+ $mail->setFrom('vismayamohan2023b@mca.ajce.in', 'Account activated');
  // get email from input
  $mail->addAddress($email);
  //$mail->addReplyTo('lamkaizhe16@gmail.com');

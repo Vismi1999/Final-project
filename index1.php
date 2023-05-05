@@ -421,7 +421,7 @@ body {
         
           <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
             <!-- <h6 class="dropdown-header">Dropdown header</h6> -->
-            <a class="dropdown-item" href="index3.php">Feedback</a>
+            <a class="dropdown-item" href="review">Feedback</a>
             <a class="dropdown-item" href="#">My Booking</a>
             <a class="dropdown-item" href="profile_edit.php">Profile </a>
             <a class="dropdown-item" href="changepass.php">Reset Password</a>

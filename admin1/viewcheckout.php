@@ -448,10 +448,15 @@
                         <th style="width:15px">Check-in</th>
                         
                         <th style="width:15px";>Check out</th>
+                        <th style="width:15px";>Room Block</th> 
+                        <th style="width:15px">Room Number</th> 
                         <th style="width:15px";>Adult</th>
                         <th style="width:15px";>Children</th>
-                         <!-- <th style="width:15px";>Payment Status</th> -->
-                         <!-- <th style="width:15px">Check-in</th> -->
+                         
+                         
+                      
+                         <th style="width:15px">Room type</th> 
+                         <th style="width:15px">Payment Status</th> 
                          <th style="width:15px">Check-out</th>
                         
                         
@@ -462,7 +467,7 @@
                 <?php
  include_once('admin_connect.php');
 //  $query = "SELECT * FROM tbl_booking WHERE status IN ('Checked', 'booked')";
- $query = "SELECT * FROM tbl_booking where status='checkout'";
+ $query = "SELECT tbl_roomtype.roomtype,tbl_booking.booking_id,tbl_addrooms.room_block,tbl_addrooms.room_number,tbl_booking.checkin,tbl_booking.reg_id,tbl_booking.checkout,tbl_booking.adult, tbl_booking.children,tbl_booking.status FROM tbl_booking INNER JOIN tbl_addrooms ON tbl_addrooms.addroom_id = tbl_booking.addroom_id INNER JOIN tbl_roomtype ON tbl_roomtype.roomtype_id=tbl_booking.roomtype_id WHERE tbl_booking.status='checkout'";
 
 
 
@@ -504,15 +509,15 @@ $result = mysqli_query($conn,$query);
                         
                         //  echo"<td>".$rows['roomtype']."</td>";*******************************************
                          echo"<td>".$rows['checkout']."</td>";
-                        //  echo"<td>".$rows['room_number']."</td>";
-                        //  echo"<td>".$rows['choose_room']."</td>";
+                         echo"<td>".$rows['room_block']."</td>";
+                         echo"<td>".$rows['room_number']."</td>";
                         // echo  '<td> <img height="70" width="70" src="photos1/'.$rows['choose_room'].'"> </td>'; 
                         
                         //  echo"<td>".$rows['room']."</td>";
                          echo"<td>".$rows['adult']."</td>";
                          echo"<td>".$rows['children']."</td>";
                          
-                            
+                         echo"<td>".$rows['roomtype']."</td>";
                  ?>
                    
 

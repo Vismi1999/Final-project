@@ -172,7 +172,7 @@
               
                jQuery.ajax({
                    type:"POST",
-                   url: "payment_delivery.php",
+                   url: "payment_process1.php",
                    data:"payment_id="+response.razorpay_payment_id+"&amount="+amount+"&name1="+name1+"&login_id="+login_id,
                    success:function(result){
 					console.log(result)
